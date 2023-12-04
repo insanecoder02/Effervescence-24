@@ -12,6 +12,9 @@ import com.example.keries.dataClass.Event_DataClass
 import com.example.keries.fragments.Events
 
 
+
+// this adapter is for  the front event page not hte showevent page
+
 class ShowEventAdapter(private val showevents: List<Event_DataClass>, private val itemClickListener: Events) :
     RecyclerView.Adapter<ShowEventAdapter.ShowEventViewHolder>() {
     interface OnItemClickListener{
@@ -42,7 +45,7 @@ class ShowEventAdapter(private val showevents: List<Event_DataClass>, private va
 
         holder.itemView.setOnClickListener{
             itemClickListener.onItemClick(sees)
-         }
+        }
     }
 
     override fun getItemCount(): Int {

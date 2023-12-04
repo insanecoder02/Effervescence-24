@@ -25,6 +25,8 @@ class notification : Fragment() {
     private lateinit var toolText : TextView
     private lateinit var logoTool : ImageView
     private lateinit var notifyTool : ImageView
+    private  var db = FirebaseFirestore.getInstance()
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,14 +34,6 @@ class notification : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val root = inflater.inflate(R.layout.fragment_notification, container, false)
-
-        toolText = requireActivity().findViewById(R.id.titleText)
-        notifyTool = requireActivity().findViewById(R.id.notifyLogo)
-        logoTool = requireActivity().findViewById(R.id.logoView)
-        toolText.text = "Notification"
-        notifyTool.setVisibility(View.GONE)
-        logoTool.setImageResource(R.drawable.back_svgrepo_com)
-        logoTool.setVisibility(View.VISIBLE)
 
 //        val back = root.findViewById<ImageView>(R.id.boso)
         logoTool.setOnClickListener{
@@ -65,7 +59,6 @@ class notification : Fragment() {
     }
 
     private fun fetchFirestoreData() {
-        val db = FirebaseFirestore.getInstance()
             db.collection("Notification")
                 .get()
                 .addOnSuccessListener { documents ->

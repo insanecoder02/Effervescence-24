@@ -34,17 +34,6 @@ class Shop2 : Fragment() {
         val merchDescription = rootView.findViewById<TextView>(R.id.productDescription)
         val buyMerch = rootView.findViewById<AppCompatButton>(R.id.buyMerch)
 
-        toolText = requireActivity().findViewById(R.id.titleText)
-        notifyTool = requireActivity().findViewById(R.id.notifyLogo)
-        logoTool = requireActivity().findViewById(R.id.logoView)
-        toolText.text = "Shop"
-        notifyTool.setVisibility(View.GONE)
-        logoTool.setImageResource(R.drawable.back_svgrepo_com)
-        logoTool.setVisibility(View.VISIBLE)
-
-        logoTool.setOnClickListener{
-            requireActivity().supportFragmentManager.popBackStack()
-        }
 
         val prize = arguments?.getString("prize")
         val name = arguments?.getString("name")

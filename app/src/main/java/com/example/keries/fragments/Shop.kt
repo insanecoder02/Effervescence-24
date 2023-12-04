@@ -48,15 +48,7 @@ class Shop : Fragment() {
         productRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         productRecyclerView.adapter = productadapter
 
-        toolText = requireActivity().findViewById(R.id.titleText)
-        notifyTool = requireActivity().findViewById(R.id.notifyLogo)
-        logoTool = requireActivity().findViewById(R.id.logoView)
-        toolText.text = "SHOP"
-        notifyTool.setVisibility(View.GONE)
-        logoTool.setVisibility(View.GONE)
-
         if(savedInstanceState==null) {
-            // Fetch data from Firestore
             fetchFirestoreData()
         }
     }

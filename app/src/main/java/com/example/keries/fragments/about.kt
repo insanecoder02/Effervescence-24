@@ -42,26 +42,12 @@ class about : Fragment() {
         effelogo.setOnClickListener {
             Toast.makeText(requireContext(),"Effe Faad Hoga",Toast.LENGTH_SHORT).show()
         }
-
-
-
-
-        toolText = requireActivity().findViewById(R.id.titleText)
-        notifyTool = requireActivity().findViewById(R.id.notifyLogo)
-        logoTool = requireActivity().findViewById(R.id.logoView)
-        toolText.text = "About us"
-        notifyTool.setVisibility(View.GONE)
-        logoTool.setImageResource(R.drawable.back_svgrepo_com)
-        logoTool.setVisibility(View.VISIBLE)
-
         logoTool.setOnClickListener {
             requireActivity().supportFragmentManager.popBackStack()
         }
 
         text = view.findViewById(R.id.aboutText)
         text.text = "Nationally acknowledged for its array of unforgettable evenings, EFFERVESCENCE is the once in a year cultural epitome of IIITA illuminating the essence and ethos of IIITA witnessing a footfall of 21k+ per year.Effervesence has made a name for itself for the phenomenally successful online versions of the fest due to generous views and comments during the talk shows, comedy gigs and body-grooving musical performances. Each event reaches a different ke audience segment and provides a fun, entertaining and engaging way to wow the audience."
-
-
 
         insta.setOnClickListener {
             openInstagramProfile()

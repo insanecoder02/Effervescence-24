@@ -1,5 +1,6 @@
 package com.example.keries.fragments
 
+import android.util.Log
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,6 +11,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import basefragmentevent
 import com.example.keries.R
 import com.example.keries.adapter.ShowEventAdapter
 import com.example.keries.dataClass.Event_DataClass
@@ -54,7 +56,10 @@ class Events : Fragment() {
         InformalRv = view.findViewById(R.id.InformalRv)
         amsRV = view.findViewById(R.id.amsRV)
 
+
+
         // Initialize and populate RecyclerViews with event data
+
 
         showEventAdapter = ShowEventAdapter(ij,this)
         fetchFromFireStoreEvents("AMS", amsRV)
@@ -66,15 +71,10 @@ class Events : Fragment() {
         fetchFromFireStoreEvents("Gaming", gamingRv)
         fetchFromFireStoreEvents("Informal", InformalRv)
 
-        toolText = requireActivity().findViewById(R.id.titleText)
-        notifyTool = requireActivity().findViewById(R.id.notifyLogo)
-        logoTool = requireActivity().findViewById(R.id.logoView)
-        toolText.text = "EVENTS"
-        notifyTool.setVisibility(View.GONE)
-        logoTool.setVisibility(View.GONE)
     }
 
     fun onItemClick(item: Event_DataClass){
+        Log.d("Events", "Date: ${item.date}, Details: ${item.details}, Form: ${item.form}, Name: ${item.name}, No: ${item.no}, Time: ${item.time}, URL: ${item.url}, Venue: ${item.venue}")
         val bundle=Bundle()
         bundle.putString("date" , item.date?:"Date")
         bundle.putString("details" , item.details)
@@ -84,12 +84,13 @@ class Events : Fragment() {
         bundle.putString("time" , item.time?:"Time")
         bundle.putString("url" , item.url?:"Url")
         bundle.putString("venue" , item.venue?:"Venue")
-        val nextFragment = eventdetails()
-        nextFragment.arguments=bundle
+        val nextFragment = basefragmentevent()
+        nextFragment.arguments = bundle
         val transaction = requireActivity().supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.fragment_container,nextFragment)
+        transaction.replace(R.id.fragment_container, nextFragment) // Use nextFragment instead of basefragmentevent()
         transaction.addToBackStack(null)
         transaction.commit()
+        nextFragment.setEv
     }
 
     private fun fetchFromFireStoreEvents(eventType: String, recyclerView: RecyclerView) {

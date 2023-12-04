@@ -31,15 +31,6 @@ class FAQ : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        toolText = requireActivity().findViewById(R.id.titleText)
-        notifyTool = requireActivity().findViewById(R.id.notifyLogo)
-        logoTool = requireActivity().findViewById(R.id.logoView)
-        toolText.text = "FAQs"
-        notifyTool.setVisibility(View.GONE)
-        logoTool.setImageResource(R.drawable.back_svgrepo_com)
-        logoTool.setVisibility(View.VISIBLE)
-
         // Initialize UI elements
         val d1 = view.findViewById<ImageView>(R.id.d1)
         val d2 = view.findViewById<ImageView>(R.id.d2)

@@ -43,13 +43,6 @@ class More : Fragment() {
         dev.setOnClickListener {
             loadFragment(developers())
         }
-
-        toolText = requireActivity().findViewById(R.id.titleText)
-        notifyTool = requireActivity().findViewById(R.id.notifyLogo)
-        logoTool = requireActivity().findViewById(R.id.logoView)
-        toolText.text = "MORE"
-        notifyTool.setVisibility(View.GONE)
-        logoTool.setVisibility(View.GONE)
     }
 
     private fun loadFragment(fragment: Fragment) {

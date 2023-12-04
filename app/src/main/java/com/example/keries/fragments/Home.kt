@@ -20,7 +20,6 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.jackandphantom.carouselrecyclerview.CarouselLayoutManager
 import java.text.SimpleDateFormat
 import java.util.*
-import java.util.concurrent.TimeUnit
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 
 
@@ -56,20 +55,10 @@ class Home : Fragment() {
             CarouselLayoutManager(true,true, 0.5F,true,true,true, LinearLayoutManager.HORIZONTAL)
         mainstageEventRecyclerView.adapter = mainStageEventAdapter
 
-        countdownTextView = view.findViewById(R.id.countdownTextView)
+//        countdownTextView = view.findViewById(R.id.countdownTextView)
         fetchSystemDateTime()
         fetchFromFireStoreEvents("Main Stage",mainstageEventRecyclerView)
 
-        toolText = requireActivity().findViewById(R.id.titleText)
-        notifyTool = requireActivity().findViewById(R.id.notifyLogo)
-        logoTool = requireActivity().findViewById(R.id.logoView)
-        toolText.text = "EFFERVESCENCE'23"
-        notifyTool.setVisibility(View.VISIBLE)
-        logoTool.setVisibility(View.VISIBLE)
-        logoTool.setImageResource(R.drawable.bluevg)
-        notifyTool.setOnClickListener {
-            loadFragment(notification())
-        }
         swipeRefreshLayout = view.findViewById(R.id.swiperefresh)
         swipeRefreshLayout.setOnRefreshListener {
             Log.d("HomeFragment", "Swipe to refresh triggered")
@@ -107,7 +96,7 @@ class Home : Fragment() {
         bundle.putString("time" , item.time?:"Time")
         bundle.putString("url" , item.url?:"Url")
         bundle.putString("venue" , item.venue?:"Venue")
-        val nextFragment = eventdetails()
+        val nextFragment = eventinfo()
         nextFragment.arguments=bundle
         val transaction = requireActivity().supportFragmentManager.beginTransaction()
         transaction.replace(R.id.fragment_container,nextFragment)
@@ -129,29 +118,29 @@ class Home : Fragment() {
         val targetDate = sdf.parse(targetDateString)
         val timeDifferenceMillis = targetDate.time - currentTimeMillis
 
-        startCountdown(timeDifferenceMillis)
+//        startCountdown(timeDifferenceMillis)
     }
 
-    private fun startCountdown(timeInMillis: Long) {
-        countDownTimer = object : CountDownTimer(timeInMillis, 1000) {
-            override fun onTick(millisUntilFinished: Long) {
-                val days = TimeUnit.MILLISECONDS.toDays(millisUntilFinished)
-                val hours = TimeUnit.MILLISECONDS.toHours(millisUntilFinished) % 24
-                val minutes = TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished) % 60
-                val seconds = TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished) % 60
-
-                val countdownText = String.format(
-                    "%02d:%02d:%02d:%02d",
-                    days, hours, minutes, seconds
-                )
-                countdownTextView.text = countdownText
-            }
-
-            override fun onFinish() {
-                countdownTextView.text = "Countdown finished"
-            }
-        }.start()
-    }
+//    private fun startCountdown(timeInMillis: Long) {
+//        countDownTimer = object : CountDownTimer(timeInMillis, 1000) {
+//            override fun onTick(millisUntilFinished: Long) {
+//                val days = TimeUnit.MILLISECONDS.toDays(millisUntilFinished)
+//                val hours = TimeUnit.MILLISECONDS.toHours(millisUntilFinished) % 24
+//                val minutes = TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished) % 60
+//                val seconds = TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished) % 60
+//
+//                val countdownText = String.format(
+//                    "%02d:%02d:%02d:%02d",
+//                    days, hours, minutes, seconds
+//                )
+//                countdownTextView.text = countdownText
+//            }
+//
+//            override fun onFinish() {
+//                countdownTextView.text = "Countdown finished"
+//            }
+//        }.start()
+//    }
     private fun fetchFromFireStoreEvents(eventType: String, recyclerView: RecyclerView) {
         aox.clear()
 

@@ -35,18 +35,6 @@ class developers : Fragment() {
             lottieDev.cancelAnimation()
             lottieDev.visibility = View.GONE
         }, delayMillis)
-
-
-        toolText = requireActivity().findViewById(R.id.titleText)
-        notifyTool = requireActivity().findViewById(R.id.notifyLogo)
-        logoTool = requireActivity().findViewById(R.id.logoView)
-        toolText.text = "Developers"
-        notifyTool.setVisibility(View.GONE)
-        logoTool.setImageResource(R.drawable.back_svgrepo_com)
-        logoTool.setVisibility(View.VISIBLE)
-        logoTool.setOnClickListener {
-            requireActivity().supportFragmentManager.popBackStack()
-        }
         return root
     }
 }

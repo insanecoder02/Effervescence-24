@@ -1,9 +1,9 @@
 package com.example.keries.fragments
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -14,9 +14,8 @@ import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
 import com.example.keries.R
 import com.squareup.picasso.Picasso
-import org.w3c.dom.Text
 
-class eventdetails : Fragment() {
+class eventinfo : Fragment() {
     private lateinit var toolText : TextView
     private lateinit var logoTool : ImageView
     private lateinit var notifyTool : ImageView
@@ -43,6 +42,9 @@ class eventdetails : Fragment() {
         val url = arguments?.getString("url")
         val venue = arguments?.getString("venue")
 
+
+        Log.d("eventinfo", "Received data - Date: $date, Details: $details, Form: $formLink, Name: $name, Time: $timee, URL: $url, Venue: $venue")
+
         register.setOnClickListener {
             // Check if the formLink is not null or empty
             if (!formLink.isNullOrBlank()) {
@@ -61,19 +63,6 @@ class eventdetails : Fragment() {
         time.text=timee
         time.text=timee
         Picasso.get().load(url).into(image)
-
-        toolText = requireActivity().findViewById(R.id.titleText)
-        notifyTool = requireActivity().findViewById(R.id.notifyLogo)
-        logoTool = requireActivity().findViewById(R.id.logoView)
-        toolText.text = "EVENTS"
-        notifyTool.setVisibility(View.GONE)
-        logoTool.setImageResource(R.drawable.back_svgrepo_com)
-        logoTool.setVisibility(View.VISIBLE)
-
-        logoTool.setOnClickListener {
-            requireActivity().supportFragmentManager.popBackStack()
-        }
-
         return root
     }
 }

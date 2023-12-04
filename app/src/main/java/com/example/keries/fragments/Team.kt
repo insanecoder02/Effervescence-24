@@ -59,18 +59,6 @@ class Team : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         Fresco.initialize(requireContext())
         loadingAnimationView = view.findViewById(R.id.loadingAnimationView)
-        toolText = requireActivity().findViewById(R.id.titleText)
-        notifyTool = requireActivity().findViewById(R.id.notifyLogo)
-        logoTool = requireActivity().findViewById(R.id.logoView)
-        loadingAnimationView.visibility = View.VISIBLE
-        toolText.text = "Teams"
-        notifyTool.setVisibility(View.GONE)
-        logoTool.setImageResource(R.drawable.back_svgrepo_com)
-        logoTool.setVisibility(View.VISIBLE)
-
-        logoTool.setOnClickListener {
-            requireActivity().supportFragmentManager.popBackStack()
-        }
 
         Crv = view.findViewById(R.id.festiveCordi)
         frv = view.findViewById(R.id.financerelcyler)

@@ -41,23 +41,11 @@ class sponser : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         sponsorRecyclerView = view.findViewById(R.id.sponserRecylerView)
-
-        toolText = requireActivity().findViewById(R.id.titleText)
-        notifyTool = requireActivity().findViewById(R.id.notifyLogo)
-        logoTool = requireActivity().findViewById(R.id.logoView)
-        toolText.text = "Sponsers"
-        notifyTool.setVisibility(View.GONE)
-        logoTool.setImageResource(R.drawable.back_svgrepo_com)
-        logoTool.setVisibility(View.VISIBLE)
-
-        logoTool.setOnClickListener {
-            requireActivity().supportFragmentManager.popBackStack()
-        }
         sponseradapter = SponsorAdapter(SponserList)
         sponsorRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         sponsorRecyclerView.adapter = sponseradapter
-        val itemAnimator = DotGrowItemAnimator()
-        sponsorRecyclerView.itemAnimator = itemAnimator
+////        val itemAnimator = DotGrowItemAnimator()
+//        sponsorRecyclerView.itemAnimator = itemAnimator
         fetchFirestoreData()
 
 
