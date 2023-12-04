@@ -90,7 +90,7 @@ class Events : Fragment() {
         transaction.replace(R.id.fragment_container, nextFragment) // Use nextFragment instead of basefragmentevent()
         transaction.addToBackStack(null)
         transaction.commit()
-        nextFragment.setEv
+//        nextFragment.setEv
     }
 
     private fun fetchFromFireStoreEvents(eventType: String, recyclerView: RecyclerView) {
