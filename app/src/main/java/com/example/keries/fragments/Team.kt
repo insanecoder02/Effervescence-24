@@ -12,6 +12,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.airbnb.lottie.LottieAnimationView
 import com.example.keries.R
 import com.example.keries.adapter.TeamAdapter
@@ -46,6 +47,7 @@ class Team : Fragment() {
     private lateinit var notifyTool : ImageView
     private lateinit var loadingAnimationView: LottieAnimationView
     private  var  loadedRecyclerViewCount :Int = 1
+    private lateinit var swipeRefreshLayout: SwipeRefreshLayout
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -104,6 +106,12 @@ class Team : Fragment() {
         fetchAndPopulateData("BRANDING & LOGISTICS", blrv)
         fetchAndPopulateData("CREATIVES", crerv)
         fetchAndPopulateData("HOSPITALITY & TRAVEL", hrv)
+
+
+        swipeRefreshLayout = view.findViewById(R.id.swiperefreshteam)
+        swipeRefreshLayout.setOnRefreshListener {
+            swipeRefreshLayout.isRefreshing = false
+        }
     }
     private fun fetchAndPopulateData(wing: String, recyclerView: RecyclerView) {
         viewLifecycleOwner.lifecycleScope.launch {
@@ -146,6 +154,3 @@ class Team : Fragment() {
         }
     }
 }
-
-
-

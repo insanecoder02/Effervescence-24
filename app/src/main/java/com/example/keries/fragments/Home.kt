@@ -73,13 +73,20 @@ class Home : Fragment() {
     private fun fetchData() {
         Log.d("Home", "Fetching data...")
 
+        // Clear existing data
+        aox.clear()
+
         // Implement your data fetching logic here
         // For example, re-fetch events from Firestore
-        this.fetchFromFireStoreEvents("Main Stage", mainstageEventRecyclerView)
+        fetchFromFireStoreEvents("Main Stage", mainstageEventRecyclerView)
 
         // After fetching data, stop the refresh animation
         swipeRefreshLayout.isRefreshing = false
     }
+
+
+
+
 
 
 
@@ -121,7 +128,7 @@ class Home : Fragment() {
 //        startCountdown(timeDifferenceMillis)
     }
 
-//    private fun startCountdown(timeInMillis: Long) {
+    //    private fun startCountdown(timeInMillis: Long) {
 //        countDownTimer = object : CountDownTimer(timeInMillis, 1000) {
 //            override fun onTick(millisUntilFinished: Long) {
 //                val days = TimeUnit.MILLISECONDS.toDays(millisUntilFinished)

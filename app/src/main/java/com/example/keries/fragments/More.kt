@@ -9,6 +9,7 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import com.example.keries.R
+import sponser
 
 class More : Fragment() {
     private lateinit var toolText : TextView
