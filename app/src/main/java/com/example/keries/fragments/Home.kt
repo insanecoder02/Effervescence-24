@@ -61,6 +61,7 @@ class Home : Fragment() {
         mainstageEventRecyclerView.layoutManager =
             CarouselLayoutManager(true,true, 0.5F,true,true,true, LinearLayoutManager.HORIZONTAL)
         mainstageEventRecyclerView.adapter = mainStageEventAdapter
+//        (mainstageEventRecyclerView as CarouselRecyclerview).setInfinite(true)
         (mainstageEventRecyclerView as CarouselRecyclerview).setInfinite(true)
         fetchFromFireStoreEvents("Main Stage",mainstageEventRecyclerView)
         swipeRefreshLayout = view.findViewById(R.id.swiperefresh)
