@@ -25,6 +25,7 @@ import java.util.Locale
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 
 import com.example.keries.others.Constants
+import com.jackandphantom.carouselrecyclerview.CarouselRecyclerview
 import java.text.ParseException
 import java.util.concurrent.TimeUnit
 
@@ -60,6 +61,7 @@ class Home : Fragment() {
         mainstageEventRecyclerView.layoutManager =
             CarouselLayoutManager(true,true, 0.5F,true,true,true, LinearLayoutManager.HORIZONTAL)
         mainstageEventRecyclerView.adapter = mainStageEventAdapter
+        (mainstageEventRecyclerView as CarouselRecyclerview).setInfinite(true)
         fetchFromFireStoreEvents("Main Stage",mainstageEventRecyclerView)
         swipeRefreshLayout = view.findViewById(R.id.swiperefresh)
         swipeRefreshLayout.setOnRefreshListener {
