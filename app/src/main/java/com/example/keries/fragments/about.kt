@@ -33,17 +33,12 @@ class about : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
-
         insta = view.findViewById<ImageView>(R.id.instaImageView)
         facebook = view.findViewById<ImageView>(R.id.facebookImageView)
         gamail = view.findViewById<ImageView>(R.id.gmailImageView)
         val effelogo = view.findViewById<ImageView>(R.id.imageView3)
         effelogo.setOnClickListener {
             Toast.makeText(requireContext(),"Effe Faad Hoga",Toast.LENGTH_SHORT).show()
-        }
-        logoTool.setOnClickListener {
-            requireActivity().supportFragmentManager.popBackStack()
         }
 
         text = view.findViewById(R.id.aboutText)
