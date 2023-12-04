@@ -3,6 +3,7 @@ package com.example.keries.fragments
 
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.os.Handler
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -12,6 +13,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearSnapHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.example.keries.R
 import com.example.keries.adapter.featuredEventsAdapter
@@ -21,7 +23,8 @@ import com.jackandphantom.carouselrecyclerview.CarouselLayoutManager
 import java.text.SimpleDateFormat
 import java.util.*
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-
+import androidx.recyclerview.widget.SnapHelper
+import com.jackandphantom.carouselrecyclerview.CarouselRecyclerview
 
 
 class Home : Fragment() {
@@ -50,10 +53,11 @@ class Home : Fragment() {
         mainstageEventRecyclerView = view.findViewById(R.id.FeaturedEventRecylerView)
         mainStageEventAdapter = featuredEventsAdapter(aox,this)
 
-
         mainstageEventRecyclerView.layoutManager =
             CarouselLayoutManager(true,true, 0.5F,true,true,true, LinearLayoutManager.HORIZONTAL)
         mainstageEventRecyclerView.adapter = mainStageEventAdapter
+
+        (mainstageEventRecyclerView as CarouselRecyclerview).setInfinite(true)
 
 //        countdownTextView = view.findViewById(R.id.countdownTextView)
         fetchSystemDateTime()
@@ -80,11 +84,6 @@ class Home : Fragment() {
         // After fetching data, stop the refresh animation
         swipeRefreshLayout.isRefreshing = false
     }
-
-
-
-
-
 
     fun onItemClick(item: FeaturedEventes){
         val bundle=Bundle()

@@ -56,8 +56,6 @@ class Events : Fragment() {
         InformalRv = view.findViewById(R.id.InformalRv)
         amsRV = view.findViewById(R.id.amsRV)
 
-
-
         // Initialize and populate RecyclerViews with event data
 
 
@@ -70,6 +68,7 @@ class Events : Fragment() {
         fetchFromFireStoreEvents("Music", virtuosiRV)
         fetchFromFireStoreEvents("Gaming", gamingRv)
         fetchFromFireStoreEvents("Informal", InformalRv)
+
 
     }
 
@@ -90,7 +89,7 @@ class Events : Fragment() {
         transaction.replace(R.id.fragment_container, nextFragment) // Use nextFragment instead of basefragmentevent()
         transaction.addToBackStack(null)
         transaction.commit()
-        nextFragment.setEv
+        // nextFragment.setEv
     }
 
     private fun fetchFromFireStoreEvents(eventType: String, recyclerView: RecyclerView) {

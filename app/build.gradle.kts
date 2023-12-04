@@ -72,5 +72,7 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     implementation ("com.github.sparrow007:carouselrecyclerview:1.2.6")
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.2.0-alpha01")
+    implementation("com.github.bumptech.glide:glide:4.13.0")
+
 
 }

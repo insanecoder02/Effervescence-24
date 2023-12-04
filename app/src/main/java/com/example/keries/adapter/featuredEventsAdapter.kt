@@ -1,6 +1,7 @@
 package com.example.keries.adapter
 
 
+import android.content.ClipData.Item
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -28,6 +29,10 @@ class featuredEventsAdapter(private val items: List<FeaturedEventes>,private val
     override fun onBindViewHolder(holder: FeaturedEventesViewHolder, position: Int) {
         val item = items[position]
         holder.bind(item)
+//        holder.bind(item).apply {
+//            Glide.with(items).load(item[position]).into(item)
+//        }
+
 
         holder.itemView.setOnClickListener{
             itemClickListener.onItemClick(item)
