@@ -10,6 +10,10 @@ import com.example.keries.R
 import com.example.keries.activity.BaseHome
 import android.animation.ObjectAnimator
 import android.view.animation.AccelerateDecelerateInterpolator
+import android.os.Build
+import android.view.View
+import android.view.Window
+import androidx.core.content.ContextCompat
 
 class splashscreen : AppCompatActivity() {
     private val SPLASH_DELAY = 2000L // 2 seconds
@@ -18,6 +22,8 @@ class splashscreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splashscreen)
+
+        setStatusBarColor(R.color.transparent)
 
         val logoview: ImageView = findViewById(R.id.logo)
         logoview.alpha = 0f
@@ -48,5 +54,14 @@ class splashscreen : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         mediaPlayer?.release()
+    }
+
+
+    private fun setStatusBarColor(colorResId: Int) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            val window: Window = window
+            window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+            window.statusBarColor = ContextCompat.getColor(this, colorResId)
+        }
     }
 }

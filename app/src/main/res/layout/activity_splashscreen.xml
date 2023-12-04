@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:background="@drawable/splash_background"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     tools:context=".activity.splashscreen">
 
     <ImageView
