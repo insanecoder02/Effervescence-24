@@ -27,6 +27,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.keries.others.Constants
 import java.text.ParseException
 import java.util.concurrent.TimeUnit
+import java.util.logging.Handler
 
 
 class Home : Fragment() {
@@ -43,6 +44,8 @@ class Home : Fragment() {
     private var isTimerRunning = false
     private  val bringmeDateboy  = Constants.MY_SET_DATE
     private val duration = 300 * 1000 // 300 seconds
+    private val autoScrollHandler = android.os.Handler()
+    private lateinit var autoScrollRunnable: Runnable
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -54,13 +57,21 @@ class Home : Fragment() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         mainstageEventRecyclerView = view.findViewById(R.id.FeaturedEventRecylerView)
         mainStageEventAdapter = featuredEventsAdapter(aox,this)
         mainstageEventRecyclerView.layoutManager =
             CarouselLayoutManager(true,true, 0.5F,true,true,true, LinearLayoutManager.HORIZONTAL)
         mainstageEventRecyclerView.adapter = mainStageEventAdapter
         fetchFromFireStoreEvents("Main Stage",mainstageEventRecyclerView)
+
+
+
+
+
+
+
+
+
         swipeRefreshLayout = view.findViewById(R.id.swiperefresh)
         swipeRefreshLayout.setOnRefreshListener {
             Log.d("HomeFragment", "Swipe to refresh triggered")
@@ -76,6 +87,9 @@ class Home : Fragment() {
 
 
     }
+
+
+
     private fun fetchData() {
         Log.d("Home", "Fetching data...")
 

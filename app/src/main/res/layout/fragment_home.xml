@@ -50,22 +50,22 @@
             android:id="@+id/linearLayout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="150dp"
+            android:layout_marginTop="64dp"
             android:gravity="center"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintEnd_toStartOf="@id/rightGuide"
             app:layout_constraintHorizontal_bias="0.822"
             app:layout_constraintStart_toStartOf="@+id/leftGuide"
-            app:layout_constraintTop_toBottomOf="@+id/effeNameLogoImageView"
-            app:layout_constraintVertical_bias="0.513">
+            app:layout_constraintTop_toBottomOf="@+id/effeNameLogoImageView">
 
             <TextView
                 android:id="@+id/days1"
-                android:layout_width="30dp"
+                android:layout_width="35dp"
                 android:layout_height="50dp"
                 android:background="@drawable/round_back"
                 android:backgroundTint="#4BA9FF"
+                android:gravity="center"
                 android:textAlignment="center"
                 android:textColor="#FFFFFF"
                 android:textSize="30sp"
@@ -73,10 +73,11 @@
 
             <TextView
                 android:id="@+id/days2"
-                android:layout_width="30dp"
+                android:layout_width="35dp"
                 android:layout_height="50dp"
                 android:layout_marginLeft="4dp"
                 android:background="@drawable/round_back"
+                android:gravity="center"
                 android:textAlignment="center"
                 android:textColor="#FFFFFF"
                 android:textSize="30sp"
@@ -95,9 +96,10 @@
 
             <TextView
                 android:id="@+id/hours1"
-                android:layout_width="30dp"
+                android:layout_width="35dp"
                 android:layout_height="50dp"
                 android:background="@drawable/round_back"
+                android:gravity="center"
                 android:textAlignment="center"
                 android:textColor="#FFFFFF"
                 android:textSize="30sp"
@@ -105,10 +107,11 @@
 
             <TextView
                 android:id="@+id/hours2"
-                android:layout_width="30dp"
+                android:layout_width="35dp"
                 android:layout_height="50dp"
                 android:layout_marginLeft="4dp"
                 android:background="@drawable/round_back"
+                android:gravity="center"
                 android:textAlignment="center"
                 android:textColor="#FFFFFF"
                 android:textSize="30sp"
@@ -126,9 +129,10 @@
 
             <TextView
                 android:id="@+id/minutes1"
-                android:layout_width="30dp"
+                android:layout_width="35dp"
                 android:layout_height="50dp"
                 android:background="@drawable/round_back"
+                android:gravity="center"
                 android:textAlignment="center"
                 android:textColor="#FFFFFF"
                 android:textSize="30sp"
@@ -136,10 +140,11 @@
 
             <TextView
                 android:id="@+id/minutes2"
-                android:layout_width="30dp"
+                android:layout_width="35dp"
                 android:layout_height="50dp"
                 android:layout_marginLeft="4dp"
                 android:background="@drawable/round_back"
+                android:gravity="center"
                 android:textAlignment="center"
                 android:textColor="#FFFFFF"
                 android:textSize="30sp"
@@ -185,17 +190,33 @@
             app:layout_constraintStart_toStartOf="@+id/leftGuide"
             app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
+
+        <TextView
+            android:id="@+id/featureEventsTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="64dp"
+            android:fontFamily="@font/east_sea_dokdo"
+            android:text="Featured Events"
+            android:textColor="@color/white"
+            android:textSize="48sp"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toTopOf="@id/FeaturedEventRecylerView"
+            app:layout_constraintEnd_toStartOf="@+id/rightGuide"
+            app:layout_constraintStart_toStartOf="@+id/leftGuide"
+            app:layout_constraintTop_toBottomOf="@id/linearLayout" />
+
         <com.jackandphantom.carouselrecyclerview.CarouselRecyclerview
             android:id="@+id/FeaturedEventRecylerView"
             android:layout_width="0dp"
             android:layout_height="200dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="12dp"
             android:orientation="vertical"
-            android:visibility="gone"
+            android:visibility="visible"
             app:layout_constraintEnd_toEndOf="@id/rightGuide"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@id/leftGuide"
-            app:layout_constraintTop_toBottomOf="@+id/effeNameLogoImageView"
+            app:layout_constraintTop_toBottomOf="@+id/featureEventsTextView"
             tools:listitem="@layout/featuredeventlayout" />
 
 
