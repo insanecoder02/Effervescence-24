@@ -15,9 +15,6 @@ import android.widget.Toast
 
 class about : Fragment() {
     private lateinit var text : TextView
-    private lateinit var toolText : TextView
-    private lateinit var logoTool : ImageView
-    private lateinit var notifyTool : ImageView
     private lateinit var insta: ImageView
     private lateinit var facebook: ImageView
     private lateinit var gamail: ImageView
