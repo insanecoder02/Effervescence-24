@@ -13,7 +13,9 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.keries.R
 import com.example.keries.adapter.SponsorAdapter
 import com.example.keries.dataClass.sponserDataClass
+import com.google.android.material.carousel.CarouselLayoutManager
 import com.google.firebase.firestore.FirebaseFirestore
+import com.jackandphantom.carouselrecyclerview.CarouselRecyclerview
 
 class sponser : Fragment() {
 
@@ -40,6 +42,16 @@ class sponser : Fragment() {
         sponseradapter = SponsorAdapter(SponserList)
         sponsorRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         sponsorRecyclerView.adapter = sponseradapter
+        sponsorRecyclerView.layoutManager = com.jackandphantom.carouselrecyclerview.CarouselLayoutManager(
+            true,
+            true,
+            0.5F,
+            true,
+            true,
+            true,
+            LinearLayoutManager.VERTICAL
+        )
+        (sponsorRecyclerView as CarouselRecyclerview).setInfinite(true)
 
         swipeRefreshLayout.setOnRefreshListener {
             fetchFirestoreData()

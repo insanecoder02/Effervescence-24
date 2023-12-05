@@ -10,12 +10,17 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearSnapHelper
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.SnapHelper
 import basefragmentevent
 import com.example.keries.R
 import com.example.keries.adapter.ShowEventAdapter
 import com.example.keries.dataClass.Event_DataClass
 import com.google.firebase.firestore.FirebaseFirestore
+import com.jackandphantom.carouselrecyclerview.CarouselLayoutManager
+import com.jackandphantom.carouselrecyclerview.CarouselRecyclerview
+import java.util.TimerTask
 
 class Events : Fragment() {
 
@@ -59,8 +64,6 @@ class Events : Fragment() {
 
 
         // Initialize and populate RecyclerViews with event data
-
-
         showEventAdapter = ShowEventAdapter(ij,this)
         fetchFromFireStoreEvents("AMS", amsRV)
         fetchFromFireStoreEvents("Dance", geneticxRV)
@@ -71,7 +74,10 @@ class Events : Fragment() {
         fetchFromFireStoreEvents("Gaming", gamingRv)
         fetchFromFireStoreEvents("Informal", InformalRv)
 
+
     }
+
+
 
     fun onItemClick(item: Event_DataClass){
         Log.d("Events", "Date: ${item.date}, Details: ${item.details}, Form: ${item.form}, Name: ${item.name}, No: ${item.no}, Time: ${item.time}, URL: ${item.url}, Venue: ${item.venue}")

@@ -6,9 +6,7 @@
     android:id="@+id/swiperefreshs"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<FrameLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
@@ -57,20 +55,19 @@
 <!--                app:layout_constraintStart_toStartOf="@+id/leftguide"-->
 <!--                app:layout_constraintTop_toTopOf="@+id/upguide" />-->
 
-        <androidx.recyclerview.widget.RecyclerView
+        <com.jackandphantom.carouselrecyclerview.CarouselRecyclerview
             android:id="@+id/sponserRecylerView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="372dp"
+            android:layoutAnimation="@anim/layout_anim"
+            android:orientation="vertical"
             android:paddingStart="10dp"
             android:paddingBottom="18dp"
-            android:layoutAnimation="@anim/layout_anim"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/rightguide"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="@+id/leftguide"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toTopOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
