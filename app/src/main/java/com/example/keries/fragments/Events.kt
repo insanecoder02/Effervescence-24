@@ -20,6 +20,8 @@ import com.example.keries.R
 import com.example.keries.adapter.ShowEventAdapter
 import com.example.keries.dataClass.Event_DataClass
 import com.example.keries.others.AutoScrollManager
+import com.example.keries.others.CustomItemAnimator
+import com.example.keries.others.CustomLayoutManager
 import com.google.firebase.firestore.FirebaseFirestore
 import com.jackandphantom.carouselrecyclerview.CarouselLayoutManager
 import com.jackandphantom.carouselrecyclerview.CarouselRecyclerview
@@ -119,7 +121,7 @@ class Events : Fragment() {
         bundle.putString("time" , item.time?:"Time")
         bundle.putString("url" , item.url?:"Url")
         bundle.putString("venue" , item.venue?:"Venue")
-        val nextFragment = basefragmentevent()
+        val nextFragment = eventinfo()
         nextFragment.arguments = bundle
         val transaction = requireActivity().supportFragmentManager.beginTransaction()
         transaction.replace(R.id.fragment_container, nextFragment) // Use nextFragment instead of basefragmentevent()

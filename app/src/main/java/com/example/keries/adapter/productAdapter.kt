@@ -9,19 +9,18 @@ import com.example.keries.R
 import com.example.keries.dataClass.productDataClass
 import com.example.keries.fragments.Shop
 
-class productAdapter(private val items: List<productDataClass>,
-                     private val itemClickListener: Shop
-):
-    RecyclerView.Adapter<productAdapter.productViewHolder>() {
+class productAdapter(
+    private val items: List<productDataClass>,
+    private val itemClickListener: OnItemClickListener  // Change to OnItemClickListener
+) : RecyclerView.Adapter<productAdapter.productViewHolder>() {
 
-    interface OnItemClickListener{
-        fun OnItemClick(item:productDataClass)
+    interface OnItemClickListener {
+        fun onItemClick(item: productDataClass)  // Change to onItemClick
     }
 
     // Create ViewHolder by inflating the item layout
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): productViewHolder {
-        val view =
-            LayoutInflater.from(parent.context).inflate(R.layout.shoplayolt, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.shoplayolt, parent, false)
         return productViewHolder(view)
     }
 
@@ -30,8 +29,8 @@ class productAdapter(private val items: List<productDataClass>,
         val item = items[position]
         holder.bind(item)
 
-        holder.itemView.setOnClickListener{
-            itemClickListener.onItemClick(item)
+        holder.itemView.setOnClickListener {
+            itemClickListener.onItemClick(item)  // Call onItemClick method
         }
     }
 
@@ -42,20 +41,12 @@ class productAdapter(private val items: List<productDataClass>,
     inner class productViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         private var productNameTextView = itemView.findViewById<TextView>(R.id.productName)
-//        private var productDesctriptionTextView = itemView.findViewById<TextView>(R.id.productDescription)
         private var productTypeTextView = itemView.findViewById<TextView>(R.id.productType)
-//        private var productPrizeTextView = itemView.findViewById<TextView>(R.id.produtPrize)
-//        private var productImageView = itemView.findViewById<ImageView>(R.id.productImage)
 
         // Bind data to views
         fun bind(productDataClass: productDataClass) {
             productNameTextView.text = productDataClass.productNames
-//            productDesctriptionTextView.text = productDataClass.productDescription
-//            productPrizeTextView.text = productDataClass.productPrize
             productTypeTextView.text = productDataClass.productTypes
-
-            // Load image using Glide
-//            Glide.with(itemView.context).load(productDataClass.productImageUrl).into(productImageView)
         }
     }
 }

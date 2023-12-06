@@ -59,9 +59,9 @@ class FAQ : Fragment() {
 
         // Initialize the return button
 //        val retw = view.findViewById<ImageView>(R.id.boso)
-        logoTool.setOnClickListener {
-            requireActivity().supportFragmentManager.popBackStack()
-        }
+//        logoTool.setOnClickListener {
+//            requireActivity().supportFragmentManager.popBackStack()
+//        }
 
         // Initialize button states as false (not clicked)
         buttonStates[d1] = false
