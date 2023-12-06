@@ -23,6 +23,7 @@ import java.util.*
 import androidx.appcompat.app.AppCompatActivity
 import java.util.Locale
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import com.example.keries.others.AutoScrollManager
 
 import com.example.keries.others.Constants
 import com.jackandphantom.carouselrecyclerview.CarouselRecyclerview
@@ -65,6 +66,9 @@ class Home : Fragment() {
         mainstageEventRecyclerView.adapter = mainStageEventAdapter
         (mainstageEventRecyclerView as CarouselRecyclerview).setInfinite(true)
         fetchFromFireStoreEvents("Main Stage",mainstageEventRecyclerView)
+
+        val autoScrollManager = AutoScrollManager(mainstageEventRecyclerView)
+        autoScrollManager.startAutoScroll(2000)
 
 
 

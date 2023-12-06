@@ -12,14 +12,11 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
+import basefragmentevent
 import com.example.keries.R
 import com.squareup.picasso.Picasso
 
-class eventinfo : Fragment() {
-    private lateinit var toolText : TextView
-    private lateinit var logoTool : ImageView
-    private lateinit var notifyTool : ImageView
-
+class eventinfo : Fragment(){
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -51,7 +48,7 @@ class eventinfo : Fragment() {
                 val intent = Intent(Intent.ACTION_VIEW, Uri.parse(formLink))
                 startActivity(intent)
             } else {
-                Toast.makeText(requireContext(), "Error while Loading the link", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "The Link is Not Available", Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -65,4 +62,6 @@ class eventinfo : Fragment() {
         Picasso.get().load(url).into(image)
         return root
     }
+
+
 }

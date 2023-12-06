@@ -1,4 +1,5 @@
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,6 +15,8 @@ import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 
 class basefragmentevent : Fragment() {
+
+
 
     private lateinit var viewPager: ViewPager2
     private lateinit var tabLayout: TabLayout
@@ -39,7 +42,18 @@ class basefragmentevent : Fragment() {
             }
         }.attach()
 
-        return view
+
+
+        val date = arguments?.getString("date")
+        val details = arguments?.getString("details")
+        val formLink = arguments?.getString("form")
+        val name = arguments?.getString("name")
+        val timee = arguments?.getString("time")
+        val url = arguments?.getString("url")
+        val venue = arguments?.getString("venue")
+
+        return  view
+
     }
 
 

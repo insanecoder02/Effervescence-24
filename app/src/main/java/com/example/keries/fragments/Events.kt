@@ -44,6 +44,11 @@ class Events : Fragment() {
     private lateinit var toolText : TextView
     private lateinit var notifyTool : ImageView
 
+
+
+
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -54,9 +59,6 @@ class Events : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-
-
 
 
         // Initialize RecyclerViews and adapters
@@ -129,7 +131,6 @@ class Events : Fragment() {
     private fun fetchFromFireStoreEvents(eventType: String, recyclerView: RecyclerView) {
 
         ij.clear()
-        // Fetch event data from Firestore for the specified event type
         db.collection(eventType)
             .get()
             .addOnSuccessListener {
@@ -148,48 +149,10 @@ class Events : Fragment() {
                     )
                 }
 
-                // Set up the RecyclerView adapter with the retrieved event data
                 showEventAdapter = ShowEventAdapter(showeventlist, this)
                 recyclerView.layoutManager =
                     LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-//                recyclerView.layoutManager = CustomLayoutManager(requireContext())
-//                recyclerView.itemAnimator  = CustomItemAnimator()
                 recyclerView.adapter = showEventAdapter
-
-//                var autoScrollTimer = Timer()
-//                val autoScrollTask = object : TimerTask() {
-//                    override fun run() {
-//                        // Perform auto-scrolling action here
-//                        // For example, scroll the RecyclerView by a certain amount
-//                        // recyclerView.smoothScrollBy(0, 20)
-//                    }
-//                }
-//
-//                recyclerView.setOnTouchListener { _, event ->
-//                    when (event.action) {
-//                        MotionEvent.ACTION_DOWN -> {
-//                            // Cancel the existing timer
-//                            autoScrollTimer.cancel()
-//                            // Start a new timer after the touch event is completed
-//                            autoScrollTimer = Timer()
-//                            autoScrollTimer.schedule(autoScrollTask, 0, 100) // Adjust the interval as needed
-//                        }
-//                    }
-//                    false
-//                }
-//
-//
-//
-//                val scrollListener = object : RecyclerView.OnScrollListener() {
-//                    override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
-//                        // Reset the timer or perform other actions based on scroll state
-//                        // For example, cancel the existing timer and start a new timer
-//                        autoScrollTimer.cancel()
-//                        autoScrollTimer = Timer()
-//                        autoScrollTimer.schedule(autoScrollTask, 0, 100) // Adjust the interval as needed
-//                    }
-//                }
-//                recyclerView.addOnScrollListener(scrollListener)
 
             }
             .addOnFailureListener {

@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import com.bumptech.glide.request.RequestOptions
 import com.example.keries.R
 import com.example.keries.dataClass.Event_DataClass
 import com.example.keries.fragments.Events
@@ -22,9 +24,13 @@ class ShowEventAdapter(private val showevents: List<Event_DataClass>, private va
     }
     inner class ShowEventViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val imageView: ImageView = itemView.findViewById(R.id.eventImageShow)
+
+        val roundedCorners = RoundedCorners(20)
+        val requestOptions = RequestOptions().transform(roundedCorners)
         fun bind(se: Event_DataClass) {
             Glide.with(itemView.context)
                 .load(se.url)
+                .apply(requestOptions)
                 .placeholder(R.drawable.ic_launcher_background) // Add a placeholder image
                 .error(R.drawable.location_pin_svgrepo_com) // Add an error image
                 .into(imageView)

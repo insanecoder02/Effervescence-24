@@ -4,11 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
+    android:background="@drawable/background2"
     tools:context=".fragments.Events">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
+        android:background="@color/transparent"
         android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -51,13 +52,14 @@
             <TextView
                 android:id="@+id/nirmitiText"
                 android:layout_width="wrap_content"
-                android:layout_height="24dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:fontFamily="@font/east_sea_dokdo"
                 android:text="Nirmiti"
                 android:textColor="@color/white"
-                android:textSize="20sp"
-                android:fontFamily="@font/montserrat"
+                android:textSize="40sp"
                 app:layout_constraintStart_toStartOf="@id/leftGuide"
-                app:layout_constraintTop_toBottomOf="@+id/topGuide"/>
+                app:layout_constraintTop_toBottomOf="@+id/topGuide" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/nimritiRV"
@@ -73,13 +75,13 @@
                 android:id="@+id/rangtaringiniText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Rangtarigini"
+                android:layout_marginTop="32dp"
                 android:fontFamily="@font/montserrat"
-                android:textSize="20dp"
+                android:text="Rangtarigini"
                 android:textColor="@color/white"
+                android:textSize="20dp"
                 app:layout_constraintStart_toStartOf="@id/leftGuide"
-                app:layout_constraintTop_toBottomOf="@id/nimritiRV"
-                android:layout_marginTop="24sp"/>
+                app:layout_constraintTop_toBottomOf="@id/nimritiRV" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rangtaringiniRV"
@@ -95,13 +97,13 @@
                 android:id="@+id/sarasvaText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Sarasva"
+                android:layout_marginTop="32dp"
                 android:fontFamily="@font/montserrat"
-                android:textSize="20dp"
+                android:text="Sarasva"
                 android:textColor="@color/white"
+                android:textSize="20dp"
                 app:layout_constraintStart_toStartOf="@id/leftGuide"
-                app:layout_constraintTop_toBottomOf="@id/rangtaringiniRV"
-                android:layout_marginTop="24sp"/>
+                app:layout_constraintTop_toBottomOf="@id/rangtaringiniRV" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/sarasvaRV"
@@ -119,13 +121,13 @@
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Virtuosi"
+                android:layout_marginTop="32dp"
                 android:fontFamily="@font/montserrat"
-                android:textSize="20dp"
+                android:text="Virtuosi"
                 android:textColor="@color/white"
+                android:textSize="20dp"
                 app:layout_constraintStart_toStartOf="@id/leftGuide"
-                app:layout_constraintTop_toBottomOf="@id/sarasvaRV"
-                android:layout_marginTop="24sp"/>
+                app:layout_constraintTop_toBottomOf="@id/sarasvaRV" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/virtuosiRV"
@@ -142,13 +144,13 @@
                 android:id="@+id/geneticxText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:fontFamily="@font/east_sea_dokdo"
                 android:text="Geneticx"
-                android:fontFamily="@font/montserrat"
-                android:textSize="20dp"
                 android:textColor="@color/white"
+                android:textSize="20dp"
                 app:layout_constraintStart_toStartOf="@id/leftGuide"
-                app:layout_constraintTop_toBottomOf="@id/virtuosiRV"
-                android:layout_marginTop="24sp"/>
+                app:layout_constraintTop_toBottomOf="@id/virtuosiRV" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/geneticxRV"
@@ -165,13 +167,13 @@
                 android:id="@+id/amsText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="AMS"
+                android:layout_marginTop="32dp"
                 android:fontFamily="@font/montserrat"
-                android:textSize="20dp"
+                android:text="AMS"
                 android:textColor="@color/white"
+                android:textSize="20dp"
                 app:layout_constraintStart_toStartOf="@id/leftGuide"
-                app:layout_constraintTop_toBottomOf="@id/geneticxRV"
-                android:layout_marginTop="24sp"/>
+                app:layout_constraintTop_toBottomOf="@id/geneticxRV" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/amsRV"
@@ -188,13 +190,13 @@
                 android:id="@+id/Gaming"
                 android:layout_width="wrap_content"
                 android:layout_height="24dp"
+                android:layout_marginTop="32dp"
+                android:fontFamily="@font/montserrat"
                 android:text="Gaming"
                 android:textColor="@color/white"
                 android:textSize="20sp"
-                android:layout_marginTop="24dp"
-                android:fontFamily="@font/montserrat"
-                app:layout_constraintTop_toBottomOf="@id/amsRV"
-                app:layout_constraintStart_toStartOf="@id/leftGuide"/>
+                app:layout_constraintStart_toStartOf="@id/leftGuide"
+                app:layout_constraintTop_toBottomOf="@id/amsRV" />
 
 
             <androidx.recyclerview.widget.RecyclerView
@@ -209,16 +211,16 @@
                 app:layout_constraintEnd_toEndOf="@id/rightGuide"/>
 
             <TextView
+                android:id="@+id/Informal"
                 android:layout_width="wrap_content"
                 android:layout_height="24dp"
-                android:id="@+id/Informal"
+                android:layout_marginTop="32dp"
+                android:fontFamily="@font/montserrat"
                 android:text="Infromal"
                 android:textColor="@color/white"
                 android:textSize="20sp"
-                android:layout_marginTop="24dp"
-                android:fontFamily="@font/montserrat"
-                app:layout_constraintTop_toBottomOf="@id/gamingRv"
-                app:layout_constraintStart_toStartOf="@id/leftGuide"/>
+                app:layout_constraintStart_toStartOf="@id/leftGuide"
+                app:layout_constraintTop_toBottomOf="@id/gamingRv" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/InformalRv"
