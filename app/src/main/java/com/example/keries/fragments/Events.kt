@@ -34,12 +34,6 @@ class Events : Fragment() {
 //    private lateinit var countdownTextView: TextView
 //    private lateinit var toolText : TextView
 //    private lateinit var notifyTool : ImageView
-
-
-
-
-
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

@@ -17,8 +17,6 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp">
 
-
-
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/rightGuide"
                 android:layout_width="wrap_content"
@@ -33,9 +31,7 @@
                 android:orientation="vertical"
                 app:layout_constraintGuide_percent="0.05" />
 
-
             <LinearLayout
-
                 android:id="@+id/linearLayout2"
                 android:layout_width="0dp"
                 android:layout_height="32dp"
@@ -43,7 +39,7 @@
                 android:orientation="horizontal"
                 app:layout_constraintEnd_toStartOf="@id/rightGuide"
                 app:layout_constraintStart_toEndOf="@id/leftGuide"
-                app:layout_constraintTop_toBottomOf="@id/eventImage">
+                app:layout_constraintTop_toBottomOf="@id/eventCard">
 
                 <TextView
                     android:id="@+id/textView"
@@ -109,15 +105,25 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+            <androidx.cardview.widget.CardView
+                android:id="@+id/eventCard"
+                android:layout_width="0dp"
+                android:backgroundTint="@color/transparent"
+                app:cardCornerRadius="5dp"
+                app:cardUseCompatPadding="true"
+                android:elevation="5dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="@id/rightGuide"
+                app:layout_constraintStart_toStartOf="@id/leftGuide"
+                app:layout_constraintTop_toTopOf="parent">
+
             <ImageView
                 android:id="@+id/eventImage"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="290dp"
                 android:scaleType="fitXY"
-                android:src="@drawable/ic_launcher_background"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:src="@drawable/ic_launcher_background" />
+            </androidx.cardview.widget.CardView>
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/register"

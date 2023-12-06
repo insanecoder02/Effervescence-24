@@ -53,8 +53,6 @@ class Shop2 : Fragment() {
             }
         }
 
-
-
         merchName.text = name
         merchType.text = type
         merchPrice.text = prize
