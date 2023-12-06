@@ -6,6 +6,12 @@
     android:layout_height="wrap_content"
     android:layout_marginBottom="10dp">
 
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/shimmer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:shimmer_auto_start="true">
+
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -29,12 +35,13 @@
 
             <ImageView
                 android:id="@+id/imageView"
-                android:layout_width="56dp"
-                android:layout_height="56dp"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
                 android:paddingTop="5dp"
                 android:layout_marginStart="10dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/image_svgrepo_com" />
+                android:background="@drawable/round_back"
+                android:backgroundTint="#cc6600" />
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -46,28 +53,33 @@
 
                 <TextView
                     android:id="@+id/nameTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="100dp"
+                    android:layout_height="25dp"
                     android:layout_marginTop="5dp"
                     android:fontFamily="@font/montserrat"
                     android:text="Name"
+                    android:background="@drawable/round_back"
+                    android:backgroundTint="#cc6600"
                     android:textAllCaps="false"
-                    android:textColor="@color/white"
+                    android:textColor="@color/transparent"
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/desginations"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="80dp"
+                    android:layout_height="25dp"
                     android:layout_marginVertical="5dp"
+                    android:background="@drawable/round_back"
+                    android:backgroundTint="#cc6600"
                     android:fontFamily="@font/montserrat"
                     android:text="desgination"
-                    android:textColor="@color/white"
+                    android:textColor="@color/transparent"
                     android:textSize="10sp" />
             </LinearLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
+    </com.facebook.shimmer.ShimmerFrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
 
 

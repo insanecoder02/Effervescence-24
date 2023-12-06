@@ -1,6 +1,8 @@
 package com.example.keries.fragments
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -18,6 +21,8 @@ import com.example.keries.R
 import com.example.keries.adapter.TeamAdapter
 import com.example.keries.dataClass.TeamMember
 import com.facebook.drawee.backends.pipeline.Fresco
+import com.facebook.shimmer.Shimmer
+import com.facebook.shimmer.ShimmerFrameLayout
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -45,9 +50,23 @@ class Team : Fragment() {
     private lateinit var toolText : TextView
     private lateinit var logoTool : ImageView
     private lateinit var notifyTool : ImageView
-    private lateinit var loadingAnimationView: LottieAnimationView
+//    private lateinit var loadingAnimationView: LottieAnimationView
     private  var  loadedRecyclerViewCount :Int = 1
     private lateinit var swipeRefreshLayout: SwipeRefreshLayout
+    private lateinit var shimCrv: ShimmerFrameLayout
+    private lateinit var shimFrv: ShimmerFrameLayout
+    private lateinit var shimEnmrv: ShimmerFrameLayout
+    private lateinit var shimCrrv: ShimmerFrameLayout
+    private lateinit var shimprrv: ShimmerFrameLayout
+    private lateinit var shimblrv: ShimmerFrameLayout
+    private lateinit var shimhrv: ShimmerFrameLayout
+    private lateinit var shimmrv: ShimmerFrameLayout
+    private lateinit var shimflrv: ShimmerFrameLayout
+    private lateinit var shimcrerv: ShimmerFrameLayout
+    private lateinit var shimtrv: ShimmerFrameLayout
+    private lateinit var shimwrv: ShimmerFrameLayout
+    private lateinit var shimarv: ShimmerFrameLayout
+    private lateinit var shimorv: ShimmerFrameLayout
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -60,7 +79,7 @@ class Team : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         Fresco.initialize(requireContext())
-        loadingAnimationView = view.findViewById(R.id.loadingAnimationView)
+//        loadingAnimationView = view.findViewById(R.id.loadingAnimationView)
 
         Crv = view.findViewById(R.id.festiveCordi)
         frv = view.findViewById(R.id.financerelcyler)
@@ -107,12 +126,58 @@ class Team : Fragment() {
         fetchAndPopulateData("CREATIVES", crerv)
         fetchAndPopulateData("HOSPITALITY & TRAVEL", hrv)
 
+        shimCrv = view.findViewById(R.id.festiveCordi)
+        shimFrv = view.findViewById(R.id.financerelcyler)
+        shimEnmrv = view.findViewById(R.id.eventesmangereycl)
+        shimCrrv  = view.findViewById(R.id.coroprate)
+        shimprrv = view.findViewById(R.id.pr)
+        shimblrv  = view.findViewById(R.id.brnding)
+        shimhrv = view.findViewById(R.id.hospitalllty)
+        shimmrv = view.findViewById(R.id.mediaaaa)
+        shimflrv = view.findViewById(R.id.flimingdevven)
+        shimcrerv = view.findViewById(R.id.creativesreyc)
+        shimtrv  = view.findViewById(R.id.tecnialreycler)
+        shimwrv = view.findViewById(R.id.wed)
+        shimarv = view.findViewById(R.id.apppp)
+        shimorv = view.findViewById(R.id.cco)
+
+        shimmerEffect(shimCrv,Crv)
+        shimmerEffect(shimFrv,frv)
+        shimmerEffect(shimCrrv,crrv)
+        shimmerEffect(shimEnmrv,enmrv)
+        shimmerEffect(shimwrv,wrv)
+        shimmerEffect(shimtrv,trv)
+        shimmerEffect(shimorv,orv)
+        shimmerEffect(shimhrv,hrv)
+        shimmerEffect(shimblrv,blrv)
+        shimmerEffect(shimprrv,prrv)
+        shimmerEffect(shimmrv,mrv)
+        shimmerEffect(shimflrv,flrv)
+        shimmerEffect(shimcrerv,crerv)
+        shimmerEffect(shimarv,arv)
+
 
         swipeRefreshLayout = view.findViewById(R.id.swiperefreshteam)
         swipeRefreshLayout.setOnRefreshListener {
             swipeRefreshLayout.isRefreshing = false
         }
     }
+
+    private fun shimmerEffect(shim:ShimmerFrameLayout , RV:RecyclerView) {
+        val shimmer = Shimmer.AlphaHighlightBuilder()
+            .setDirection(Shimmer.Direction.BOTTOM_TO_TOP)
+            .setDuration(5000)
+            .setAutoStart(true)
+            .build()
+        shim.setShimmer(shimmer)
+
+        Handler(Looper.getMainLooper()).postDelayed({
+            shim.stopShimmer()
+            shim.isVisible =false
+            RV.isVisible = true
+        },3000)
+    }
+
     private fun fetchAndPopulateData(wing: String, recyclerView: RecyclerView) {
         viewLifecycleOwner.lifecycleScope.launch {
             try {
@@ -122,10 +187,10 @@ class Team : Fragment() {
                 loadedRecyclerViewCount++
 
                 // Check if all RecyclerViews have loaded
-                if (loadedRecyclerViewCount == 14) {
-                    // All RecyclerViews have loaded, hide the loading animation
-                    loadingAnimationView.visibility = View.GONE
-                }
+//                if (loadedRecyclerViewCount == 14) {
+//                    // All RecyclerViews have loaded, hide the loading animation
+//                    loadingAnimationView.visibility = View.GONE
+//                }
             } catch (e: Exception) {
                 Toast.makeText(requireContext(), "Error fetching data", Toast.LENGTH_SHORT).show()
             }
