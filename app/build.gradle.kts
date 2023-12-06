@@ -59,6 +59,7 @@ dependencies {
     implementation("androidx.navigation:navigation-fragment-ktx:2.3.5")
     implementation("androidx.navigation:navigation-ui-ktx:2.3.5")
     implementation("androidx.core:core-animation:1.0.0-rc01")
+    implementation("com.google.firebase:firebase-database:20.3.0")
     annotationProcessor ("com.github.bumptech.glide:compiler:4.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.squareup.picasso:picasso:2.71828")
@@ -74,4 +75,8 @@ dependencies {
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.2.0-alpha01")
     implementation("com.github.bumptech.glide:glide:4.13.0")
     implementation ("androidx.viewpager2:viewpager2:1.0.0-alpha01")
+
+
+
+
 }
