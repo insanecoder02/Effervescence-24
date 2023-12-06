@@ -17,6 +17,7 @@ import com.google.android.material.tabs.TabLayoutMediator
 class basefragmentevent : Fragment() {
 
 
+    // just added the discriprton  to this file
 
     private lateinit var viewPager: ViewPager2
     private lateinit var tabLayout: TabLayout
@@ -69,6 +70,10 @@ class basefragmentevent : Fragment() {
                     eventinfoFragment = eventinfo()
                     eventinfoFragment?.arguments = bundleData
                     eventinfoFragment!!
+
+
+
+
                 } // Your first fragment
                 1 -> eventreel().apply { arguments = bundleData } // Your second fragment
                 else -> throw IllegalArgumentException("Invalid position")
