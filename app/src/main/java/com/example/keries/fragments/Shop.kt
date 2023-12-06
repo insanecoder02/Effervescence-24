@@ -16,15 +16,15 @@ import com.example.keries.adapter.productAdapter
 import com.example.keries.dataClass.productDataClass
 import com.google.firebase.firestore.FirebaseFirestore
 
-class Shop : Fragment() {
+class Shop : Fragment(), productAdapter.OnItemClickListener {
 
     private lateinit var productRecyclerView: RecyclerView
     private lateinit var productadapter: productAdapter
     private val db = FirebaseFirestore.getInstance()
-    private var productList : MutableList<productDataClass> = mutableListOf()
-    private lateinit var toolText : TextView
-    private lateinit var logoTool : ImageView
-    private lateinit var notifyTool : ImageView
+    private var productList: MutableList<productDataClass> = mutableListOf()
+    private lateinit var toolText: TextView
+    private lateinit var logoTool: ImageView
+    private lateinit var notifyTool: ImageView
     private lateinit var swipeRefreshLayout: SwipeRefreshLayout
 
     override fun onCreateView(
@@ -41,7 +41,7 @@ class Shop : Fragment() {
 
         // Initialize RecyclerView and adapter
         productRecyclerView = view.findViewById(R.id.productreyclerview)
-        productadapter = productAdapter(productList, this)
+        productadapter = productAdapter(productList, this)  // Pass the fragment as OnItemClickListener
 
         // Set the layout manager and adapter for the RecyclerView
         productRecyclerView.layoutManager = LinearLayoutManager(requireContext())
@@ -59,9 +59,24 @@ class Shop : Fragment() {
         }
     }
 
-    fun onItemClick(item: productDataClass) {
-        // Your item click logic here
+    override fun onItemClick(item: productDataClass) {
+        val bundle = Bundle()
+        bundle.putString("prize", item.productPrize)
+        bundle.putString("name", item.productNames)
+        bundle.putString("type", item.productTypes)
+        bundle.putString("descrip", item.productDescription)
+        bundle.putString("image", item.productImageUrl)
+        bundle.putString("form", item.productForm)
+
+        val shop2Fragment = Shop2()
+        shop2Fragment.arguments = bundle
+
+        val transaction = requireActivity().supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.fragment_container, shop2Fragment)
+        transaction.addToBackStack(null)
+        transaction.commit()
     }
+
 
     private fun fetchFirestoreData() {
         productList.clear()
