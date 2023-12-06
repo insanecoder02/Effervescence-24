@@ -13,6 +13,7 @@ import android.view.animation.AccelerateDecelerateInterpolator
 import android.os.Build
 import android.view.View
 import android.view.Window
+import android.view.WindowManager
 import androidx.core.content.ContextCompat
 
 class splashscreen : AppCompatActivity() {
@@ -23,7 +24,7 @@ class splashscreen : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splashscreen)
 
-        setStatusBarColor(R.color.transparent)
+        window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
 
         val logoview: ImageView = findViewById(R.id.logo)
         logoview.alpha = 0f

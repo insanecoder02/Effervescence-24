@@ -1,6 +1,7 @@
 package com.example.keries.fragments
 
 
+import android.view.WindowManager
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.util.Log
@@ -8,6 +9,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.Window
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -32,6 +34,7 @@ import java.util.concurrent.TimeUnit
 import java.util.logging.Handler
 
 
+
 class Home : Fragment() {
     private lateinit var mainstageEventRecyclerView: RecyclerView
     private lateinit var mainStageEventAdapter : featuredEventsAdapter
@@ -48,10 +51,14 @@ class Home : Fragment() {
     private val duration = 300 * 1000 // 300 seconds
     private val autoScrollHandler = android.os.Handler()
     private lateinit var autoScrollRunnable: Runnable
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+
 
         val rootView = inflater.inflate(R.layout.fragment_home, container, false)
 
@@ -59,6 +66,11 @@ class Home : Fragment() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+// Assuming you are inside an Activity or a Fragment
+
+
+
         mainstageEventRecyclerView = view.findViewById(R.id.FeaturedEventRecylerView)
         mainStageEventAdapter = featuredEventsAdapter(aox,this)
         mainstageEventRecyclerView.layoutManager =

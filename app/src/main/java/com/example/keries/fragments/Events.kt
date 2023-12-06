@@ -2,31 +2,20 @@ package com.example.keries.fragments
 
 import android.util.Log
 import android.os.Bundle
-import android.os.Looper
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
-import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.LinearSnapHelper
 import androidx.recyclerview.widget.RecyclerView
-import androidx.recyclerview.widget.SnapHelper
-import basefragmentevent
 import com.example.keries.R
 import com.example.keries.adapter.ShowEventAdapter
 import com.example.keries.dataClass.Event_DataClass
 import com.example.keries.others.AutoScrollManager
-import com.example.keries.others.CustomItemAnimator
-import com.example.keries.others.CustomLayoutManager
 import com.google.firebase.firestore.FirebaseFirestore
-import com.jackandphantom.carouselrecyclerview.CarouselLayoutManager
-import com.jackandphantom.carouselrecyclerview.CarouselRecyclerview
-import java.util.Timer
-import java.util.TimerTask
 
 
 class Events : Fragment() {

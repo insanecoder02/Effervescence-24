@@ -11,4 +11,5 @@
     <color name="transparent">#00000000</color>
     <color name="shimer">#BFBDBD</color>
     <color name="splashscreencolour">#540482</color>
+    <color name="appStatusColour">#59048B</color>
 </resources>

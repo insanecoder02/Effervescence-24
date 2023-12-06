@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-         xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/swiperefresh"
          android:layout_width="match_parent"
@@ -9,10 +9,11 @@
 <FrameLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background2"
+    android:background="@drawable/splash_background"
     tools:context=".fragments.Home">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_marginTop="20dp"
         android:id="@+id/beta"
         android:layout_width="match_parent"
         android:layout_height="match_parent">

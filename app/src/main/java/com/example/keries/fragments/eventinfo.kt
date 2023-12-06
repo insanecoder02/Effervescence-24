@@ -12,7 +12,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
-import basefragmentevent
 import com.example.keries.R
 import com.squareup.picasso.Picasso
 
