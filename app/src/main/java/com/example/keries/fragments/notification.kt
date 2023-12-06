@@ -36,9 +36,7 @@ class notification : Fragment() {
         val root = inflater.inflate(R.layout.fragment_notification, container, false)
 
 //        val back = root.findViewById<ImageView>(R.id.boso)
-        logoTool.setOnClickListener{
-            requireActivity().supportFragmentManager.popBackStack()
-        }
+
         // Initialize ViewModel
 //        viewModel = ViewModelProvider(this)[NotificationViewModel::class.java]
         return root

@@ -21,8 +21,6 @@ import com.example.keries.dataClass.FeaturedEventes
 import com.google.firebase.firestore.FirebaseFirestore
 import com.jackandphantom.carouselrecyclerview.CarouselLayoutManager
 import java.text.SimpleDateFormat
-import java.util.*
-import androidx.appcompat.app.AppCompatActivity
 import java.util.Locale
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.keries.others.AutoScrollManager
@@ -82,6 +80,10 @@ class Home : Fragment() {
         }
 
         fetchSystemDateTime()
+
+
+        val notifyButotn = view.findViewById<ImageView>(R.id.imageView2)
+        notifyButotn.setOnClickListener{loadFragment(notification())}
     }
     private fun fetchData() {
         Log.d("Home", "Fetching data...")

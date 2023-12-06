@@ -48,15 +48,62 @@
 
 
         <LinearLayout
-            android:id="@+id/linearLayout"
+            android:id="@+id/dayLinearLayout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="64dp"
+            android:layout_marginTop="4dp"
             android:gravity="center"
+
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintEnd_toStartOf="@id/rightGuide"
             app:layout_constraintHorizontal_bias="0.822"
+            app:layout_constraintStart_toStartOf="@+id/leftGuide"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:textColor="@color/white"
+                android:fontFamily="@font/east_sea_dokdo"
+                android:textSize="36sp"
+                android:layout_marginHorizontal="30sp"
+
+                android:layout_height="wrap_content"
+                android:text="Day"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:textColor="@color/white"
+                android:layout_marginHorizontal="30sp"
+
+                android:fontFamily="@font/east_sea_dokdo"
+                android:textSize="36sp"
+                android:layout_height="wrap_content"
+                android:text="Hour"/>
+
+            <TextView
+                android:layout_marginHorizontal="30sp"
+                android:layout_width="wrap_content"
+                android:textColor="@color/white"
+                android:fontFamily="@font/east_sea_dokdo"
+                android:textSize="36sp"
+                android:layout_height="wrap_content"
+                android:text="Min"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:gravity="center"
+
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/rightGuide"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="@+id/leftGuide"
             app:layout_constraintTop_toBottomOf="@+id/effeNameLogoImageView">
 
@@ -65,7 +112,7 @@
                 android:layout_width="35dp"
                 android:layout_height="50dp"
                 android:background="@drawable/round_back"
-                android:backgroundTint="#4BA9FF"
+                android:backgroundTint="#33FFFFFF"
                 android:gravity="center"
                 android:textAlignment="center"
                 android:textColor="#FFFFFF"
@@ -78,6 +125,7 @@
                 android:layout_height="50dp"
                 android:layout_marginLeft="4dp"
                 android:background="@drawable/round_back"
+                android:backgroundTint="#33FFFFFF"
                 android:gravity="center"
                 android:textAlignment="center"
                 android:textColor="#FFFFFF"
@@ -100,6 +148,7 @@
                 android:layout_width="35dp"
                 android:layout_height="50dp"
                 android:background="@drawable/round_back"
+                android:backgroundTint="#33FFFFFF"
                 android:gravity="center"
                 android:textAlignment="center"
                 android:textColor="#FFFFFF"
@@ -112,6 +161,7 @@
                 android:layout_height="50dp"
                 android:layout_marginLeft="4dp"
                 android:background="@drawable/round_back"
+                android:backgroundTint="#33FFFFFF"
                 android:gravity="center"
                 android:textAlignment="center"
                 android:textColor="#FFFFFF"
@@ -133,7 +183,9 @@
                 android:layout_width="35dp"
                 android:layout_height="50dp"
                 android:background="@drawable/round_back"
+                android:backgroundTint="#33FFFFFF"
                 android:gravity="center"
+
                 android:textAlignment="center"
                 android:textColor="#FFFFFF"
                 android:textSize="30sp"
@@ -145,11 +197,13 @@
                 android:layout_height="50dp"
                 android:layout_marginLeft="4dp"
                 android:background="@drawable/round_back"
+                android:backgroundTint="#33FFFFFF"
                 android:gravity="center"
                 android:textAlignment="center"
                 android:textColor="#FFFFFF"
                 android:textSize="30sp"
                 android:textStyle="bold" />
+
 
             <!--        <TextView-->
             <!--            android:layout_width="wrap_content"-->
@@ -171,12 +225,14 @@
         </LinearLayout>
 
         <ImageView
+            android:layout_marginEnd="24dp"
             android:id="@+id/imageView2"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
             android:layout_marginTop="12dp"
-            android:src="@drawable/effe_logo__1__3"
+            android:src="@drawable/baseline_notifications_24"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:tint="@color/white" />
@@ -205,7 +261,7 @@
             app:layout_constraintBottom_toTopOf="@id/FeaturedEventRecylerView"
             app:layout_constraintEnd_toStartOf="@+id/rightGuide"
             app:layout_constraintStart_toStartOf="@+id/leftGuide"
-            app:layout_constraintTop_toBottomOf="@id/linearLayout" />
+            app:layout_constraintTop_toBottomOf="@id/dayLinearLayout" />
 
         <com.jackandphantom.carouselrecyclerview.CarouselRecyclerview
             android:id="@+id/FeaturedEventRecylerView"
