@@ -2,8 +2,10 @@ package com.example.keries.fragments
 
 import android.util.Log
 import android.os.Bundle
+import android.os.Looper
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
@@ -17,10 +19,13 @@ import basefragmentevent
 import com.example.keries.R
 import com.example.keries.adapter.ShowEventAdapter
 import com.example.keries.dataClass.Event_DataClass
+import com.example.keries.others.AutoScrollManager
 import com.google.firebase.firestore.FirebaseFirestore
 import com.jackandphantom.carouselrecyclerview.CarouselLayoutManager
 import com.jackandphantom.carouselrecyclerview.CarouselRecyclerview
+import java.util.Timer
 import java.util.TimerTask
+
 
 class Events : Fragment() {
 
@@ -37,7 +42,6 @@ class Events : Fragment() {
     private  var ij : MutableList<Event_DataClass> = mutableListOf()
     private lateinit var countdownTextView: TextView
     private lateinit var toolText : TextView
-    private lateinit var logoTool : ImageView
     private lateinit var notifyTool : ImageView
 
     override fun onCreateView(
@@ -51,6 +55,10 @@ class Events : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
+
+
+
         // Initialize RecyclerViews and adapters
         nimritiRv = view.findViewById(R.id.nimritiRV)
         rangtaringiniRV = view.findViewById(R.id.rangtaringiniRV)
@@ -60,6 +68,8 @@ class Events : Fragment() {
         gamingRv = view.findViewById(R.id.gamingRv)
         InformalRv = view.findViewById(R.id.InformalRv)
         amsRV = view.findViewById(R.id.amsRV)
+
+
 
 
 
@@ -75,6 +85,23 @@ class Events : Fragment() {
         fetchFromFireStoreEvents("Informal", InformalRv)
 
 
+        rotor(amsRV)
+        rotor(geneticxRV)
+        rotor(rangtaringiniRV)
+        rotor(nimritiRv)
+        rotor(sarasvaRV)
+        rotor(virtuosiRV)
+        rotor(gamingRv)
+        rotor(InformalRv)
+
+
+
+    }
+
+    private fun rotor (recyclerView: RecyclerView){
+        recyclerView.layoutManager=  LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
+        val autoScrollManager = AutoScrollManager(recyclerView)
+        autoScrollManager.startAutoScroll(2000)
     }
 
 
@@ -128,6 +155,42 @@ class Events : Fragment() {
 //                recyclerView.layoutManager = CustomLayoutManager(requireContext())
 //                recyclerView.itemAnimator  = CustomItemAnimator()
                 recyclerView.adapter = showEventAdapter
+
+//                var autoScrollTimer = Timer()
+//                val autoScrollTask = object : TimerTask() {
+//                    override fun run() {
+//                        // Perform auto-scrolling action here
+//                        // For example, scroll the RecyclerView by a certain amount
+//                        // recyclerView.smoothScrollBy(0, 20)
+//                    }
+//                }
+//
+//                recyclerView.setOnTouchListener { _, event ->
+//                    when (event.action) {
+//                        MotionEvent.ACTION_DOWN -> {
+//                            // Cancel the existing timer
+//                            autoScrollTimer.cancel()
+//                            // Start a new timer after the touch event is completed
+//                            autoScrollTimer = Timer()
+//                            autoScrollTimer.schedule(autoScrollTask, 0, 100) // Adjust the interval as needed
+//                        }
+//                    }
+//                    false
+//                }
+//
+//
+//
+//                val scrollListener = object : RecyclerView.OnScrollListener() {
+//                    override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+//                        // Reset the timer or perform other actions based on scroll state
+//                        // For example, cancel the existing timer and start a new timer
+//                        autoScrollTimer.cancel()
+//                        autoScrollTimer = Timer()
+//                        autoScrollTimer.schedule(autoScrollTask, 0, 100) // Adjust the interval as needed
+//                    }
+//                }
+//                recyclerView.addOnScrollListener(scrollListener)
+
             }
             .addOnFailureListener {
                 Toast.makeText(requireContext(), "error", Toast.LENGTH_SHORT).show()

@@ -40,7 +40,7 @@ class ShowEventAdapter(private val showevents: List<Event_DataClass>, private va
     }
 
     override fun onBindViewHolder(holder: ShowEventViewHolder, position: Int) {
-        val sees = showevents[position]
+        val sees = showevents[position %showevents.size]
         holder.bind(sees)
 
         holder.itemView.setOnClickListener{
@@ -49,6 +49,11 @@ class ShowEventAdapter(private val showevents: List<Event_DataClass>, private va
     }
 
     override fun getItemCount(): Int {
-        return showevents.size
+        return if (showevents.isEmpty()) {
+            0
+        } else {
+            Int.MAX_VALUE
+        }
+
     }
 }
