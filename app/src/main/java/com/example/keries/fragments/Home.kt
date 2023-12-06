@@ -82,6 +82,10 @@ class Home : Fragment() {
         }
 
         fetchSystemDateTime()
+
+
+        val notifyButotn = view.findViewById<ImageView>(R.id.imageView2)
+        notifyButotn.setOnClickListener{loadFragment(notification())}
     }
     private fun fetchData() {
         Log.d("Home", "Fetching data...")
