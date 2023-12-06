@@ -57,19 +57,11 @@ class Home : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-
-
         val rootView = inflater.inflate(R.layout.fragment_home, container, false)
-
         return rootView
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-// Assuming you are inside an Activity or a Fragment
-
-
 
         mainstageEventRecyclerView = view.findViewById(R.id.FeaturedEventRecylerView)
         mainStageEventAdapter = featuredEventsAdapter(aox,this)
@@ -82,14 +74,6 @@ class Home : Fragment() {
         val autoScrollManager = AutoScrollManager(mainstageEventRecyclerView)
         autoScrollManager.startAutoScroll(2000)
 
-
-
-
-
-
-
-
-
         swipeRefreshLayout = view.findViewById(R.id.swiperefresh)
         swipeRefreshLayout.setOnRefreshListener {
             Log.d("HomeFragment", "Swipe to refresh triggered")
@@ -97,17 +81,8 @@ class Home : Fragment() {
             fetchData()
         }
 
-
-
-
         fetchSystemDateTime()
-
-
-
     }
-
-
-
     private fun fetchData() {
         Log.d("Home", "Fetching data...")
 
@@ -200,7 +175,6 @@ class Home : Fragment() {
     }
     private fun fetchFromFireStoreEvents(eventType: String, recyclerView: RecyclerView) {
         aox.clear()
-
         // Fetch event data from Firestore for the specified event type
         db.collection(eventType)
             .get()
@@ -219,9 +193,6 @@ class Home : Fragment() {
                         FeaturedEventes(date, details, form, name, no, time, url, venue)
                     )
                 }
-
-
-
                 // Add the data to your existing adapter and notify it to update the RecyclerView
                 aox.addAll(showeventlist)
                 mainStageEventAdapter.notifyDataSetChanged()

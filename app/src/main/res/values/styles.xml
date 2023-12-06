@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="BottomNavigationViewStyle">
-        <item name="android:background">#282828</item>
+        <item name="android:background">@android:color/transparent</item>
     </style>
 
-    <style name="TranslucentDialog" parent="Theme.AppCompat.Dialog">
-        <item name="android:background">@android:color/transparent</item>
-        <item name="android:windowBackground">@android:color/transparent</item>
-    </style>
+<!--    <style name="TranslucentDialog" parent="Theme.AppCompat.Dialog">-->
+<!--        <item name="android:background">@android:color/transparent</item>-->
+<!--        <item name="android:windowBackground">@android:color/transparent</item>-->
+<!--    </style>-->
 
 
     <!-- dimens.xml -->

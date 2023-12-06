@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/splashscreencolour">
+    android:background="@drawable/splash_background">
 
     <FrameLayout
         android:id="@+id/fragment_container"
@@ -19,7 +19,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:itemTextColor="#00FEFE"
-        android:backgroundTint="@android:color/transparent"        app:itemIconTint="@color/bottom_nav_icon_tint"
+        android:background="@android:color/transparent"
+        app:itemIconTint="@color/bottom_nav_icon_tint"
         style="@style/AppBottomNavigationView"
         android:elevation="20dp"
         android:layout_alignParentBottom="true"

@@ -7,7 +7,6 @@
     android:background="@color/black"
     tools:context=".fragments.More">
 
-
 <!--    <androidx.core.widget.NestedScrollView-->
 <!--        android:background="@color/black"-->
 <!--        android:layout_width="match_parent"-->

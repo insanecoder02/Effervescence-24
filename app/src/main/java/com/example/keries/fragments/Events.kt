@@ -31,9 +31,9 @@ class Events : Fragment() {
     private lateinit var gamingRv: RecyclerView
     private lateinit var InformalRv: RecyclerView
     private  var ij : MutableList<Event_DataClass> = mutableListOf()
-    private lateinit var countdownTextView: TextView
-    private lateinit var toolText : TextView
-    private lateinit var notifyTool : ImageView
+//    private lateinit var countdownTextView: TextView
+//    private lateinit var toolText : TextView
+//    private lateinit var notifyTool : ImageView
 
 
 

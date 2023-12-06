@@ -220,7 +220,6 @@
             app:layout_constraintTop_toBottomOf="@+id/featureEventsTextView"
             tools:listitem="@layout/featuredeventlayout" />
 
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
