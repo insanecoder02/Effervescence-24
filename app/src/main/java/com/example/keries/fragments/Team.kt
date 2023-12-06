@@ -126,20 +126,20 @@ class Team : Fragment() {
         fetchAndPopulateData("CREATIVES", crerv)
         fetchAndPopulateData("HOSPITALITY & TRAVEL", hrv)
 
-        shimCrv = view.findViewById(R.id.festiveCordi)
-        shimFrv = view.findViewById(R.id.financerelcyler)
-        shimEnmrv = view.findViewById(R.id.eventesmangereycl)
-        shimCrrv  = view.findViewById(R.id.coroprate)
-        shimprrv = view.findViewById(R.id.pr)
-        shimblrv  = view.findViewById(R.id.brnding)
-        shimhrv = view.findViewById(R.id.hospitalllty)
-        shimmrv = view.findViewById(R.id.mediaaaa)
-        shimflrv = view.findViewById(R.id.flimingdevven)
-        shimcrerv = view.findViewById(R.id.creativesreyc)
-        shimtrv  = view.findViewById(R.id.tecnialreycler)
-        shimwrv = view.findViewById(R.id.wed)
-        shimarv = view.findViewById(R.id.apppp)
-        shimorv = view.findViewById(R.id.cco)
+        shimCrv = view.findViewById(R.id.shimmerCoordinator)
+        shimFrv = view.findViewById(R.id.shimmerFinance)
+        shimEnmrv = view.findViewById(R.id.shimmerEvents)
+        shimCrrv  = view.findViewById(R.id.shimmerCorporate)
+        shimprrv = view.findViewById(R.id.shimmerPublic)
+        shimblrv  = view.findViewById(R.id.shimmerBranding)
+        shimhrv = view.findViewById(R.id.shimmerHospitalitiy)
+        shimmrv = view.findViewById(R.id.shimmerMedia)
+        shimflrv = view.findViewById(R.id.shimmerFilming)
+        shimcrerv = view.findViewById(R.id.shimmerCreatives)
+        shimtrv  = view.findViewById(R.id.shimmerTechnical)
+        shimwrv = view.findViewById(R.id.shimmerWeb)
+        shimarv = view.findViewById(R.id.shimmerApp)
+        shimorv = view.findViewById(R.id.shimmerOoc)
 
         shimmerEffect(shimCrv,Crv)
         shimmerEffect(shimFrv,frv)
@@ -173,7 +173,7 @@ class Team : Fragment() {
 
         Handler(Looper.getMainLooper()).postDelayed({
             shim.stopShimmer()
-            shim.isVisible =false
+            shim.isVisible = false
             RV.isVisible = true
         },3000)
     }
