@@ -41,9 +41,10 @@ class eventinfo : Fragment() {
         val timee = arguments?.getString("time")
         val url = arguments?.getString("url")
         val venue = arguments?.getString("venue")
+//        val no = arguments?.getString("no")
 
 
-        Log.d("eventinfo", "Received data - Date: $date, Details: $details, Form: $formLink, Name: $name, Time: $timee, URL: $url, Venue: $venue")
+        Log.d("eventinfo", "Received data - Date: $date, Details: $details, Form: $formLink, Name: $name, Time: $timee, URL: $url, Venue: $venue ")
 
         register.setOnClickListener {
             // Check if the formLink is not null or empty
@@ -56,7 +57,7 @@ class eventinfo : Fragment() {
         }
 
 
-//        societyName.text =
+       // societyName.text = "Your Society Name"
         eventDescription.text = details
         eventName.text = name
         location.text=venue
