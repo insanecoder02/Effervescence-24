@@ -9,7 +9,7 @@
 
     <color name="sustem">#000000</color>
     <color name="transparent">#00000000</color>
-    <color name="shimer">#BFBDBD</color>
+    <color name="shimer">#cc6600</color>
     <color name="splashscreencolour">#540482</color>
     <color name="appStatusColour">#59048B</color>
 </resources>

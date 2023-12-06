@@ -137,7 +137,7 @@
                 android:paddingHorizontal="3dp"
                 android:text="Register"
                 android:textAllCaps="false"
-                android:textColor="#90FFFFFF"
+                android:textColor="#FFFFFF"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="@id/rightGuide"
                 app:layout_constraintHorizontal_bias="0.496"

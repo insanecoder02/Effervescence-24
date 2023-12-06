@@ -1,6 +1,8 @@
 package com.example.keries.fragments
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -8,12 +10,16 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.keries.R
 import com.example.keries.adapter.productAdapter
 import com.example.keries.dataClass.productDataClass
+import com.facebook.shimmer.Shimmer
+import com.facebook.shimmer.Shimmer.Direction.BOTTOM_TO_TOP
+import com.facebook.shimmer.ShimmerFrameLayout
 import com.google.firebase.firestore.FirebaseFirestore
 
 class Shop : Fragment(), productAdapter.OnItemClickListener {
@@ -26,6 +32,7 @@ class Shop : Fragment(), productAdapter.OnItemClickListener {
     private lateinit var logoTool: ImageView
     private lateinit var notifyTool: ImageView
     private lateinit var swipeRefreshLayout: SwipeRefreshLayout
+    private lateinit var shimmerFrameLayout: ShimmerFrameLayout
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,6 +40,15 @@ class Shop : Fragment(), productAdapter.OnItemClickListener {
     ): View? {
         // Inflate the layout for this fragment
         val root = inflater.inflate(R.layout.fragment_shop, container, false)
+
+        shimmerFrameLayout= root.findViewById(R.id.shimmer)
+
+        val shimmer = Shimmer.AlphaHighlightBuilder()
+            .setDirection(BOTTOM_TO_TOP)
+            .setDuration(5000)
+            .setAutoStart(true)
+            .build()
+        shimmerFrameLayout.setShimmer(shimmer)
         return root
     }
 
@@ -94,6 +110,12 @@ class Shop : Fragment(), productAdapter.OnItemClickListener {
                     val form = document.getString("form") ?: ""
                     val item = productDataClass(name, type, description, prize, url, form)
                     productList.add(item)
+                    Handler(Looper.getMainLooper()).postDelayed({
+                        shimmerFrameLayout.stopShimmer()
+                        shimmerFrameLayout.isVisible =false
+                        productRecyclerView.isVisible = true
+                    },3000)
+
                 }
 
                 // Notify the adapter that the data set has changed
