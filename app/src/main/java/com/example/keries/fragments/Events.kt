@@ -11,6 +11,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.airbnb.lottie.LottieAnimationView
 import com.example.keries.R
 import com.example.keries.adapter.ShowEventAdapter
 import com.example.keries.dataClass.Event_DataClass
@@ -20,6 +21,8 @@ import com.google.firebase.firestore.FirebaseFirestore
 
 class Events : Fragment() {
 
+
+    private lateinit var lottieLoadingView: LottieAnimationView
     private val db = FirebaseFirestore.getInstance()
     private lateinit var showEventAdapter: ShowEventAdapter
     private lateinit var nimritiRv: RecyclerView
@@ -47,6 +50,7 @@ class Events : Fragment() {
 
 
         // Initialize RecyclerViews and adapters
+        lottieLoadingView = view.findViewById(R.id.loadMeevent)
         nimritiRv = view.findViewById(R.id.nimritiRV)
         rangtaringiniRV = view.findViewById(R.id.rangtaringiniRV)
         sarasvaRV = view.findViewById(R.id.sarasvaRV)
@@ -114,7 +118,7 @@ class Events : Fragment() {
     }
 
     private fun fetchFromFireStoreEvents(eventType: String, recyclerView: RecyclerView) {
-
+        lottieLoadingView.visibility = View.VISIBLE
         ij.clear()
         db.collection(eventType)
             .get()
@@ -138,6 +142,8 @@ class Events : Fragment() {
                 recyclerView.layoutManager =
                     LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
                 recyclerView.adapter = showEventAdapter
+
+                lottieLoadingView.visibility = View.GONE
 
             }
             .addOnFailureListener {

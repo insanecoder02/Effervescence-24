@@ -67,6 +67,7 @@ class Home : Fragment() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         lottieLoadingView = view.findViewById(R.id.loadMe)
         alpha = view.findViewById(R.id.linearLayout)
         beta = view.findViewById(R.id.dayLinearLayout)

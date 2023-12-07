@@ -17,6 +17,22 @@
             android:layout_marginBottom="20dp"
             android:layout_height="match_parent">
 
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/loadMeevent"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="304dp"
+                android:elevation="5dp"
+                android:padding="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/gama" />
+
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/topGuide"
                 android:layout_width="wrap_content"
@@ -51,15 +67,18 @@
 
             <TextView
                 android:id="@+id/nirmitiText"
+                android:textSize="40sp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/east_sea_dokdo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
-                android:fontFamily="@font/east_sea_dokdo"
+
                 android:text="Nirmiti"
-                android:textColor="@color/white"
-                android:textSize="40sp"
+
+
                 app:layout_constraintStart_toStartOf="@id/leftGuide"
-                app:layout_constraintTop_toBottomOf="@+id/topGuide" />
+                app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/nimritiRV"
@@ -68,8 +87,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 app:layout_constraintTop_toBottomOf="@id/nirmitiText"
-                app:layout_constraintStart_toStartOf="@id/leftGuide"
-                app:layout_constraintEnd_toEndOf="@id/rightGuide"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
 
 <!--            <com.jackandphantom.carouselrecyclerview.CarouselRecyclerview-->
 <!--                android:id="@+id/nimritiRV"-->
@@ -88,10 +107,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
-                android:fontFamily="@font/montserrat"
-                android:text="Rangtarigini"
+                android:textSize="40sp"
                 android:textColor="@color/white"
-                android:textSize="20dp"
+                android:fontFamily="@font/east_sea_dokdo"
+                android:text="Rangtarigini"
+
                 app:layout_constraintStart_toStartOf="@id/leftGuide"
                 app:layout_constraintTop_toBottomOf="@id/nimritiRV" />
 
@@ -102,18 +122,18 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 app:layout_constraintTop_toBottomOf="@id/rangtaringiniText"
-                app:layout_constraintStart_toStartOf="@id/leftGuide"
-                app:layout_constraintEnd_toEndOf="@id/rightGuide"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
 
             <TextView
                 android:id="@+id/sarasvaText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
-                android:fontFamily="@font/montserrat"
                 android:text="Sarasva"
+                android:textSize="40sp"
                 android:textColor="@color/white"
-                android:textSize="20dp"
+                android:fontFamily="@font/east_sea_dokdo"
                 app:layout_constraintStart_toStartOf="@id/leftGuide"
                 app:layout_constraintTop_toBottomOf="@id/rangtaringiniRV" />
 
@@ -125,8 +145,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 app:layout_constraintTop_toBottomOf="@id/sarasvaText"
-                app:layout_constraintStart_toStartOf="@id/leftGuide"
-                app:layout_constraintEnd_toEndOf="@id/rightGuide"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
 
             <TextView
                 android:id="@+id/virtuosiText"
@@ -134,10 +154,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
-                android:fontFamily="@font/montserrat"
                 android:text="Virtuosi"
+                android:textSize="40sp"
                 android:textColor="@color/white"
-                android:textSize="20dp"
+                android:fontFamily="@font/east_sea_dokdo"
                 app:layout_constraintStart_toStartOf="@id/leftGuide"
                 app:layout_constraintTop_toBottomOf="@id/sarasvaRV" />
 
@@ -149,18 +169,18 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 app:layout_constraintTop_toBottomOf="@id/virtuosiText"
-                app:layout_constraintStart_toStartOf="@id/leftGuide"
-                app:layout_constraintEnd_toEndOf="@id/rightGuide"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
 
             <TextView
                 android:id="@+id/geneticxText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
-                android:fontFamily="@font/east_sea_dokdo"
                 android:text="Geneticx"
+                android:textSize="40sp"
                 android:textColor="@color/white"
-                android:textSize="20dp"
+                android:fontFamily="@font/east_sea_dokdo"
                 app:layout_constraintStart_toStartOf="@id/leftGuide"
                 app:layout_constraintTop_toBottomOf="@id/virtuosiRV" />
 
@@ -172,18 +192,18 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 app:layout_constraintTop_toBottomOf="@id/geneticxText"
-                app:layout_constraintStart_toStartOf="@id/leftGuide"
-                app:layout_constraintEnd_toEndOf="@id/rightGuide"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
 
             <TextView
                 android:id="@+id/amsText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
-                android:fontFamily="@font/montserrat"
                 android:text="AMS"
+                android:textSize="40sp"
                 android:textColor="@color/white"
-                android:textSize="20dp"
+                android:fontFamily="@font/east_sea_dokdo"
                 app:layout_constraintStart_toStartOf="@id/leftGuide"
                 app:layout_constraintTop_toBottomOf="@id/geneticxRV" />
 
@@ -195,18 +215,18 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 app:layout_constraintTop_toBottomOf="@id/amsText"
-                app:layout_constraintStart_toStartOf="@id/leftGuide"
-                app:layout_constraintEnd_toEndOf="@id/rightGuide"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
 
             <TextView
                 android:id="@+id/Gaming"
                 android:layout_width="wrap_content"
-                android:layout_height="24dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
-                android:fontFamily="@font/montserrat"
                 android:text="Gaming"
+                android:textSize="40sp"
                 android:textColor="@color/white"
-                android:textSize="20sp"
+                android:fontFamily="@font/east_sea_dokdo"
                 app:layout_constraintStart_toStartOf="@id/leftGuide"
                 app:layout_constraintTop_toBottomOf="@id/amsRV" />
 
@@ -219,18 +239,18 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 app:layout_constraintTop_toBottomOf="@id/Gaming"
-                app:layout_constraintStart_toStartOf="@id/leftGuide"
-                app:layout_constraintEnd_toEndOf="@id/rightGuide"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
 
             <TextView
                 android:id="@+id/Informal"
                 android:layout_width="wrap_content"
-                android:layout_height="24dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
-                android:fontFamily="@font/montserrat"
                 android:text="Infromal"
+                android:textSize="40sp"
                 android:textColor="@color/white"
-                android:textSize="20sp"
+                android:fontFamily="@font/east_sea_dokdo"
                 app:layout_constraintStart_toStartOf="@id/leftGuide"
                 app:layout_constraintTop_toBottomOf="@id/gamingRv" />
 
@@ -241,11 +261,21 @@
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="10dp"
                 app:layout_constraintTop_toBottomOf="@id/Informal"
-                app:layout_constraintStart_toStartOf="@id/leftGuide"
-                app:layout_constraintEnd_toEndOf="@id/rightGuide"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:padding="10dp"
+                android:src="@drawable/group_4new"
+                app:layout_constraintEnd_toStartOf="@+id/rightGuide"
+                app:layout_constraintStart_toStartOf="@+id/leftGuide"
+                app:layout_constraintTop_toTopOf="@+id/topGuide" />
 
 
-<!--            <TextView-->
+            <!--            <TextView-->
 <!--                android:layout_width="wrap_content"-->
 <!--                android:layout_height="24dp"-->
 <!--                android:text="Main Stage"-->
