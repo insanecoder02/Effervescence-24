@@ -25,6 +25,7 @@ import com.jackandphantom.carouselrecyclerview.CarouselLayoutManager
 import java.text.SimpleDateFormat
 import java.util.Locale
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import com.airbnb.lottie.LottieAnimationView
 import com.example.keries.others.AutoScrollManager
 
 import com.example.keries.others.Constants
@@ -36,6 +37,8 @@ import java.util.logging.Handler
 
 
 class Home : Fragment() {
+
+    private lateinit var lottieLoadingView: LottieAnimationView
     private lateinit var mainstageEventRecyclerView: RecyclerView
     private lateinit var mainStageEventAdapter : featuredEventsAdapter
     private  var aox  : MutableList<FeaturedEventes>  = mutableListOf()
@@ -64,7 +67,7 @@ class Home : Fragment() {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        lottieLoadingView = view.findViewById(R.id.loadMe)
         alpha = view.findViewById(R.id.linearLayout)
         beta = view.findViewById(R.id.dayLinearLayout)
 
@@ -195,6 +198,7 @@ class Home : Fragment() {
 
     }
     private fun fetchFromFireStoreEvents(eventType: String, recyclerView: RecyclerView) {
+        lottieLoadingView.visibility = View.VISIBLE
         aox.clear()
         // Fetch event data from Firestore for the specified event type
         db.collection(eventType)
@@ -217,6 +221,8 @@ class Home : Fragment() {
                 // Add the data to your existing adapter and notify it to update the RecyclerView
                 aox.addAll(showeventlist)
                 mainStageEventAdapter.notifyDataSetChanged()
+
+                lottieLoadingView.visibility = View.GONE
             }
             .addOnFailureListener {
                 Toast.makeText(requireContext(), "error", Toast.LENGTH_SHORT).show()

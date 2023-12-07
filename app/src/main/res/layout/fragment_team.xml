@@ -41,22 +41,6 @@
                 app:layout_constraintGuide_percent="0.005" />
 
 
-<!--            <com.airbnb.lottie.LottieAnimationView-->
-<!--                android:id="@+id/loadingAnimationView"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:padding="100dp"-->
-<!--                android:layout_height="match_parent"-->
-<!--                android:layout_gravity="center"-->
-<!--                android:elevation="5dp"-->
-<!--                android:background="@color/black"-->
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                app:layout_constraintHorizontal_bias="0.0"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toTopOf="parent"-->
-<!--                app:lottie_autoPlay="true"-->
-<!--                app:lottie_loop="true"-->
-<!--                app:lottie_rawRes="@raw/blackfile" />-->
-
             <TextView
                 android:id="@+id/coordinator"
                 android:layout_width="0dp"
@@ -242,7 +226,7 @@
                 android:layout_height="24dp"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginTop="450dp"
+                android:layout_marginTop="10dp"
                 android:fontFamily="@font/montserrat"
                 android:text="Public relations"
                 android:textAllCaps="true"
@@ -285,7 +269,7 @@
                 android:id="@+id/branding"
                 android:layout_width="0dp"
                 android:layout_height="24dp"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="340dp"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
                 android:fontFamily="@font/montserrat"

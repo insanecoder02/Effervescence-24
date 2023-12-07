@@ -48,6 +48,20 @@
         <!--            tools:listitem="@layout/featuredeventlayout" />-->
 
 
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/loadMe"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginBottom="112dp"
+            android:padding="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/FeaturedEventRecylerView"
+            app:layout_constraintHorizontal_bias="0.462"
+            app:layout_constraintStart_toStartOf="@+id/leftGuide"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/gama" />
+
         <LinearLayout
             android:id="@+id/dayLinearLayout"
             android:layout_width="0dp"
@@ -272,7 +286,7 @@
             android:orientation="vertical"
             android:visibility="visible"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/featureEventsTextView"
             tools:listitem="@layout/featuredeventlayout" />
