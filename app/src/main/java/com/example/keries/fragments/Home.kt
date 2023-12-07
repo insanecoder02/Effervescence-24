@@ -1,6 +1,7 @@
 package com.example.keries.fragments
 
 
+import android.opengl.Visibility
 import android.view.WindowManager
 import android.os.Bundle
 import android.os.CountDownTimer
@@ -11,6 +12,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.Window
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -49,6 +51,8 @@ class Home : Fragment() {
     private val duration = 300 * 1000 // 300 seconds
     private val autoScrollHandler = android.os.Handler()
     private lateinit var autoScrollRunnable: Runnable
+    private lateinit var alpha : LinearLayout
+    private lateinit var beta: LinearLayout
 
 
     override fun onCreateView(
@@ -61,6 +65,10 @@ class Home : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        alpha = view.findViewById(R.id.linearLayout)
+        beta = view.findViewById(R.id.dayLinearLayout)
+
+
         mainstageEventRecyclerView = view.findViewById(R.id.FeaturedEventRecylerView)
         mainStageEventAdapter = featuredEventsAdapter(aox,this)
         mainstageEventRecyclerView.layoutManager =
@@ -68,6 +76,8 @@ class Home : Fragment() {
         mainstageEventRecyclerView.adapter = mainStageEventAdapter
         (mainstageEventRecyclerView as CarouselRecyclerview).setInfinite(true)
         fetchFromFireStoreEvents("Main Stage",mainstageEventRecyclerView)
+
+
 
         val autoScrollManager = AutoScrollManager(mainstageEventRecyclerView)
         autoScrollManager.startAutoScroll(2000)
@@ -87,12 +97,7 @@ class Home : Fragment() {
     }
     private fun fetchData() {
         Log.d("Home", "Fetching data...")
-
-        // Implement your data fetching logic here
-        // For example, re-fetch events from Firestore
         this.fetchFromFireStoreEvents("Main Stage", mainstageEventRecyclerView)
-
-        // After fetching data, stop the refresh animation
         swipeRefreshLayout.isRefreshing = false
     }
 
@@ -144,16 +149,19 @@ class Home : Fragment() {
                 val days = TimeUnit.MILLISECONDS.toDays(millisUntilFinished)
                 val hours = TimeUnit.MILLISECONDS.toHours(millisUntilFinished) % 24
                 val minutes = TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished) % 60
+                val seconds = TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished)%60
 
                 val countdownText = String.format(
-                    "%02d:%02d:%02d",
-                    days, hours, minutes,
+                    "%02d:%02d:%02d:%02d",
+                    days, hours, minutes,seconds
                 )
                 updateUI(countdownText)
             }
-
             override fun onFinish() {
-                updateUI("00:00:00")
+                alpha.visibility= ViewGroup.GONE
+                beta.visibility = ViewGroup.GONE
+                countDownTimer.cancel()
+                isTimerRunning = false
             }
         }
         countDownTimer.start()
@@ -167,7 +175,18 @@ class Home : Fragment() {
         view?.findViewById<TextView>(R.id.hours2)?.text = (hourMinSec[1].toInt() % 10).toString()
         view?.findViewById<TextView>(R.id.minutes2)?.text = (hourMinSec[2].toInt() % 10).toString()
         view?.findViewById<TextView>(R.id.days2)?.text = (hourMinSec[0].toInt() % 10).toString()
+
     }
+
+    private fun stopCountdown() {
+        if (isTimerRunning) {
+            alpha.visibility= ViewGroup.GONE
+            beta.visibility = ViewGroup.GONE
+            countDownTimer.cancel()
+            isTimerRunning = false
+        }
+    }
+
     private fun resetUI() {
         view?.findViewById<TextView>(R.id.days1)?.text = "00"
         view?.findViewById<TextView>(R.id.hours1)?.text = "00"

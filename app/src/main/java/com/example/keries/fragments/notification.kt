@@ -35,6 +35,7 @@ class notification : Fragment() {
         // Inflate the layout for this fragment
         val root = inflater.inflate(R.layout.fragment_notification, container, false)
 
+
 //        val back = root.findViewById<ImageView>(R.id.boso)
 
         // Initialize ViewModel
@@ -45,11 +46,17 @@ class notification : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
+        val takemeback = view.findViewById<ImageView>(R.id.takmeBacknotfiy)
+        takemeback.setOnClickListener{
+            fragmentManager?.popBackStack()        }
         // Initialize RecyclerView
         recyclerView = view.findViewById(R.id.notificationRecyclerView)
         notificationAdapter = NotificationAdapter(NotificatonList)
-        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        recyclerView.layoutManager = LinearLayoutManager(requireContext()).apply {
+            reverseLayout = true
+            stackFromEnd  = true
+        }
+
         recyclerView.adapter = notificationAdapter
 //        val adapter = NotificationAdapter(viewModel.notifications)
 //        recyclerView.adapter = adapter

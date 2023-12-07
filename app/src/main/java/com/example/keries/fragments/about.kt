@@ -30,6 +30,12 @@ class about : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
+
+
+        val takemeback = view.findViewById<ImageView>(R.id.takmeBackaboutus)
+        takemeback.setOnClickListener{
+            fragmentManager?.popBackStack()        }
         insta = view.findViewById<ImageView>(R.id.instaImageView)
         facebook = view.findViewById<ImageView>(R.id.facebookImageView)
         gamail = view.findViewById<ImageView>(R.id.gmailImageView)
