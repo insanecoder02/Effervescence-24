@@ -51,9 +51,7 @@ class Home : Fragment() {
     private lateinit var countDownTimer: CountDownTimer
     private var isTimerRunning = false
     private  val bringmeDateboy  = Constants.MY_SET_DATE
-    private val duration = 300 * 1000 // 300 seconds
-    private val autoScrollHandler = android.os.Handler()
-    private lateinit var autoScrollRunnable: Runnable
+
     private lateinit var alpha : LinearLayout
     private lateinit var beta: LinearLayout
 
@@ -77,6 +75,9 @@ class Home : Fragment() {
         mainStageEventAdapter = featuredEventsAdapter(aox,this)
         mainstageEventRecyclerView.layoutManager =
             CarouselLayoutManager(true,true, 0.5F,true,true,true, LinearLayoutManager.HORIZONTAL)
+
+
+
         mainstageEventRecyclerView.adapter = mainStageEventAdapter
         (mainstageEventRecyclerView as CarouselRecyclerview).setInfinite(true)
         fetchFromFireStoreEvents("Main Stage",mainstageEventRecyclerView)
@@ -85,6 +86,7 @@ class Home : Fragment() {
 
         val autoScrollManager = AutoScrollManager(mainstageEventRecyclerView)
         autoScrollManager.startAutoScroll(2000)
+
 
         swipeRefreshLayout = view.findViewById(R.id.swiperefresh)
         swipeRefreshLayout.setOnRefreshListener {
@@ -104,6 +106,7 @@ class Home : Fragment() {
         this.fetchFromFireStoreEvents("Main Stage", mainstageEventRecyclerView)
         swipeRefreshLayout.isRefreshing = false
     }
+
 
     fun onItemClick(item: FeaturedEventes){
         val bundle=Bundle()
