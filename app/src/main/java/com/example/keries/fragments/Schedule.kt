@@ -82,6 +82,8 @@ class Schedule : Fragment() {
                 requireContext(),
                 "Error downloading image",
                 Toast.LENGTH_SHORT
+
+
             ).show()
         }
     }
