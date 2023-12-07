@@ -25,6 +25,7 @@
         <activity
             android:name=".activity.BaseHome"
             android:exported="false"
+            android:theme="@style/Base.Theme.Keries"
             android:screenOrientation="portrait" />
 
         <service

@@ -4,7 +4,12 @@
         <item name="android:background">@android:color/transparent</item>
     </style>
 
-<!--    <style name="TranslucentDialog" parent="Theme.AppCompat.Dialog">-->
+    <style name="SpinnerItemStyle" parent="Widget.AppCompat.DropDownItem.Spinner">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+
+    <!--    <style name="TranslucentDialog" parent="Theme.AppCompat.Dialog">-->
 <!--        <item name="android:background">@android:color/transparent</item>-->
 <!--        <item name="android:windowBackground">@android:color/transparent</item>-->
 <!--    </style>-->

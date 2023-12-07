@@ -72,6 +72,9 @@ class BaseHome : AppCompatActivity() {
 //                )
 //        window.statusBarColor = Color.TRANSPARENT
         setContentView(R.layout.activity_base_home)
+//        setContentView(
+//            st
+//        )
 
         // Initialize views and load the Home Fragment by default
         bottomNavigationView = findViewById(R.id.bottomNavigationView)

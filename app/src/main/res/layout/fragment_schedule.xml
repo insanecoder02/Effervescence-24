@@ -8,34 +8,38 @@
     tools:context=".fragments.Schedule">
 
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="693dp"
         android:layout_marginVertical="20dp"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
         android:orientation="vertical">
-    <Spinner
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:backgroundTint="@color/white"
-        android:spinnerMode="dialog"
-        android:layout_gravity="center"
-        android:id="@+id/spinner"/>
-    <ImageView
-        android:padding="10dp"
-        android:id="@+id/scheduleShowImageView"
-        android:layout_width="match_parent"
-        android:layout_weight="0.1"
-        android:background="@drawable/whilte_broder"
-        android:layout_height="match_parent"/>
-    <ImageView
 
-        android:id="@+id/downlaod"
-        android:layout_width="48dp"
-        android:layout_marginTop="10dp"
-        android:layout_weight="0.9"
-        android:layout_height="match_parent"
-        android:layout_gravity="center_horizontal"
-        android:src="@drawable/baseline_download_24"
-        app:tint="@color/white" />
+        <Spinner
+            android:id="@+id/spinner"
+            style="@style/SpinnerItemStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_gravity="center"
+            android:background="@drawable/spinner_bag"
+            android:spinnerMode="dropdown" />
+
+        <ImageView
+            android:id="@+id/scheduleShowImageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.09"
+            android:background="@drawable/whilte_broder"
+            android:padding="10dp" />
+
+        <ImageView
+
+            android:id="@+id/downlaod"
+            android:layout_width="48dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_weight="0.4"
+            android:src="@drawable/baseline_download_24"
+            app:tint="@color/white" />
     </LinearLayout>
 
 
