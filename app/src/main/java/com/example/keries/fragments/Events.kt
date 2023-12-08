@@ -8,141 +8,111 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import android.widget.Toast
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.airbnb.lottie.LottieAnimationView
 import com.example.keries.R
 import com.example.keries.adapter.ShowEventAdapter
 import com.example.keries.dataClass.Event_DataClass
+import com.example.keries.databinding.FragmentEventsBinding
 import com.example.keries.others.AutoScrollManager
 import com.google.firebase.firestore.FirebaseFirestore
 
 
 class Events : Fragment() {
-
-
-    private lateinit var lottieLoadingView: LottieAnimationView
+    private lateinit var binding: FragmentEventsBinding
     private val db = FirebaseFirestore.getInstance()
     private lateinit var showEventAdapter: ShowEventAdapter
-    private lateinit var nimritiRv: RecyclerView
-    private lateinit var rangtaringiniRV: RecyclerView
-    private lateinit var sarasvaRV: RecyclerView
-    private lateinit var virtuosiRV: RecyclerView
-    private lateinit var geneticxRV: RecyclerView
-    private lateinit var amsRV: RecyclerView
-    private lateinit var gamingRv: RecyclerView
-    private lateinit var InformalRv: RecyclerView
-    private  var ij : MutableList<Event_DataClass> = mutableListOf()
-    private lateinit var eventsConstraint:ConstraintLayout
+    private var ij: MutableList<Event_DataClass> = mutableListOf()
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        val root= inflater.inflate(R.layout.fragment_events, container, false)
-        return root
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+    ): View {
+        binding = FragmentEventsBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        showEventAdapter = ShowEventAdapter(ij, this)
+        fetchFromFireStoreEvents("AMS", binding.amsRV)
+        fetchFromFireStoreEvents("Dance", binding.geneticxRV)
+        fetchFromFireStoreEvents("Dramatics", binding.rangtaringiniRV)
+        fetchFromFireStoreEvents("Fine Arts", binding.nimritiRV)
+        fetchFromFireStoreEvents("Literature", binding.sarasvaRV)
+        fetchFromFireStoreEvents("Music", binding.virtuosiRV)
+        fetchFromFireStoreEvents("Gaming", binding.gamingRv)
+        fetchFromFireStoreEvents("Informal", binding.InformalRv)
 
-        lottieLoadingView = view.findViewById(R.id.loadMeevent)
-        nimritiRv = view.findViewById(R.id.nimritiRV)
-        rangtaringiniRV = view.findViewById(R.id.rangtaringiniRV)
-        sarasvaRV = view.findViewById(R.id.sarasvaRV)
-        virtuosiRV = view.findViewById(R.id.virtuosiRV)
-        geneticxRV = view.findViewById(R.id.geneticxRV)
-        gamingRv = view.findViewById(R.id.gamingRv)
-        InformalRv = view.findViewById(R.id.InformalRv)
-        amsRV = view.findViewById(R.id.amsRV)
-        eventsConstraint = view.findViewById(R.id.eventsConstraint)
-
-
-        showEventAdapter = ShowEventAdapter(ij,this)
-        fetchFromFireStoreEvents("AMS", amsRV)
-        fetchFromFireStoreEvents("Dance", geneticxRV)
-        fetchFromFireStoreEvents("Dramatics", rangtaringiniRV)
-        fetchFromFireStoreEvents("Fine Arts", nimritiRv)
-        fetchFromFireStoreEvents("Literature", sarasvaRV)
-        fetchFromFireStoreEvents("Music", virtuosiRV)
-        fetchFromFireStoreEvents("Gaming", gamingRv)
-        fetchFromFireStoreEvents("Informal", InformalRv)
-
-        rotor(amsRV)
-        rotor(geneticxRV)
-        rotor(rangtaringiniRV)
-        rotor(nimritiRv)
-        rotor(sarasvaRV)
-        rotor(virtuosiRV)
-        rotor(gamingRv)
-        rotor(InformalRv)
-
+        rotor(binding.amsRV)
+        rotor(binding.geneticxRV)
+        rotor(binding.rangtaringiniRV)
+        rotor(binding.nimritiRV)
+        rotor(binding.sarasvaRV)
+        rotor(binding.virtuosiRV)
+        rotor(binding.gamingRv)
+        rotor(binding.InformalRv)
     }
 
-    private fun rotor (recyclerView: RecyclerView){
-        recyclerView.layoutManager=  LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
+    private fun rotor(recyclerView: RecyclerView) {
+        recyclerView.layoutManager =
+            LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         val autoScrollManager = AutoScrollManager(recyclerView)
         autoScrollManager.startAutoScroll(2000)
     }
 
-    fun onItemClick(item: Event_DataClass){
-        Log.d("Events", "Date: ${item.date}, Details: ${item.details}, Form: ${item.form}, Name: ${item.name}, No: ${item.no}, Time: ${item.time}, URL: ${item.url}, Venue: ${item.venue}")
-        val bundle=Bundle()
-        bundle.putString("date" , item.date?:"Date")
-        bundle.putString("details" , item.details)
-        bundle.putString("form" , item.form?:"Form")
-        bundle.putString("name" , item.name?:"Name")
-        bundle.putLong("no" , item.no?:123)
-        bundle.putString("time" , item.time?:"Time")
-        bundle.putString("url" , item.url?:"Url")
-        bundle.putString("venue" , item.venue?:"Venue")
+    fun onItemClick(item: Event_DataClass) {
+        Log.d(
+            "Events",
+            "Date: ${item.date}, Details: ${item.details}, Form: ${item.form}, Name: ${item.name}, No: ${item.no}, Time: ${item.time}, URL: ${item.url}, Venue: ${item.venue}"
+        )
+        val bundle = Bundle()
+        bundle.putString("date", item.date ?: "Date")
+        bundle.putString("details", item.details)
+        bundle.putString("form", item.form ?: "Form")
+        bundle.putString("name", item.name ?: "Name")
+        bundle.putLong("no", item.no ?: 123)
+        bundle.putString("time", item.time ?: "Time")
+        bundle.putString("url", item.url ?: "Url")
+        bundle.putString("venue", item.venue ?: "Venue")
         val nextFragment = eventinfo()
         nextFragment.arguments = bundle
         val transaction = requireActivity().supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.fragment_container, nextFragment) // Use nextFragment instead of basefragmentevent()
+        transaction.replace(
+            R.id.fragment_container, nextFragment
+        ) // Use nextFragment instead of basefragmentevent()
         transaction.addToBackStack(null)
         transaction.commit()
-//        nextFragment.setEv
     }
 
     private fun fetchFromFireStoreEvents(eventType: String, recyclerView: RecyclerView) {
-        lottieLoadingView.visibility = View.VISIBLE
+        binding.loadMeevent.visibility = View.VISIBLE
         ij.clear()
-        db.collection(eventType)
-            .get()
-            .addOnSuccessListener {
-                val showeventlist = mutableListOf<Event_DataClass>()
-                for (document in it) {
-                    val date = document.getString("date")?:""
-                    val details = document.getString("details")?:""
-                    val form = document.getString("form")?:""
-                    val name = document.getString("name")?:""
-                    val no = document.getLong("no")?:0
-                    val time = document.getString("time")?:""
-                    val url = document.getString("url")?:""
-                    val venue = document.getString("venue")?:""
-                    showeventlist.add(
-                        Event_DataClass(date, details, form, name, no, time, url, venue)
-                    )
-                }
-
-                Handler(Looper.getMainLooper()).postDelayed({
-                    showEventAdapter = ShowEventAdapter(showeventlist, this)
-                    recyclerView.layoutManager =
-                        LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-                    recyclerView.adapter = showEventAdapter
-                    eventsConstraint.visibility= View.VISIBLE
-                    lottieLoadingView.visibility = View.GONE
-                },3000)
-
+        db.collection(eventType).get().addOnSuccessListener {
+            val showeventlist = mutableListOf<Event_DataClass>()
+            for (document in it) {
+                val date = document.getString("date") ?: ""
+                val details = document.getString("details") ?: ""
+                val form = document.getString("form") ?: ""
+                val name = document.getString("name") ?: ""
+                val no = document.getLong("no") ?: 0
+                val time = document.getString("time") ?: ""
+                val url = document.getString("url") ?: ""
+                val venue = document.getString("venue") ?: ""
+                showeventlist.add(
+                    Event_DataClass(date, details, form, name, no, time, url, venue)
+                )
             }
-            .addOnFailureListener {
-                Toast.makeText(requireContext(), "error", Toast.LENGTH_SHORT).show()
-            }
+            Handler(Looper.getMainLooper()).postDelayed({
+                showEventAdapter = ShowEventAdapter(showeventlist, this)
+                recyclerView.layoutManager =
+                    LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+                recyclerView.adapter = showEventAdapter
+                binding.eventsConstraint.visibility = View.VISIBLE
+                binding.loadMeevent.visibility = View.GONE
+            }, 3000)
+        }.addOnFailureListener {
+            Toast.makeText(requireContext(), "error", Toast.LENGTH_SHORT).show()
+        }
     }
 }

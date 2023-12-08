@@ -5,53 +5,41 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.LinearLayout
-import android.widget.TextView
 import com.example.keries.R
+import com.example.keries.databinding.FragmentMoreBinding
 import sponser
 
 class More : Fragment() {
-    private lateinit var toolText : TextView
-    private lateinit var logoTool : ImageView
-    private lateinit var notifyTool : ImageView
+    private lateinit var binding:FragmentMoreBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_more, container, false)
+    ): View {
+        binding = FragmentMoreBinding.inflate(inflater, container, false)
+        return binding.root
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val FAQ = view.findViewById<LinearLayout>(R.id.FAQ)
-        FAQ.setOnClickListener {
+        binding.FAQ.setOnClickListener {
             loadFragment(FAQ())
         }
-        val TEAM = view.findViewById<LinearLayout>(R.id.teamlayout)
-        TEAM.setOnClickListener {
+        binding.teamlayout.setOnClickListener {
             loadFragment(Team())
         }
-        val SPONSER = view.findViewById<LinearLayout>(R.id.SPONS)
-        SPONSER.setOnClickListener {
+        binding.SPONS.setOnClickListener {
             loadFragment(sponser())
         }
-        val ABOUT = view.findViewById<LinearLayout>(R.id.AboutUsss)
-        ABOUT.setOnClickListener {
+        binding.AboutUsss.setOnClickListener {
             loadFragment(about())
         }
-        val dev = view.findViewById<LinearLayout>(R.id.Devs)
-        dev.setOnClickListener {
+        binding.Devs.setOnClickListener {
             loadFragment(developers())
         }
     }
-
     private fun loadFragment(fragment: Fragment) {
         requireActivity().supportFragmentManager.beginTransaction()
             .replace(R.id.fragment_container, fragment)
-            .addToBackStack(null) // Add to back stack so you can navigate back
+            .addToBackStack(null)
             .commit()
     }
-
-
 }

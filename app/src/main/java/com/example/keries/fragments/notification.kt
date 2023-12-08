@@ -14,71 +14,48 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.keries.R
 import com.example.keries.adapter.NotificationAdapter
 import com.example.keries.dataClass.NotificationModel
+import com.example.keries.databinding.FragmentNotificationBinding
 import com.google.firebase.firestore.FirebaseFirestore
 
 class notification : Fragment() {
-
-//    private lateinit var viewModel: NotificationViewModel
-    private lateinit var recyclerView : RecyclerView
+    private lateinit var binding: FragmentNotificationBinding
     private lateinit var notificationAdapter: NotificationAdapter
-    private var NotificatonList : MutableList<NotificationModel> = mutableListOf()
-    private lateinit var toolText : TextView
-    private lateinit var logoTool : ImageView
-    private lateinit var notifyTool : ImageView
-    private  var db = FirebaseFirestore.getInstance()
-
-
+    private var NotificatonList: MutableList<NotificationModel> = mutableListOf()
+    private var db = FirebaseFirestore.getInstance()
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        val root = inflater.inflate(R.layout.fragment_notification, container, false)
-
-
-//        val back = root.findViewById<ImageView>(R.id.boso)
-
-        // Initialize ViewModel
-//        viewModel = ViewModelProvider(this)[NotificationViewModel::class.java]
-        return root
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+    ): View {
+        binding = FragmentNotificationBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        val takemeback = view.findViewById<ImageView>(R.id.takmeBacknotfiy)
-        takemeback.setOnClickListener{
-            fragmentManager?.popBackStack()        }
-        // Initialize RecyclerView
-        recyclerView = view.findViewById(R.id.notificationRecyclerView)
-        notificationAdapter = NotificationAdapter(NotificatonList)
-        recyclerView.layoutManager = LinearLayoutManager(requireContext()).apply {
-            reverseLayout = true
-            stackFromEnd  = true
+        binding.takmeBacknotfiy.setOnClickListener {
+            fragmentManager?.popBackStack()
         }
-
-        recyclerView.adapter = notificationAdapter
-//        val adapter = NotificationAdapter(viewModel.notifications)
-//        recyclerView.adapter = adapter
+        notificationAdapter = NotificationAdapter(NotificatonList)
+        binding.notificationRecyclerView.layoutManager =
+            LinearLayoutManager(requireContext()).apply {
+                reverseLayout = true
+                stackFromEnd = true
+            }
+        binding.notificationRecyclerView.adapter = notificationAdapter
         fetchFirestoreData()
     }
 
     private fun fetchFirestoreData() {
-            db.collection("Notification")
-                .get()
-                .addOnSuccessListener { documents ->
-                    for(document in documents){
-                        val info = document.getString("info")?:""
+        db.collection("Notification").get().addOnSuccessListener { documents ->
+            for (document in documents) {
+                val info = document.getString("info") ?: ""
 //                        val image = document.getString("c")?:""
 //                        val time = document.getString("time")?:""
-                        val item = NotificationModel(info)
-                        NotificatonList.add(item)
-                    }
-                    notificationAdapter.notifyDataSetChanged()
-                }
-                .addOnFailureListener { exception ->
-                    Toast.makeText(requireContext(), "Something went wrong", Toast.LENGTH_SHORT)
-                        .show()
-                }
+                val item = NotificationModel(info)
+                NotificatonList.add(item)
+            }
+            notificationAdapter.notifyDataSetChanged()
+        }.addOnFailureListener { exception ->
+            Toast.makeText(requireContext(), "Something went wrong", Toast.LENGTH_SHORT).show()
+        }
     }
 }
