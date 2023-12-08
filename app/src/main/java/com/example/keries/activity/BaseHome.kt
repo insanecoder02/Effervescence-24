@@ -25,33 +25,43 @@ class BaseHome : AppCompatActivity() {
 
     private lateinit var bottomNavigationView: BottomNavigationView
     var permissionGranted = false
-    val notificationPermissionCode=100
+    val notificationPermissionCode = 100
 
     private val onNavigationItemSelectedListener =
         BottomNavigationView.OnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.navigation_events -> {
-                    loadFragment(Events()) // Load Events Fragment
+                    if (supportFragmentManager.findFragmentById(R.id.fragment_container) !is Events) {
+                        loadFragment(Events())
+                    }
                     return@OnNavigationItemSelectedListener true
                 }
 
                 R.id.navigation_schedule -> {
-                    loadFragment(Schedule()) // Load Schedule Fragment
+                    if (supportFragmentManager.findFragmentById(R.id.fragment_container) !is Schedule) {
+                        loadFragment(Schedule())
+                    }
                     return@OnNavigationItemSelectedListener true
                 }
 
                 R.id.navigation_home -> {
-                    loadFragment(Home()) // Load Home Fragment
+                    if (supportFragmentManager.findFragmentById(R.id.fragment_container) !is Home) {
+                        loadFragment(Home())
+                    }
                     return@OnNavigationItemSelectedListener true
                 }
 
                 R.id.navigation_shop -> {
-                    loadFragment(Shop()) // Load Shop Fragment
+                    if (supportFragmentManager.findFragmentById(R.id.fragment_container) !is Shop) {
+                        loadFragment(Shop())
+                    }
                     return@OnNavigationItemSelectedListener true
                 }
 
                 R.id.navigation_more -> {
-                    loadFragment(More()) // Load More Fragment
+                    if (supportFragmentManager.findFragmentById(R.id.fragment_container) !is More) {
+                        loadFragment(More())
+                    }
                     return@OnNavigationItemSelectedListener true
                 }
             }
@@ -70,60 +80,63 @@ class BaseHome : AppCompatActivity() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             window.statusBarColor = ContextCompat.getColor(this, R.color.transparent)
         }
-        if(permissionGranted){
+        if (permissionGranted) {
             setContentView(R.layout.activity_base_home)
 
             bottomNavigationView = findViewById(R.id.bottomNavigationView)
-            bottomNavigationView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
+            bottomNavigationView.setOnNavigationItemSelectedListener(
+                onNavigationItemSelectedListener
+            )
             loadFragment(Home())
             bottomNavigationView.selectedItemId = R.id.navigation_home
         }
     }
+
     private fun checkPermissions() {
-        val notification =
-            ContextCompat.checkSelfPermission(
-                this,
-                android.Manifest.permission.POST_NOTIFICATIONS)
+        val notification = ContextCompat.checkSelfPermission(
+            this, android.Manifest.permission.POST_NOTIFICATIONS
+        )
         if (notification == PackageManager.PERMISSION_GRANTED) {
-            permissionGranted=true
-        }
-        else{
+            permissionGranted = true
+        } else {
             makeRequest()
         }
     }
+
     private fun makeRequest() {
-        val notification= android.Manifest.permission.POST_NOTIFICATIONS
-        ActivityCompat.requestPermissions(this, arrayOf(notification),notificationPermissionCode)
+        val notification = android.Manifest.permission.POST_NOTIFICATIONS
+        ActivityCompat.requestPermissions(this, arrayOf(notification), notificationPermissionCode)
     }
+
     override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<out String>,
-        grantResults: IntArray
+        requestCode: Int, permissions: Array<out String>, grantResults: IntArray
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        if(requestCode == notificationPermissionCode){
-            if(grantResults.isNotEmpty() &&
-                grantResults[0]==PackageManager.PERMISSION_GRANTED){
-                permissionGranted=true
+        if (requestCode == notificationPermissionCode) {
+            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                permissionGranted = true
                 setContentView(R.layout.activity_base_home)
                 bottomNavigationView = findViewById(R.id.bottomNavigationView)
-                bottomNavigationView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
+                bottomNavigationView.setOnNavigationItemSelectedListener(
+                    onNavigationItemSelectedListener
+                )
                 loadFragment(Home())
                 bottomNavigationView.selectedItemId = R.id.navigation_home
-            }
-            else{
+            } else {
                 showPermissionDeniedDialog()
             }
         }
     }
+
     private fun loadFragment(fragment: Fragment) {
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.fragment_container, fragment)
+        supportFragmentManager.beginTransaction().replace(R.id.fragment_container, fragment)
             .commit()
     }
+
     private fun showToast(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
+
     private fun showPermissionDeniedDialog() {
         val builder = AlertDialog.Builder(this)
         builder.setTitle("Notification Permission Required")
