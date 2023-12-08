@@ -57,7 +57,7 @@ class featuredEventsAdapter(private val items: List<FeaturedEventes>,private val
                 .load(featuredEventes.url)
                 .apply(requestOptions)
                 .placeholder(R.drawable.ic_launcher_background) // Add a placeholder image
-                .error(R.drawable.location_pin_svgrepo_com) // Add an error image
+                .error(R.drawable.image_svgrepo_com) // Add an error image
                 .into(imageOfEvent)
         }
     }

@@ -241,7 +241,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
-            android:src="@drawable/group_4new"
+            android:src="@drawable/effebrushlogofull"
             app:layout_constraintEnd_toStartOf="@+id/rightGuide"
             app:layout_constraintStart_toStartOf="@+id/leftGuide"
             app:layout_constraintTop_toBottomOf="@+id/imageView2" />

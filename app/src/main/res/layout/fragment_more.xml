@@ -49,7 +49,7 @@
             app:flow_horizontalAlign="center"
             app:layout_constraintLeft_toRightOf="@id/leftguide"
             app:layout_constraintRight_toLeftOf="@id/rightguide"
-            android:src="@drawable/group_4new"
+            android:src="@drawable/effebrushlogofull"
             app:layout_constraintTop_toTopOf="parent"
             tools:layout_editor_absoluteX="67dp" />
 

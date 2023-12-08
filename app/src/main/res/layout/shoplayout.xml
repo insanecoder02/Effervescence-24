@@ -87,7 +87,7 @@
         <ImageView
             android:id="@+id/productImage"
             android:layout_width="180dp"
-            android:src="@drawable/logo_effe"
+            android:src="@drawable/effe_logo_svg"
             android:paddingEnd="20dp"
             android:layout_height="180dp"
             android:scaleType="centerInside" />

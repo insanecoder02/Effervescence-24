@@ -13,7 +13,7 @@
         android:layout_width="254dp"
         android:layout_height="254dp"
         android:elevation="10dp"
-        android:src="@drawable/logo_effe"
+        android:src="@drawable/effe_logo_svg"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

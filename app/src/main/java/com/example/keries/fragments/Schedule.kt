@@ -33,14 +33,15 @@ class Schedule : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         binding = FragmentScheduleBinding.inflate(inflater, container, false)
+        spinner = binding.root.findViewById(R.id.spinner)
+        downlaodme = binding.root.findViewById(R.id.downlaod)
+        imageView=binding.root.findViewById(R.id.scheduleShowImageView)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-//        spinner = root.findViewById(R.id.spinner)
-//        downlaodme = root.findViewById(R.id.downlaod)
-//        imageView= root.findViewById(R.id.scheduleShowImageView)
+
         fetchDataForSpinner()
         setSpinnerListener()
         setDownloadClickListener()
@@ -60,8 +61,6 @@ class Schedule : Fragment() {
     }
 
     private fun saveBitmapToStorage(bitmap: Bitmap) {
-        // Implement the logic to save the bitmap to the phone storage
-        // For example, you can use the following code to save the bitmap to a file:
         val filename = "image.png"
         val file = File(requireContext().getExternalFilesDir(null), filename)
 
@@ -94,9 +93,7 @@ class Schedule : Fragment() {
                 if (imageUrl.isNullOrBlank()) {
                     // If the URL is empty or null, you can set the imageView to display nothing
                     // or set it to a default image
-                    imageView.setImageResource(R.drawable.effesvghome)  // Set to nothing (empty)
-                    // Alternatively, set to a default image
-                    // imageView.setImageResource(R.drawable.default_image)
+                    imageView.setImageResource(R.drawable.effesvghome)
                 } else {
                     Picasso.get().load(imageUrl).into(imageView)
                 }
