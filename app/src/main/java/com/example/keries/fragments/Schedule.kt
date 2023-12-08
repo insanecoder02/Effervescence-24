@@ -134,8 +134,6 @@ class Schedule : Fragment() {
                     adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
                     spinner.adapter = adapter
                     Log.d("ImageUrlMap", imageUrlMap.toString())
-
-
                 }
             }.addOnFailureListener { exception ->
                 Log.e("FetchDataError", "Error fetching data: ${exception.message}")

@@ -15,6 +15,22 @@
                   <option name="projectNumber" value="676020220321" />
                 </ConnectionSetting>
               </option>
+              <option name="devices">
+                <list>
+                  <DeviceSetting>
+                    <option name="deviceType" value="Phone" />
+                    <option name="displayName" value="samsung (SM-E236B)" />
+                    <option name="manufacturer" value="samsung" />
+                    <option name="model" value="SM-E236B" />
+                  </DeviceSetting>
+                  <DeviceSetting>
+                    <option name="deviceType" value="Phone" />
+                    <option name="displayName" value="samsung (SM-A146B)" />
+                    <option name="manufacturer" value="samsung" />
+                    <option name="model" value="SM-A146B" />
+                  </DeviceSetting>
+                </list>
+              </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />
               <option name="timeIntervalDays" value="THIRTY_DAYS" />
               <option name="visibilityType" value="ALL" />
