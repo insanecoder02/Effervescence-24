@@ -56,6 +56,9 @@ class Schedule : Fragment() {
                 val bitmap = drawable.bitmap
                 // Implement logic to save the bitmap to the phone storage
                 saveBitmapToStorage(bitmap)
+
+
+
             }
         }
     }
