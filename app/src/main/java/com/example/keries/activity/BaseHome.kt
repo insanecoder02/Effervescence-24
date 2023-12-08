@@ -64,18 +64,21 @@ class BaseHome : AppCompatActivity() {
         FirebaseMessaging.getInstance().subscribeToTopic("notification")
 
         window.statusBarColor = Color.TRANSPARENT
-        setContentView(R.layout.activity_base_home)
-
-        bottomNavigationView = findViewById(R.id.bottomNavigationView)
-        bottomNavigationView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
-        loadFragment(Home())
-        bottomNavigationView.selectedItemId = R.id.navigation_home
-//        bottomNavigationView.setBackgroundColor(getResources().getColor(R.color.transparent))
         checkPermissions()
+        if(permissionGranted){
+            setContentView(R.layout.activity_base_home)
+
+            bottomNavigationView = findViewById(R.id.bottomNavigationView)
+            bottomNavigationView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
+            loadFragment(Home())
+            bottomNavigationView.selectedItemId = R.id.navigation_home
+        }
     }
     private fun checkPermissions() {
         val notification =
-            ContextCompat.checkSelfPermission(this, android.Manifest.permission.POST_NOTIFICATIONS)
+            ContextCompat.checkSelfPermission(
+                this,
+                android.Manifest.permission.POST_NOTIFICATIONS)
         if (notification == PackageManager.PERMISSION_GRANTED) {
             permissionGranted=true
         }
@@ -94,15 +97,18 @@ class BaseHome : AppCompatActivity() {
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if(requestCode == notificationPermissionCode){
-            if(grantResults.isNotEmpty() && grantResults[0]==PackageManager.PERMISSION_GRANTED){
+            if(grantResults.isNotEmpty() &&
+                grantResults[0]==PackageManager.PERMISSION_GRANTED){
                 permissionGranted=true
+                setContentView(R.layout.activity_base_home)
+                bottomNavigationView = findViewById(R.id.bottomNavigationView)
+                bottomNavigationView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
+                loadFragment(Home())
+                bottomNavigationView.selectedItemId = R.id.navigation_home
             }
             else{
                 showPermissionDeniedDialog()
             }
-        }
-        else{
-            showPermissionDeniedDialog()
         }
     }
     private fun loadFragment(fragment: Fragment) {
