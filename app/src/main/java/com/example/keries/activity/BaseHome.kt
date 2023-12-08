@@ -116,11 +116,9 @@ class BaseHome : AppCompatActivity() {
             .replace(R.id.fragment_container, fragment)
             .commit()
     }
-
     private fun showToast(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
-
     private fun showPermissionDeniedDialog() {
         val builder = AlertDialog.Builder(this)
         builder.setTitle("Notification Permission Required")

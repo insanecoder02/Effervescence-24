@@ -1,16 +1,14 @@
 package com.example.keries.fragments
 
-
-import android.opengl.Visibility
-import android.view.WindowManager
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.Window
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -27,14 +25,10 @@ import java.util.Locale
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.airbnb.lottie.LottieAnimationView
 import com.example.keries.others.AutoScrollManager
-
 import com.example.keries.others.Constants
 import com.jackandphantom.carouselrecyclerview.CarouselRecyclerview
 import java.text.ParseException
 import java.util.concurrent.TimeUnit
-import java.util.logging.Handler
-
-
 
 class Home : Fragment() {
 
@@ -42,19 +36,13 @@ class Home : Fragment() {
     private lateinit var mainstageEventRecyclerView: RecyclerView
     private lateinit var mainStageEventAdapter : featuredEventsAdapter
     private  var aox  : MutableList<FeaturedEventes>  = mutableListOf()
-    private lateinit var countdownTextView: TextView
-    private lateinit var toolText : TextView
-    private lateinit var logoTool : ImageView
-    private lateinit var notifyTool : ImageView
     private lateinit var swipeRefreshLayout: SwipeRefreshLayout
     private val db = FirebaseFirestore.getInstance()
     private lateinit var countDownTimer: CountDownTimer
     private var isTimerRunning = false
     private  val bringmeDateboy  = Constants.MY_SET_DATE
-
     private lateinit var alpha : LinearLayout
     private lateinit var beta: LinearLayout
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -70,23 +58,17 @@ class Home : Fragment() {
         alpha = view.findViewById(R.id.linearLayout)
         beta = view.findViewById(R.id.dayLinearLayout)
 
-
         mainstageEventRecyclerView = view.findViewById(R.id.FeaturedEventRecylerView)
         mainStageEventAdapter = featuredEventsAdapter(aox,this)
         mainstageEventRecyclerView.layoutManager =
             CarouselLayoutManager(true,true, 0.5F,true,true,true, LinearLayoutManager.HORIZONTAL)
 
-
-
         mainstageEventRecyclerView.adapter = mainStageEventAdapter
         (mainstageEventRecyclerView as CarouselRecyclerview).setInfinite(true)
         fetchFromFireStoreEvents("Main Stage",mainstageEventRecyclerView)
 
-
-
         val autoScrollManager = AutoScrollManager(mainstageEventRecyclerView)
         autoScrollManager.startAutoScroll(2000)
-
 
         swipeRefreshLayout = view.findViewById(R.id.swiperefresh)
         swipeRefreshLayout.setOnRefreshListener {
@@ -106,8 +88,6 @@ class Home : Fragment() {
         this.fetchFromFireStoreEvents("Main Stage", mainstageEventRecyclerView)
         swipeRefreshLayout.isRefreshing = false
     }
-
-
     fun onItemClick(item: FeaturedEventes){
         val bundle=Bundle()
         bundle.putString("date" , item.date?:"Date")
@@ -184,7 +164,6 @@ class Home : Fragment() {
         view?.findViewById<TextView>(R.id.days2)?.text = (hourMinSec[0].toInt() % 10).toString()
 
     }
-
     private fun stopCountdown() {
         if (isTimerRunning) {
             alpha.visibility= ViewGroup.GONE
@@ -193,7 +172,6 @@ class Home : Fragment() {
             isTimerRunning = false
         }
     }
-
     private fun resetUI() {
         view?.findViewById<TextView>(R.id.days1)?.text = "00"
         view?.findViewById<TextView>(R.id.hours1)?.text = "00"
@@ -224,9 +202,10 @@ class Home : Fragment() {
                 }
                 // Add the data to your existing adapter and notify it to update the RecyclerView
                 aox.addAll(showeventlist)
-                mainStageEventAdapter.notifyDataSetChanged()
-
-                lottieLoadingView.visibility = View.GONE
+                Handler(Looper.getMainLooper()).postDelayed({
+                    mainStageEventAdapter.notifyDataSetChanged()
+                    lottieLoadingView.visibility = View.GONE
+                },3000)
             }
             .addOnFailureListener {
                 Toast.makeText(requireContext(), "error", Toast.LENGTH_SHORT).show()

@@ -7,31 +7,28 @@
     android:background="@drawable/splash_background"
     tools:context=".fragments.Events">
 
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/loadMeevent"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:elevation="5dp"
+        android:padding="20dp"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/gama" />
+
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:background="@color/transparent"
         android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/eventsConstraint"
             android:layout_width="match_parent"
             android:layout_marginBottom="20dp"
+            android:visibility="invisible"
             android:layout_height="match_parent">
-
-
-            <com.airbnb.lottie.LottieAnimationView
-                android:id="@+id/loadMeevent"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_marginTop="304dp"
-                android:elevation="5dp"
-                android:padding="20dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.498"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:lottie_autoPlay="true"
-                app:lottie_loop="true"
-                app:lottie_rawRes="@raw/gama" />
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/topGuide"

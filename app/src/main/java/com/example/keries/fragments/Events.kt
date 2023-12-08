@@ -2,6 +2,8 @@ package com.example.keries.fragments
 
 import android.util.Log
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.airbnb.lottie.LottieAnimationView
@@ -34,22 +37,20 @@ class Events : Fragment() {
     private lateinit var gamingRv: RecyclerView
     private lateinit var InformalRv: RecyclerView
     private  var ij : MutableList<Event_DataClass> = mutableListOf()
-//    private lateinit var countdownTextView: TextView
-//    private lateinit var toolText : TextView
-//    private lateinit var notifyTool : ImageView
+    private lateinit var eventsConstraint:ConstraintLayout
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_events, container, false)
+        val root= inflater.inflate(R.layout.fragment_events, container, false)
+        return root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
 
-        // Initialize RecyclerViews and adapters
         lottieLoadingView = view.findViewById(R.id.loadMeevent)
         nimritiRv = view.findViewById(R.id.nimritiRV)
         rangtaringiniRV = view.findViewById(R.id.rangtaringiniRV)
@@ -59,12 +60,9 @@ class Events : Fragment() {
         gamingRv = view.findViewById(R.id.gamingRv)
         InformalRv = view.findViewById(R.id.InformalRv)
         amsRV = view.findViewById(R.id.amsRV)
+        eventsConstraint = view.findViewById(R.id.eventsConstraint)
 
 
-
-
-
-        // Initialize and populate RecyclerViews with event data
         showEventAdapter = ShowEventAdapter(ij,this)
         fetchFromFireStoreEvents("AMS", amsRV)
         fetchFromFireStoreEvents("Dance", geneticxRV)
@@ -75,7 +73,6 @@ class Events : Fragment() {
         fetchFromFireStoreEvents("Gaming", gamingRv)
         fetchFromFireStoreEvents("Informal", InformalRv)
 
-
         rotor(amsRV)
         rotor(geneticxRV)
         rotor(rangtaringiniRV)
@@ -85,8 +82,6 @@ class Events : Fragment() {
         rotor(gamingRv)
         rotor(InformalRv)
 
-
-
     }
 
     private fun rotor (recyclerView: RecyclerView){
@@ -94,8 +89,6 @@ class Events : Fragment() {
         val autoScrollManager = AutoScrollManager(recyclerView)
         autoScrollManager.startAutoScroll(2000)
     }
-
-
 
     fun onItemClick(item: Event_DataClass){
         Log.d("Events", "Date: ${item.date}, Details: ${item.details}, Form: ${item.form}, Name: ${item.name}, No: ${item.no}, Time: ${item.time}, URL: ${item.url}, Venue: ${item.venue}")
@@ -138,12 +131,14 @@ class Events : Fragment() {
                     )
                 }
 
-                showEventAdapter = ShowEventAdapter(showeventlist, this)
-                recyclerView.layoutManager =
-                    LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-                recyclerView.adapter = showEventAdapter
-
-                lottieLoadingView.visibility = View.GONE
+                Handler(Looper.getMainLooper()).postDelayed({
+                    showEventAdapter = ShowEventAdapter(showeventlist, this)
+                    recyclerView.layoutManager =
+                        LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+                    recyclerView.adapter = showEventAdapter
+                    eventsConstraint.visibility= View.VISIBLE
+                    lottieLoadingView.visibility = View.GONE
+                },3000)
 
             }
             .addOnFailureListener {

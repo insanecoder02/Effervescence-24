@@ -12,7 +12,6 @@
     android:background="@drawable/splash_background"
     tools:context=".fragments.Home">
 
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_marginTop="20dp"
         android:id="@+id/beta"
@@ -32,21 +31,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.05" />
-
-
-        <!--        <androidx.recyclerview.widget.RecyclerView-->
-        <!--            android:id="@+id/FeaturedEventRecylerView"-->
-        <!--            android:layout_width="0dp"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:layout_marginTop="100dp"-->
-        <!--            android:layout_marginBottom="20dp"-->
-        <!--            android:orientation="horizontal"-->
-        <!--            android:visibility="gone"-->
-        <!--            app:layout_constraintEnd_toEndOf="@id/rightGuide"-->
-        <!--            app:layout_constraintStart_toStartOf="@id/leftGuide"-->
-        <!--            app:layout_constraintTop_toBottomOf="@+id/countdownTextView"-->
-        <!--            tools:listitem="@layout/featuredeventlayout" />-->
-
 
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/loadMe"
