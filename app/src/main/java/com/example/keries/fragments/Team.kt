@@ -164,7 +164,6 @@ class Team : Fragment() {
     }
 
     private fun shimmerEffect(shim:ShimmerFrameLayout , RV:RecyclerView) {
-        RV.isNestedScrollingEnabled = false
         val shimmer = Shimmer.AlphaHighlightBuilder()
             .setDirection(Shimmer.Direction.BOTTOM_TO_TOP)
             .setDuration(5000)
@@ -176,7 +175,6 @@ class Team : Fragment() {
             shim.stopShimmer()
             shim.isVisible = false
             RV.isVisible = true
-            RV.isNestedScrollingEnabled = true
         },3000)
     }
 

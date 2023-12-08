@@ -29,6 +29,7 @@ class eventinfo : Fragment(){
         val location = root.findViewById<TextView>(R.id.locationTextView)
         val time = root.findViewById<TextView>(R.id.TimeTextView)
         val image = root.findViewById<ImageView>(R.id.eventImage)
+        val backButton = root.findViewById<ImageView>(R.id.backButton)
 
         val date = arguments?.getString("date")
         val details = arguments?.getString("details")
@@ -60,6 +61,10 @@ class eventinfo : Fragment(){
         time.text=timee
         time.text=timee
         Picasso.get().load(url).into(image)
+
+        backButton.setOnClickListener {
+            requireActivity().supportFragmentManager.popBackStack()
+        }
         return root
     }
 

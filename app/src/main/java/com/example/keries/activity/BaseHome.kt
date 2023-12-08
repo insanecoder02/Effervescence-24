@@ -10,6 +10,7 @@ import com.google.firebase.messaging.FirebaseMessaging
 import android.app.AlertDialog
 import android.content.DialogInterface
 import android.content.pm.PackageManager
+import android.os.Build
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -65,6 +66,10 @@ class BaseHome : AppCompatActivity() {
 
         window.statusBarColor = Color.TRANSPARENT
         checkPermissions()
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            window.statusBarColor = ContextCompat.getColor(this, R.color.transparent)
+        }
         if(permissionGranted){
             setContentView(R.layout.activity_base_home)
 

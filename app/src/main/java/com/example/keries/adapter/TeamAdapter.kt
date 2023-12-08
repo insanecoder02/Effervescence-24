@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.lifecycle.MutableLiveData
 
@@ -19,13 +20,11 @@ import com.facebook.shimmer.ShimmerFrameLayout
 
 class TeamAdapter(private val teamMembers: List<TeamMember>) :
     RecyclerView.Adapter<TeamAdapter.TeamViewHolder>() {
-
     inner class TeamViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val nameTextView: TextView = itemView.findViewById(R.id.nameTextView)
         private val wingTextView: TextView = itemView.findViewById(R.id.desginations)
         private val imageView: ImageView = itemView.findViewById(R.id.imageView)
-
-
+        private val teamLinear:LinearLayout = itemView.findViewById(R.id.teamLinear)
 
         fun bind(teamMember: TeamMember) {
             nameTextView.text = teamMember.name
@@ -44,8 +43,11 @@ class TeamAdapter(private val teamMembers: List<TeamMember>) :
                 .transform(CircleCrop())
                 .into(imageView)
 
-
             imageView.setOnClickListener {
+                val dialog = ImageViewerDialog(itemView.context, teamMember.url)
+                dialog.show()
+            }
+            teamLinear.setOnClickListener {
                 val dialog = ImageViewerDialog(itemView.context, teamMember.url)
                 dialog.show()
             }
