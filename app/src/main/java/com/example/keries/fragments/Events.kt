@@ -128,6 +128,8 @@ class Events : Fragment() {
                 )
             }
             Handler(Looper.getMainLooper()).postDelayed({
+                showEventAdapter = ShowEventAdapter(showeventlist, this)
+                recyclerView.adapter = showEventAdapter
                 binding.eventsConstraint.visibility = View.VISIBLE
                 binding.loadMeevent.visibility = View.GONE
             }, 3000)
