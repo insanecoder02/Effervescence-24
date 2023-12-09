@@ -266,7 +266,7 @@
                 android:layout_width="0dp"
                 android:layout_height="100dp"
                 android:padding="10dp"
-                android:src="@drawable/effe"
+                android:src="@drawable/effebrushlogofull"
                 app:layout_constraintEnd_toStartOf="@+id/rightGuide"
                 app:layout_constraintStart_toStartOf="@+id/leftGuide"
                 app:layout_constraintTop_toTopOf="@+id/topGuide" />

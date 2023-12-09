@@ -38,6 +38,14 @@ class Home : Fragment() {
     private var isTimerRunning = false
     private val bringmeDateboy = Constants.MY_SET_DATE
 
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+
+
+
+
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
@@ -47,6 +55,7 @@ class Home : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
 
         mainStageEventAdapter = featuredEventsAdapter(aox, this)
         binding.FeaturedEventRecylerView.layoutManager = CarouselLayoutManager(
@@ -173,9 +182,18 @@ class Home : Fragment() {
 
     private fun fetchFromFireStoreEvents(eventType: String, recyclerView: RecyclerView) {
         binding.loadMe.visibility = View.VISIBLE
+
+        if (!isAdded) {
+            return
+        }
         aox.clear()
         // Fetch event data from Firestore for the specified event type
         db.collection(eventType).get().addOnSuccessListener { querySnapshot ->
+
+
+            if (!isAdded) {
+                return@addOnSuccessListener
+            }
             val showeventlist = mutableListOf<FeaturedEventes>()
             for (document in querySnapshot) {
                 val date = document.getString("date") ?: ""
@@ -192,8 +210,10 @@ class Home : Fragment() {
             }
             aox.addAll(showeventlist)
             Handler(Looper.getMainLooper()).postDelayed({
-                mainStageEventAdapter.notifyDataSetChanged()
-                binding.loadMe.visibility = View.GONE
+                if (isAdded) {
+                    mainStageEventAdapter.notifyDataSetChanged()
+                    binding.loadMe.visibility = View.GONE
+                }
             }, 3000)
         }.addOnFailureListener {
             Toast.makeText(requireContext(), "error", Toast.LENGTH_SHORT).show()

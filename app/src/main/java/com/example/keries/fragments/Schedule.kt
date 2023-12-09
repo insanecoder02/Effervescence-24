@@ -1,5 +1,6 @@
 package com.example.keries.fragments
 
+import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
 import android.os.Bundle
@@ -42,7 +43,7 @@ class Schedule : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        fetchDataForSpinner()
+        fetchDataForSpinner(requireContext())
         setSpinnerListener()
         setDownloadClickListener()
     }
@@ -55,7 +56,7 @@ class Schedule : Fragment() {
             if (drawable is BitmapDrawable) {
                 val bitmap = drawable.bitmap
                 // Implement logic to save the bitmap to the phone storage
-                saveBitmapToStorage(bitmap)
+                saveBitmapToStorage(requireContext(),bitmap)
 
 
 
@@ -63,21 +64,21 @@ class Schedule : Fragment() {
         }
     }
 
-    private fun saveBitmapToStorage(bitmap: Bitmap) {
+    private fun saveBitmapToStorage( alpha: Context,bitmap: Bitmap) {
         val filename = "image.png"
-        val file = File(requireContext().getExternalFilesDir(null), filename)
+        val file = File(alpha.getExternalFilesDir(null), filename)
 
         try {
             val fos = FileOutputStream(file)
             bitmap.compress(Bitmap.CompressFormat.PNG, 100, fos)
             fos.close()
             Toast.makeText(
-                requireContext(), "Image downloaded successfully", Toast.LENGTH_SHORT
+                alpha, "Image downloaded successfully", Toast.LENGTH_SHORT
             ).show()
         } catch (e: IOException) {
             e.printStackTrace()
             Toast.makeText(
-                requireContext(), "Error downloading image", Toast.LENGTH_SHORT
+                alpha, "Error downloading image", Toast.LENGTH_SHORT
             ).show()
         }
     }
@@ -112,7 +113,7 @@ class Schedule : Fragment() {
         }
     }
 
-    private fun fetchDataForSpinner() {
+    private fun fetchDataForSpinner(alpha: Context) {
         firestore.collection("schedule").get()
             .addOnSuccessListener { querySnapshot: QuerySnapshot? ->
                 querySnapshot?.let {
@@ -132,7 +133,7 @@ class Schedule : Fragment() {
 
                     // Create an ArrayAdapter and set it to the spinner
                     val adapter = ArrayAdapter(
-                        requireContext(), android.R.layout.simple_spinner_item, spinnerDataList
+                        alpha, android.R.layout.simple_spinner_item, spinnerDataList
                     )
                     adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
                     spinner.adapter = adapter

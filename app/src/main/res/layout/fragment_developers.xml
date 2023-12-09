@@ -10,34 +10,155 @@
 <FrameLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/splash_background"
+    android:background="@color/black"
     tools:context=".fragments.developers">
 
     <LinearLayout
-        android:layout_width="200dp"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-
-        <TextView
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:background="@drawable/gradient2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            android:text="Gaurav" />
+            android:layout_weight="0.5"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_gravity="center"
+                android:layout_marginStart="12dp"
+                android:layout_width="wrap_content"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:text="Prakriti Vashishtha" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:fontFamily="@font/montserrat"
+                    android:textColor="@color/white"
+                    android:textSize="17sp"
+                    android:layout_height="wrap_content"
+                    android:text="Executive"/>
+            </LinearLayout>
 
-        <TextView
+            <ImageView
+                android:padding="10dp"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:src="@drawable/github_mark_white"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:background="@drawable/gradient2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            android:text="Ishant" />
+            android:layout_weight="0.5"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_gravity="center"
+                android:layout_marginStart="12dp"
+                android:layout_width="wrap_content"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:text="Bhumika Kalaru" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:fontFamily="@font/montserrat"
+                    android:textColor="@color/white"
+                    android:textSize="17sp"
+                    android:layout_height="wrap_content"
+                    android:text="Executive"/>
+            </LinearLayout>
 
-        <TextView
+            <ImageView
+                android:padding="10dp"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:src="@drawable/github_mark_white"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:background="@drawable/gradient2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            android:text="Prakriti mam" />
+            android:layout_weight="0.5"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_gravity="center"
+                android:layout_marginStart="12dp"
+                android:layout_width="wrap_content"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:text="Gaurav Chhetri" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:fontFamily="@font/montserrat"
+                    android:textColor="@color/white"
+                    android:textSize="17sp"
+                    android:layout_height="wrap_content"
+                    android:text="Executive"/>
+            </LinearLayout>
+
+            <ImageView
+                android:padding="10dp"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:src="@drawable/github_mark_white"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:background="@drawable/gradient2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_gravity="center"
+                android:layout_marginStart="12dp"
+                android:layout_width="wrap_content"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:text="Ishanth Kumawat" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:fontFamily="@font/montserrat"
+                    android:textColor="@color/white"
+                    android:textSize="17sp"
+                    android:layout_height="wrap_content"
+                    android:text="Executive"/>
+            </LinearLayout>
+
+            <ImageView
+                android:padding="10dp"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:src="@drawable/github_mark_white"/>
+        </LinearLayout>
+
     </LinearLayout>
 
     <com.airbnb.lottie.LottieAnimationView

@@ -18,7 +18,6 @@ import com.example.keries.databinding.FragmentEventsBinding
 import com.example.keries.others.AutoScrollManager
 import com.google.firebase.firestore.FirebaseFirestore
 
-
 class Events : Fragment() {
     private lateinit var binding: FragmentEventsBinding
     private val db = FirebaseFirestore.getInstance()
@@ -35,13 +34,38 @@ class Events : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         showEventAdapter = ShowEventAdapter(ij, this)
+
+        binding.amsRV.layoutManager =
+            LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        binding.amsRV.adapter = showEventAdapter
         fetchFromFireStoreEvents("AMS", binding.amsRV)
+        binding.geneticxRV.layoutManager =
+            LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        binding.geneticxRV.adapter = showEventAdapter
         fetchFromFireStoreEvents("Dance", binding.geneticxRV)
+        binding.rangtaringiniRV.layoutManager =
+            LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        binding.rangtaringiniRV.adapter = showEventAdapter
         fetchFromFireStoreEvents("Dramatics", binding.rangtaringiniRV)
+        binding.nimritiRV.layoutManager =
+            LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        binding.nimritiRV.adapter = showEventAdapter
         fetchFromFireStoreEvents("Fine Arts", binding.nimritiRV)
+        binding.sarasvaRV.layoutManager =
+            LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        binding.sarasvaRV.adapter = showEventAdapter
         fetchFromFireStoreEvents("Literature", binding.sarasvaRV)
+        binding.virtuosiRV.layoutManager =
+            LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        binding.virtuosiRV.adapter = showEventAdapter
         fetchFromFireStoreEvents("Music", binding.virtuosiRV)
+        binding.gamingRv.layoutManager =
+            LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        binding.gamingRv.adapter = showEventAdapter
         fetchFromFireStoreEvents("Gaming", binding.gamingRv)
+        binding.InformalRv.layoutManager =
+            LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        binding.InformalRv.adapter = showEventAdapter
         fetchFromFireStoreEvents("Informal", binding.InformalRv)
 
         rotor(binding.amsRV)
@@ -104,10 +128,6 @@ class Events : Fragment() {
                 )
             }
             Handler(Looper.getMainLooper()).postDelayed({
-                showEventAdapter = ShowEventAdapter(showeventlist, this)
-                recyclerView.layoutManager =
-                    LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-                recyclerView.adapter = showEventAdapter
                 binding.eventsConstraint.visibility = View.VISIBLE
                 binding.loadMeevent.visibility = View.GONE
             }, 3000)

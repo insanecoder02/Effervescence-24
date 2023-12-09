@@ -21,7 +21,6 @@ import com.google.firebase.firestore.FirebaseFirestore
 class Shop : Fragment(), productAdapter.OnItemClickListener {
     private lateinit var binding: FragmentShopBinding
     private lateinit var productadapter: productAdapter
-    private val db = FirebaseFirestore.getInstance()
     private var productList: MutableList<productDataClass> = mutableListOf()
 
     override fun onCreateView(
