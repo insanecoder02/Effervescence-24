@@ -32,6 +32,7 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="7dp"
                 android:padding="5dp"
                 android:layout_weight="0"
                 android:orientation="vertical">
@@ -85,6 +86,7 @@
                     android:textSize="24sp" />
             </LinearLayout>
             <ImageView
+                android:layout_marginVertical="3dp"
                 android:id="@+id/productImage"
                 android:layout_width="180dp"
                 android:background="@drawable/round_back"

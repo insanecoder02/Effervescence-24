@@ -38,13 +38,6 @@ class Home : Fragment() {
     private var isTimerRunning = false
     private val bringmeDateboy = Constants.MY_SET_DATE
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-
-
-
-
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -69,10 +62,7 @@ class Home : Fragment() {
         val autoScrollManager = AutoScrollManager(binding.FeaturedEventRecylerView)
         autoScrollManager.startAutoScroll(2000)
 
-        binding.swiperefresh.setOnRefreshListener {
-            Log.d("HomeFragment", "Swipe to refresh triggered")
-            fetchData()
-        }
+
 
         fetchSystemDateTime()
 
@@ -84,7 +74,6 @@ class Home : Fragment() {
     private fun fetchData() {
         Log.d("Home", "Fetching data...")
         this.fetchFromFireStoreEvents("Main Stage", binding.FeaturedEventRecylerView)
-        binding.swiperefresh.isRefreshing = false
     }
 
     fun onItemClick(item: FeaturedEventes) {

@@ -42,6 +42,8 @@ class BaseHome : AppCompatActivity() {
                 R.id.navigation_schedule -> {
                     if (supportFragmentManager.findFragmentById(R.id.fragment_container) !is Schedule) {
                         loadFragment(Schedule())
+                        window.decorView.setBackgroundResource(R.drawable.splash_background)
+
                     }
                     return@OnNavigationItemSelectedListener true
                 }
@@ -49,6 +51,8 @@ class BaseHome : AppCompatActivity() {
                 R.id.navigation_home -> {
                     if (supportFragmentManager.findFragmentById(R.id.fragment_container) !is Home) {
                         loadFragment(Home())
+                        window.decorView.setBackgroundResource(R.drawable.homefragmentbackgorundimage)
+
                     }
                     return@OnNavigationItemSelectedListener true
                 }
@@ -56,6 +60,8 @@ class BaseHome : AppCompatActivity() {
                 R.id.navigation_shop -> {
                     if (supportFragmentManager.findFragmentById(R.id.fragment_container) !is Shop) {
                         loadFragment(Shop())
+                        window.decorView.setBackgroundResource(R.drawable.splash_background)
+
                     }
                     return@OnNavigationItemSelectedListener true
                 }
@@ -63,6 +69,8 @@ class BaseHome : AppCompatActivity() {
                 R.id.navigation_more -> {
                     if (supportFragmentManager.findFragmentById(R.id.fragment_container) !is More) {
                         loadFragment(More())
+                        window.decorView.setBackgroundResource(R.drawable.splash_background)
+
                     }
                     return@OnNavigationItemSelectedListener true
                 }
@@ -91,6 +99,9 @@ class BaseHome : AppCompatActivity() {
                 onNavigationItemSelectedListener
             )
             loadFragment(Home())
+            window.decorView.setBackgroundResource(R.drawable.homefragmentbackgorundimage)
+
+
             bottomNavigationView.selectedItemId = R.id.navigation_home
         }
     }
@@ -124,6 +135,7 @@ class BaseHome : AppCompatActivity() {
                     onNavigationItemSelectedListener
                 )
                 loadFragment(Home())
+                window.decorView.setBackgroundResource(R.drawable.homefragmentbackgorundimage)
                 bottomNavigationView.selectedItemId = R.id.navigation_home
             } else {
                 showPermissionDeniedDialog()

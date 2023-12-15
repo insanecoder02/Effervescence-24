@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/swiperefresh"
-         android:layout_width="match_parent"
-         android:layout_height="match_parent">
-<FrameLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/splash_background"
+    android:background="@drawable/homefragmentbackgorundimage"
     tools:context=".fragments.Home">
 
+    <ScrollView
+        android:background="@color/transparent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_marginTop="20dp"
         android:id="@+id/beta"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/rightGuide"
@@ -52,7 +52,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:gravity="center"
-
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintEnd_toStartOf="@id/rightGuide"
@@ -63,32 +62,30 @@
 
             <TextView
                 android:layout_width="wrap_content"
-                android:textColor="@color/white"
-                android:fontFamily="@font/east_sea_dokdo"
-                android:textSize="36sp"
-                android:layout_marginHorizontal="30sp"
-
                 android:layout_height="wrap_content"
-                android:text="Day"/>
+                android:layout_marginHorizontal="33sp"
+                android:fontFamily="@font/poppins_extralight"
+                android:text="Day"
+                android:textColor="@color/white"
+                android:textSize="24sp" />
 
             <TextView
                 android:layout_width="wrap_content"
-                android:textColor="@color/white"
-                android:layout_marginHorizontal="30sp"
-
-                android:fontFamily="@font/east_sea_dokdo"
-                android:textSize="36sp"
                 android:layout_height="wrap_content"
-                android:text="Hour"/>
+                android:layout_marginHorizontal="30sp"
+                android:fontFamily="@font/poppins_extralight"
+                android:text="Hour"
+                android:textColor="@color/white"
+                android:textSize="24sp" />
 
             <TextView
-                android:layout_marginHorizontal="30sp"
                 android:layout_width="wrap_content"
-                android:textColor="@color/white"
-                android:fontFamily="@font/east_sea_dokdo"
-                android:textSize="36sp"
                 android:layout_height="wrap_content"
-                android:text="Min"/>
+                android:layout_marginHorizontal="30sp"
+                android:fontFamily="@font/poppins_extralight"
+                android:text="Min"
+                android:textColor="@color/white"
+                android:textSize="24sp" />
 
         </LinearLayout>
 
@@ -96,7 +93,7 @@
             android:id="@+id/linearLayout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="34dp"
             android:gravity="center"
 
             android:orientation="horizontal"
@@ -104,14 +101,13 @@
             app:layout_constraintEnd_toStartOf="@id/rightGuide"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="@+id/leftGuide"
-            app:layout_constraintTop_toBottomOf="@+id/effeNameLogoImageView">
+            app:layout_constraintTop_toBottomOf="@+id/commingsoon">
 
             <TextView
                 android:id="@+id/days1"
                 android:layout_width="35dp"
                 android:layout_height="50dp"
                 android:background="@drawable/round_back"
-                android:backgroundTint="#33FFFFFF"
                 android:gravity="center"
                 android:textAlignment="center"
                 android:textColor="#FFFFFF"
@@ -124,7 +120,6 @@
                 android:layout_height="50dp"
                 android:layout_marginLeft="4dp"
                 android:background="@drawable/round_back"
-                android:backgroundTint="#33FFFFFF"
                 android:gravity="center"
                 android:textAlignment="center"
                 android:textColor="#FFFFFF"
@@ -147,7 +142,6 @@
                 android:layout_width="35dp"
                 android:layout_height="50dp"
                 android:background="@drawable/round_back"
-                android:backgroundTint="#33FFFFFF"
                 android:gravity="center"
                 android:textAlignment="center"
                 android:textColor="#FFFFFF"
@@ -160,7 +154,6 @@
                 android:layout_height="50dp"
                 android:layout_marginLeft="4dp"
                 android:background="@drawable/round_back"
-                android:backgroundTint="#33FFFFFF"
                 android:gravity="center"
                 android:textAlignment="center"
                 android:textColor="#FFFFFF"
@@ -182,7 +175,6 @@
                 android:layout_width="35dp"
                 android:layout_height="50dp"
                 android:background="@drawable/round_back"
-                android:backgroundTint="#33FFFFFF"
                 android:gravity="center"
 
                 android:textAlignment="center"
@@ -196,7 +188,6 @@
                 android:layout_height="50dp"
                 android:layout_marginLeft="4dp"
                 android:background="@drawable/round_back"
-                android:backgroundTint="#33FFFFFF"
                 android:gravity="center"
                 android:textAlignment="center"
                 android:textColor="#FFFFFF"
@@ -248,6 +239,22 @@
 
 
         <TextView
+            android:id="@+id/commingsoon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="170dp"
+            android:fontFamily="@font/poppins_medium"
+            android:letterSpacing=".1"
+            android:text="COMING  SOON"
+            android:textColor="@color/white"
+            android:textSize="32sp"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toStartOf="@+id/rightGuide"
+            app:layout_constraintHorizontal_bias="0.491"
+            app:layout_constraintStart_toStartOf="@+id/leftGuide"
+            app:layout_constraintTop_toBottomOf="@+id/effeNameLogoImageView" />
+
+        <TextView
             android:id="@+id/featureEventsTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -276,7 +283,6 @@
             tools:listitem="@layout/featuredeventlayout" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
+    </ScrollView>
 
 </FrameLayout>
-</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
