@@ -62,6 +62,21 @@ class Team : Fragment() {
         binding.creativesreyc.layoutManager = LinearLayoutManager(context)
         binding.hospitalllty.layoutManager = LinearLayoutManager(context)
 
+        shimmerEffect(binding.shimmerCoordinator,binding.festiveCordi)
+        shimmerEffect(binding.shimmerFinance,binding.financerelcyler)
+        shimmerEffect(binding.shimmerCorporate,binding.coroprate)
+        shimmerEffect(binding.shimmerEvents,binding.eventesmangereycl)
+        shimmerEffect(binding.shimmerWeb,binding.wed)
+        shimmerEffect(binding.shimmerTechnical,binding.tecnialreycler)
+        shimmerEffect(binding.shimmerOoc,binding.cco)
+        shimmerEffect(binding.shimmerHospitalitiy,binding.hospitalllty)
+        shimmerEffect(binding.shimmerBranding,binding.brnding)
+        shimmerEffect(binding.shimmerPublic,binding.pr)
+        shimmerEffect(binding.shimmerMedia,binding.mediaaaa)
+        shimmerEffect(binding.shimmerFilming,binding.flimingdevven)
+        shimmerEffect(binding.shimmerCreatives,binding.creativesreyc)
+        shimmerEffect(binding.shimmerApp,binding.apppp)
+
         fetchAndPopulateData("Coordinator", binding.festiveCordi)
         fetchAndPopulateData("FINANCE", binding.financerelcyler)
         fetchAndPopulateData("EVENTS & MANAGEMENT", binding.eventesmangereycl)
@@ -79,6 +94,23 @@ class Team : Fragment() {
         binding.swiperefreshteam.setOnRefreshListener {
             binding.swiperefreshteam.isRefreshing = false
         }
+    }
+
+    private fun shimmerEffect(shim:ShimmerFrameLayout , RV:RecyclerView) {
+        RV.isNestedScrollingEnabled = false
+        val shimmer = Shimmer.AlphaHighlightBuilder()
+            .setDirection(Shimmer.Direction.BOTTOM_TO_TOP)
+            .setDuration(5000)
+            .setAutoStart(true)
+            .build()
+        shim.setShimmer(shimmer)
+
+        Handler(Looper.getMainLooper()).postDelayed({
+            shim.stopShimmer()
+            shim.isVisible = false
+            RV.isVisible = true
+            RV.isNestedScrollingEnabled = true
+        },3000)
     }
 
     private fun fetchAndPopulateData(wing: String, recyclerView: RecyclerView) {
