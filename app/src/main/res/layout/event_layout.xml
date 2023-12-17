@@ -121,7 +121,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="290dp"
                 android:scaleType="fitXY"
-                android:src="@drawable/ic_launcher_background" />
+                android:src="@drawable/whilte_broder" />
             </androidx.cardview.widget.CardView>
 
             <androidx.appcompat.widget.AppCompatButton

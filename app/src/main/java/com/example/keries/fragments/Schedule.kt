@@ -42,7 +42,6 @@ class Schedule : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         fetchDataForSpinner(requireContext())
         setSpinnerListener()
         setDownloadClickListener()

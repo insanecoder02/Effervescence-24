@@ -17,7 +17,7 @@ import com.example.keries.fragments.Events
 
 // this adapter is for  the front event page not hte showevent page
 
-class ShowEventAdapter(private val showevents: List<Event_DataClass>, private val itemClickListener: Events) :
+class ShowEventAdapter(private val showevents: List<Event_DataClass>?, private val itemClickListener: Events) :
     RecyclerView.Adapter<ShowEventAdapter.ShowEventViewHolder>() {
     interface boxo{
         fun OnItemClick(item: Event_DataClass)
@@ -31,7 +31,7 @@ class ShowEventAdapter(private val showevents: List<Event_DataClass>, private va
             Glide.with(itemView.context)
                 .load(se.url)
                 .apply(requestOptions)
-                .placeholder(R.drawable.ic_launcher_background) // Add a placeholder image
+                .placeholder(R.drawable.whilte_broder) // Add a placeholder image
                 .error(R.drawable.image_svgrepo_com) // Add an error image
                 .into(imageView)
 
@@ -46,16 +46,20 @@ class ShowEventAdapter(private val showevents: List<Event_DataClass>, private va
     }
 
     override fun onBindViewHolder(holder: ShowEventViewHolder, position: Int) {
-        val sees = showevents[position %showevents.size]
-        holder.bind(sees)
+        val sees = showevents?.get(position %showevents.size)
+        if (sees != null) {
+            holder.bind(sees)
+        }
 
         holder.itemView.setOnClickListener{
-            itemClickListener.onItemClick(sees)
+            if (sees != null) {
+                itemClickListener.onItemClick(sees)
+            }
         }
     }
 
     override fun getItemCount(): Int {
-        return if (showevents.isEmpty()) {
+        return if (showevents!!.isEmpty()) {
             0
         } else {
             Int.MAX_VALUE

@@ -2,8 +2,6 @@ package com.example.keries.fragments
 
 import android.util.Log
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -17,12 +15,17 @@ import com.example.keries.dataClass.Event_DataClass
 import com.example.keries.databinding.FragmentEventsBinding
 import com.example.keries.others.AutoScrollManager
 import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.tasks.await
 
 class Events : Fragment() {
     private lateinit var binding: FragmentEventsBinding
     private val db = FirebaseFirestore.getInstance()
     private lateinit var showEventAdapter: ShowEventAdapter
     private var ij: MutableList<Event_DataClass> = mutableListOf()
+    private val cache = mutableMapOf<String, List<Event_DataClass>>()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
@@ -68,14 +71,14 @@ class Events : Fragment() {
         binding.InformalRv.adapter = showEventAdapter
         fetchFromFireStoreEvents("Informal", binding.InformalRv)
 
-        rotor(binding.amsRV)
-        rotor(binding.geneticxRV)
-        rotor(binding.rangtaringiniRV)
-        rotor(binding.nimritiRV)
-        rotor(binding.sarasvaRV)
-        rotor(binding.virtuosiRV)
-        rotor(binding.gamingRv)
-        rotor(binding.InformalRv)
+//        rotor(binding.amsRV)
+//        rotor(binding.geneticxRV)
+//        rotor(binding.rangtaringiniRV)
+//        rotor(binding.nimritiRV)
+//        rotor(binding.sarasvaRV)
+//        rotor(binding.virtuosiRV)
+//        rotor(binding.gamingRv)
+//        rotor(binding.InformalRv)
     }
 
     private fun rotor(recyclerView: RecyclerView) {
@@ -112,29 +115,42 @@ class Events : Fragment() {
     private fun fetchFromFireStoreEvents(eventType: String, recyclerView: RecyclerView) {
         binding.loadMeevent.visibility = View.VISIBLE
         ij.clear()
-        db.collection(eventType).get().addOnSuccessListener {
-            val showeventlist = mutableListOf<Event_DataClass>()
-            for (document in it) {
-                val date = document.getString("date") ?: ""
-                val details = document.getString("details") ?: ""
-                val form = document.getString("form") ?: ""
-                val name = document.getString("name") ?: ""
-                val no = document.getLong("no") ?: 0
-                val time = document.getString("time") ?: ""
-                val url = document.getString("url") ?: ""
-                val venue = document.getString("venue") ?: ""
-                showeventlist.add(
-                    Event_DataClass(date, details, form, name, no, time, url, venue)
-                )
+        if (cache.containsKey(eventType)) {
+            val cachedData = cache[eventType]
+            showEventAdapter = ShowEventAdapter(cachedData, this@Events)
+            recyclerView.adapter = showEventAdapter
+            binding.eventsConstraint.visibility = View.VISIBLE
+            binding.loadMeevent.visibility = View.GONE
+        } else {
+            GlobalScope.launch(Dispatchers.Main) {
+                try {
+                    val querySnapshot = db.collection(eventType).get().await()
+                    val showeventlist = mutableListOf<Event_DataClass>()
+                    for (document in querySnapshot) {
+                        val date = document.getString("date") ?: ""
+                        val details = document.getString("details") ?: ""
+                        val form = document.getString("form") ?: ""
+                        val name = document.getString("name") ?: ""
+                        val no = document.getLong("no") ?: 0
+                        val time = document.getString("time") ?: ""
+                        val url = document.getString("url") ?: ""
+                        val venue = document.getString("venue") ?: ""
+                        showeventlist.add(
+                            Event_DataClass(
+                                date, details, form, name, no, time, url, venue
+                            )
+                        )
+                    }
+                    cache[eventType] = showeventlist
+                    showEventAdapter = ShowEventAdapter(showeventlist, this@Events)
+                    recyclerView.adapter = showEventAdapter
+                    binding.eventsConstraint.visibility = View.VISIBLE
+                    binding.loadMeevent.visibility = View.GONE
+                } catch (e: Exception) {
+                    Toast.makeText(requireContext(), "Error: ${e.message}", Toast.LENGTH_SHORT)
+                        .show()
+                }
             }
-            Handler(Looper.getMainLooper()).postDelayed({
-                showEventAdapter = ShowEventAdapter(showeventlist, this)
-                recyclerView.adapter = showEventAdapter
-                binding.eventsConstraint.visibility = View.VISIBLE
-                binding.loadMeevent.visibility = View.GONE
-            }, 3000)
-        }.addOnFailureListener {
-            Toast.makeText(requireContext(), "error", Toast.LENGTH_SHORT).show()
         }
     }
 }

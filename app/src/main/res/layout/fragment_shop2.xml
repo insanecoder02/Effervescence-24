@@ -63,7 +63,7 @@
                 android:layout_height="280dp"
                 android:paddingHorizontal="20dp"
                 android:scaleType="fitXY"
-                android:src="@drawable/ic_launcher_background"
+                android:src="@drawable/whilte_broder"
                 android:layout_marginTop="15dp"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="@id/leftGuide"

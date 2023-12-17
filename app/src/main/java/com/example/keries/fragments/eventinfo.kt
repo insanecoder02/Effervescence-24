@@ -44,7 +44,6 @@ class eventinfo : Fragment(){
         Log.d("eventinfo", "Received data - Date: $date, Details: $details, Form: $formLink, Name: $name, Time: $timee, URL: $url, Venue: $venue ")
 
         register.setOnClickListener {
-            // Check if the formLink is not null or empty
             if (!formLink.isNullOrBlank()) {
                 val intent = Intent(Intent.ACTION_VIEW, Uri.parse(formLink))
                 startActivity(intent)
@@ -52,7 +51,6 @@ class eventinfo : Fragment(){
                 Toast.makeText(requireContext(), "The Link is Not Available", Toast.LENGTH_SHORT).show()
             }
         }
-
 
        // societyName.text = "Your Society Name"
         eventDescription.text = details

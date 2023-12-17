@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.keries.R
 import com.example.keries.adapter.featuredEventsAdapter
+import com.example.keries.dataClass.Event_DataClass
 import com.example.keries.dataClass.FeaturedEventes
 import com.google.firebase.firestore.FirebaseFirestore
 import com.jackandphantom.carouselrecyclerview.CarouselLayoutManager
@@ -33,11 +34,11 @@ class Home : Fragment() {
     private lateinit var binding: FragmentHomeBinding
     private lateinit var mainStageEventAdapter: featuredEventsAdapter
     private var aox: MutableList<FeaturedEventes> = mutableListOf()
+    private val cache = mutableMapOf<String, List<FeaturedEventes>>()
     private val db = FirebaseFirestore.getInstance()
     private lateinit var countDownTimer: CountDownTimer
     private var isTimerRunning = false
     private val bringmeDateboy = Constants.MY_SET_DATE
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -48,7 +49,6 @@ class Home : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
 
         mainStageEventAdapter = featuredEventsAdapter(aox, this)
         binding.FeaturedEventRecylerView.layoutManager = CarouselLayoutManager(
@@ -61,13 +61,7 @@ class Home : Fragment() {
 
         val autoScrollManager = AutoScrollManager(binding.FeaturedEventRecylerView)
         autoScrollManager.startAutoScroll(2000)
-
-
-
         fetchSystemDateTime()
-
-
-//        val notifyButotn = view.findViewById<ImageView>(R.id.imageView2)
         binding.imageView2.setOnClickListener { loadFragment(notification()) }
     }
 
@@ -171,18 +165,17 @@ class Home : Fragment() {
 
     private fun fetchFromFireStoreEvents(eventType: String, recyclerView: RecyclerView) {
         binding.loadMe.visibility = View.VISIBLE
-
-        if (!isAdded) {
-            return
-        }
-        aox.clear()
-        // Fetch event data from Firestore for the specified event type
-        db.collection(eventType).get().addOnSuccessListener { querySnapshot ->
-
-
-            if (!isAdded) {
-                return@addOnSuccessListener
+        if (cache.containsKey(eventType)) {
+            val cachedData = cache[eventType]
+            if (cachedData != null) {
+                aox.clear()
+                aox.addAll(cachedData)
+                mainStageEventAdapter.notifyDataSetChanged()
+                binding.loadMe.visibility = View.GONE
+                return
             }
+        }
+        db.collection(eventType).get().addOnSuccessListener { querySnapshot ->
             val showeventlist = mutableListOf<FeaturedEventes>()
             for (document in querySnapshot) {
                 val date = document.getString("date") ?: ""
@@ -197,13 +190,12 @@ class Home : Fragment() {
                     FeaturedEventes(date, details, form, name, no, time, url, venue)
                 )
             }
+            aox.clear()
             aox.addAll(showeventlist)
-            Handler(Looper.getMainLooper()).postDelayed({
-                if (isAdded) {
-                    mainStageEventAdapter.notifyDataSetChanged()
-                    binding.loadMe.visibility = View.GONE
-                }
-            }, 3000)
+            mainStageEventAdapter.notifyDataSetChanged()
+            binding.loadMe.visibility = View.GONE
+
+            cache[eventType] = showeventlist
         }.addOnFailureListener {
             Toast.makeText(requireContext(), "error", Toast.LENGTH_SHORT).show()
         }

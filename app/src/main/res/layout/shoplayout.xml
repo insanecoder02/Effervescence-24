@@ -89,7 +89,7 @@
         <ImageView
             android:id="@+id/productImage"
             android:layout_width="180dp"
-            android:src="@drawable/image_svgrepo_com"
+            android:src="@drawable/whilte_broder"
             android:paddingEnd="20dp"
             android:layout_height="180dp"
             android:scaleType="centerInside" />
