@@ -32,9 +32,15 @@ class developers : Fragment() {
         sensorManager = requireActivity().getSystemService(Context.SENSOR_SERVICE) as SensorManager
         accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
 
-        binding.swiperefreshd.setOnRefreshListener {
-                binding.swiperefreshd.isRefreshing = false
+
+
+        binding.takmeBackaboutus.setOnClickListener {
+            fragmentManager?.popBackStack()
         }
+
+//        binding.swiperefreshd.setOnRefreshListener {
+//                binding.swiperefreshd.isRefreshing = false
+//        }
     }
 
 //    override fun onResume() {

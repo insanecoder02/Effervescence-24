@@ -40,9 +40,9 @@ class Shop : Fragment(), productAdapter.OnItemClickListener {
         binding.productreyclerview.layoutManager = LinearLayoutManager(requireContext())
         binding.productreyclerview.adapter = productadapter
 
-        binding.swiperefreshshop.setOnRefreshListener {
-            fetchFirestoreData()
-        }
+//        binding.swiperefreshshop.setOnRefreshListener {
+//            fetchFirestoreData()
+//        }
         if (savedInstanceState == null) {
             fetchFirestoreData()
         }
@@ -87,10 +87,10 @@ class Shop : Fragment(), productAdapter.OnItemClickListener {
             }
             productadapter.notifyDataSetChanged()
 
-            binding.swiperefreshshop.isRefreshing = false
+//            binding.swiperefreshshop.isRefreshing = false
         }.addOnFailureListener { exception ->
             Toast.makeText(requireContext(), "Something went wrong", Toast.LENGTH_SHORT).show()
-            binding.swiperefreshshop.isRefreshing = false
+//            binding.swiperefreshshop.isRefreshing = false
         }
     }
 }

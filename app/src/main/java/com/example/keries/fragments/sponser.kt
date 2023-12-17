@@ -43,8 +43,11 @@ class sponser : Fragment() {
             )
         (binding.sponserRecylerView as CarouselRecyclerview).setInfinite(true)
 
-        binding.swiperefreshs.setOnRefreshListener {
-            fetchFirestoreData()
+//        binding.swiperefreshs.setOnRefreshListener {
+//            fetchFirestoreData()
+//        }
+        binding.backsponser.setOnClickListener {
+            fragmentManager?.popBackStack()
         }
         fetchFirestoreData()
     }
@@ -62,10 +65,10 @@ class sponser : Fragment() {
                 SponserList.add(item)
             }
             sponseradapter.notifyDataSetChanged()
-            binding.swiperefreshs.isRefreshing = false
+//            binding.swiperefreshs.isRefreshing = false
         }.addOnFailureListener { exception ->
             Toast.makeText(requireContext(), "Something went wrong", Toast.LENGTH_SHORT).show()
-            binding.swiperefreshs.isRefreshing = false
+//            binding.swiperefreshs.isRefreshing = false
         }
     }
 }

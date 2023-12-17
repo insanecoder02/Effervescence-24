@@ -1,174 +1,256 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/swiperefreshd"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-<FrameLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
+    android:background="@color/transparent"
     tools:context=".fragments.developers">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_gravity="center"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-        <LinearLayout
-            android:layout_marginTop="10dp"
-            android:background="@drawable/gradient2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            android:orientation="horizontal">
-            <LinearLayout
-                android:layout_gravity="center"
-                android:layout_marginStart="12dp"
-                android:layout_width="wrap_content"
-                android:orientation="vertical"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:layout_width="200dp"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/montserrat_semibold"
-                    android:textColor="@color/white"
-                    android:textSize="20sp"
-                    android:text="Prakriti Vashishtha" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:fontFamily="@font/montserrat"
-                    android:textColor="@color/white"
-                    android:textSize="17sp"
-                    android:layout_height="wrap_content"
-                    android:text="Executive"/>
-            </LinearLayout>
-
-            <ImageView
-                android:padding="10dp"
-                android:layout_width="72dp"
-                android:layout_height="72dp"
-                android:src="@drawable/github_mark_white"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_marginTop="10dp"
-            android:background="@drawable/gradient2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            android:orientation="horizontal">
-            <LinearLayout
-                android:layout_gravity="center"
-                android:layout_marginStart="12dp"
-                android:layout_width="wrap_content"
-                android:orientation="vertical"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:layout_width="200dp"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/montserrat_semibold"
-                    android:textColor="@color/white"
-                    android:textSize="20sp"
-                    android:text="Bhumika Kalaru" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:fontFamily="@font/montserrat"
-                    android:textColor="@color/white"
-                    android:textSize="17sp"
-                    android:layout_height="wrap_content"
-                    android:text="Executive"/>
-            </LinearLayout>
-
-            <ImageView
-                android:padding="10dp"
-                android:layout_width="72dp"
-                android:layout_height="72dp"
-                android:src="@drawable/github_mark_white"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_marginTop="10dp"
-            android:background="@drawable/gradient2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            android:orientation="horizontal">
-            <LinearLayout
-                android:layout_gravity="center"
-                android:layout_marginStart="12dp"
-                android:layout_width="wrap_content"
-                android:orientation="vertical"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:layout_width="200dp"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/montserrat_semibold"
-                    android:textColor="@color/white"
-                    android:textSize="20sp"
-                    android:text="Gaurav Chhetri" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:fontFamily="@font/montserrat"
-                    android:textColor="@color/white"
-                    android:textSize="17sp"
-                    android:layout_height="wrap_content"
-                    android:text="Executive"/>
-            </LinearLayout>
-
-            <ImageView
-                android:padding="10dp"
-                android:layout_width="72dp"
-                android:layout_height="72dp"
-                android:src="@drawable/github_mark_white"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_marginTop="10dp"
-            android:background="@drawable/gradient2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            android:orientation="horizontal">
-            <LinearLayout
-                android:layout_gravity="center"
-                android:layout_marginStart="12dp"
-                android:layout_width="wrap_content"
-                android:orientation="vertical"
-                android:layout_height="wrap_content">
-                <TextView
-                    android:layout_width="200dp"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/montserrat_semibold"
-                    android:textColor="@color/white"
-                    android:textSize="20sp"
-                    android:text="Ishant Kumawat" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:fontFamily="@font/montserrat"
-                    android:textColor="@color/white"
-                    android:textSize="17sp"
-                    android:layout_height="wrap_content"
-                    android:text="Executive"/>
-            </LinearLayout>
-
-            <ImageView
-                android:padding="10dp"
-                android:layout_width="72dp"
-                android:layout_height="72dp"
-                android:src="@drawable/github_mark_white"/>
-        </LinearLayout>
-
-    </LinearLayout>
-
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/lottieAnimationView"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
         android:layout_gravity="center"
-        app:lottie_autoPlay="false"
-        app:lottie_loop="true"
-        app:lottie_rawRes="@raw/alpha" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/rightGuide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.95" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/leftGuide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.05" />
+
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="0dp"
+            android:padding="10dp"
+            android:src="@drawable/effebrushlogofull"
+            app:layout_constraintEnd_toStartOf="@+id/rightGuide"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/leftGuide"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
+            android:text="FAQs"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/leftGuide"
+            app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+
+
+        <LinearLayout
+            android:id="@+id/prakriti"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_weight="0.5"
+            android:background="@drawable/gradient2"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toStartOf="@+id/rightGuide"
+            app:layout_constraintStart_toStartOf="@+id/leftGuide"
+            app:layout_constraintTop_toBottomOf="@id/bhumika">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="12dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:text="Prakriti Vashishtha"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat"
+                    android:text="Executive"
+                    android:textColor="@color/white"
+                    android:textSize="17sp" />
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:padding="10dp"
+                android:src="@drawable/github_mark_white" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/takmeBackaboutus"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:background="#33FFFFFF"
+            android:elevation="8dp"
+            android:src="@drawable/baseline_keyboard_backspace_24"
+            android:backgroundTint="@color/transparent"
+            android:layout_marginStart="20dp"
+            app:layout_constraintHorizontal_bias="0.08"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/bhumika"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_weight="0.5"
+            android:background="@drawable/gradient2"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toStartOf="@+id/rightGuide"
+            app:layout_constraintStart_toStartOf="@+id/leftGuide"
+            app:layout_constraintTop_toBottomOf="@id/textView6">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="12dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:text="Bhumika Kalaru"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat"
+                    android:text="Executive"
+                    android:textColor="@color/white"
+                    android:textSize="17sp" />
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:padding="10dp"
+                android:src="@drawable/github_mark_white" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/gaurav"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_weight="0.5"
+            android:background="@drawable/gradient2"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toStartOf="@+id/rightGuide"
+            app:layout_constraintStart_toStartOf="@+id/leftGuide"
+            app:layout_constraintTop_toBottomOf="@id/prakriti">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="12dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:text="Gaurav Chhetri"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat"
+                    android:text="Executive"
+                    android:textColor="@color/white"
+                    android:textSize="17sp" />
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:padding="10dp"
+                android:src="@drawable/github_mark_white" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ishantKumawat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_weight="0.5"
+            android:background="@drawable/gradient2"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toStartOf="@+id/rightGuide"
+            app:layout_constraintStart_toStartOf="@+id/leftGuide"
+            app:layout_constraintTop_toBottomOf="@id/gaurav">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="12dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:text="Ishant Kumawat"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat"
+                    android:text="Executive"
+                    android:textColor="@color/white"
+                    android:textSize="17sp" />
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:padding="10dp"
+                android:src="@drawable/github_mark_white" />
+        </LinearLayout>
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottieAnimationView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            app:lottie_autoPlay="false"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/alpha"
+            tools:layout_editor_absoluteX="-3dp"
+            tools:layout_editor_absoluteY="158dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>
-</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

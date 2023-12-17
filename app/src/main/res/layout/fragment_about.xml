@@ -7,10 +7,12 @@
     android:background="@color/black"
     tools:context=".fragments.about">
 
-
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="@drawable/splash_background">
 
         <androidx.constraintlayout.widget.Guideline
@@ -27,13 +29,38 @@
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.95" />
 
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="0dp"
+            android:padding="10dp"
+            android:src="@drawable/effebrushlogofull"
+            app:layout_constraintEnd_toStartOf="@+id/rightGuide"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/leftGuide"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
+            android:text="About Us"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/leftGuide"
+            app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+
         <ImageView
             android:id="@+id/takmeBackaboutus"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_marginTop="20dp"
             android:background="#33FFFFFF"
-            android:elevation="5dp"
+            android:elevation="8dp"
             android:src="@drawable/baseline_keyboard_backspace_24"
             android:backgroundTint="@color/transparent"
             android:layout_marginStart="20dp"
@@ -46,10 +73,11 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:fontFamily="@font/montserrat"
+            android:fontFamily="@font/poppins"
             android:text="@string/aboutUs"
             android:textColor="@color/white"
-            android:textSize="18sp"
+            android:textAlignment="center"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="@id/rightGuide"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="@id/leftGuide"
@@ -64,10 +92,10 @@
             android:elevation="5dp"
             android:paddingHorizontal="6dp"
             android:paddingVertical="12dp"
-            android:src="@drawable/effesvghome"
+            android:src="@drawable/effe_logo_svg"
             app:layout_constraintEnd_toStartOf="@+id/rightGuide"
             app:layout_constraintStart_toStartOf="@+id/leftGuide"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/textView6" />
 
         <TextView
             android:id="@+id/textView5"
@@ -88,6 +116,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="60dp"
             android:orientation="horizontal"
             app:layout_constraintEnd_toStartOf="@+id/rightGuide"
             app:layout_constraintStart_toStartOf="@+id/leftGuide"
@@ -120,5 +150,5 @@
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
+    </androidx.core.widget.NestedScrollView>
 </FrameLayout>

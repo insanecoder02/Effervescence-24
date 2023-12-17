@@ -35,6 +35,7 @@ class BaseHome : AppCompatActivity() {
                 R.id.navigation_events -> {
                     if (supportFragmentManager.findFragmentById(R.id.fragment_container) !is Events) {
                         loadFragment(Events())
+                        window.decorView.setBackgroundResource(R.drawable.splash_background)
                     }
                     return@OnNavigationItemSelectedListener true
                 }
@@ -93,6 +94,16 @@ class BaseHome : AppCompatActivity() {
         }
         if (permissionGranted) {
             setContentView(R.layout.activity_base_home)
+
+//
+//            val fragmentContainer = findViewById<ViewGroup>(R.id.fragment_container)
+//            val fragmentContainerHeight = fragmentContainer.height
+//            resources.getDimensionPixelSize(R.dimen.fragment_container_height)
+//            if (fragmentContainerHeight > 0) {
+//                val prefs = getSharedPreferences("com.example.keries", MODE_PRIVATE)
+//                prefs.edit().putInt("fragment_container_height", fragmentContainerHeight).apply()
+//            }
+
 
             bottomNavigationView = findViewById(R.id.bottomNavigationView)
             bottomNavigationView.setOnNavigationItemSelectedListener(

@@ -15,6 +15,7 @@ import com.example.keries.dataClass.Event_DataClass
 import com.example.keries.databinding.FragmentEventsBinding
 import com.example.keries.others.AutoScrollManager
 import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -71,14 +72,14 @@ class Events : Fragment() {
         binding.InformalRv.adapter = showEventAdapter
         fetchFromFireStoreEvents("Informal", binding.InformalRv)
 
-//        rotor(binding.amsRV)
-//        rotor(binding.geneticxRV)
-//        rotor(binding.rangtaringiniRV)
-//        rotor(binding.nimritiRV)
-//        rotor(binding.sarasvaRV)
-//        rotor(binding.virtuosiRV)
-//        rotor(binding.gamingRv)
-//        rotor(binding.InformalRv)
+        rotor(binding.amsRV)
+        rotor(binding.geneticxRV)
+        rotor(binding.rangtaringiniRV)
+        rotor(binding.nimritiRV)
+        rotor(binding.sarasvaRV)
+        rotor(binding.virtuosiRV)
+        rotor(binding.gamingRv)
+        rotor(binding.InformalRv)
     }
 
     private fun rotor(recyclerView: RecyclerView) {
@@ -91,7 +92,7 @@ class Events : Fragment() {
     fun onItemClick(item: Event_DataClass) {
         Log.d(
             "Events",
-            "Date: ${item.date}, Details: ${item.details}, Form: ${item.form}, Name: ${item.name}, No: ${item.no}, Time: ${item.time}, URL: ${item.url}, Venue: ${item.venue}"
+            "Date: ${item.date}, Details: ${item.details}, Form: ${item.form}, Name: ${item.name}, No: ${item.no}, Time: ${item.time}, URL: ${item.url}, Venue: ${item.venue} , live: ${item.live}\""
         )
         val bundle = Bundle()
         bundle.putString("date", item.date ?: "Date")
@@ -102,6 +103,8 @@ class Events : Fragment() {
         bundle.putString("time", item.time ?: "Time")
         bundle.putString("url", item.url ?: "Url")
         bundle.putString("venue", item.venue ?: "Venue")
+        bundle.putString("live", item.live ?: "Venue")
+        bundle.putString("soc",item.societyName ?: "soc")
         val nextFragment = eventinfo()
         nextFragment.arguments = bundle
         val transaction = requireActivity().supportFragmentManager.beginTransaction()
@@ -112,6 +115,7 @@ class Events : Fragment() {
         transaction.commit()
     }
 
+    @OptIn(DelicateCoroutinesApi::class)
     private fun fetchFromFireStoreEvents(eventType: String, recyclerView: RecyclerView) {
         binding.loadMeevent.visibility = View.VISIBLE
         ij.clear()
@@ -135,9 +139,11 @@ class Events : Fragment() {
                         val time = document.getString("time") ?: ""
                         val url = document.getString("url") ?: ""
                         val venue = document.getString("venue") ?: ""
+                        val live = document.getString("live")?:""
+                        val socityname = document.getString("nameofSoc")?:""
                         showeventlist.add(
                             Event_DataClass(
-                                date, details, form, name, no, time, url, venue
+                                date, details, form, name, no, time, url, venue, live,socityname
                             )
                         )
                     }

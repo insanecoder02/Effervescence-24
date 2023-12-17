@@ -32,6 +32,11 @@ class FAQ : Fragment() {
         buttonStates[binding.d5] = false
         buttonStates[binding.d6] = false
 
+
+        binding.takmeBackaboutus.setOnClickListener {
+            fragmentManager?.popBackStack()
+        }
+
         binding.l1.setOnClickListener {
             downFunction(binding.a1, binding.d1, binding.q1, binding.l1)
         }
@@ -60,15 +65,15 @@ class FAQ : Fragment() {
             q.setTextColor(Color.WHITE)
             d.animate().rotation(0F)
             d.setColorFilter(Color.WHITE)
-            l.setBackgroundColor(Color.parseColor("#282828"))
+            l.setBackgroundColor(Color.parseColor("#33ffffff"))
 
         } else {
             a.visibility = View.VISIBLE
             d.animate().rotation(180F)
-            a.setTextColor(Color.BLACK)
-            q.setTextColor(Color.BLACK)
-            d.setColorFilter(Color.BLACK)
-            l.setBackgroundColor(Color.WHITE)
+            a.setTextColor(Color.WHITE)
+            q.setTextColor(Color.WHITE)
+            d.setColorFilter(Color.WHITE)
+            l.setBackgroundColor(Color.BLACK)
         }
         // Update the button state
         buttonStates[d] = !currentState

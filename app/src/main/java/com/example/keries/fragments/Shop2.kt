@@ -39,6 +39,8 @@ class Shop2 : Fragment() {
                     .show()
             }
         }
+
+        binding.backBut.setOnClickListener{fragmentManager?.popBackStack()}
         binding.textView1.text = name
         binding.textView2.text = type
         binding.textView3.text = prize

@@ -8,7 +8,8 @@
     android:background="@color/transparent"
     tools:context=".fragments.Home">
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollMe"
         android:background="@color/transparent"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -35,13 +36,15 @@
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/loadMe"
             android:layout_width="100dp"
+            android:layout_marginTop="24dp"
             android:layout_height="100dp"
             android:layout_marginBottom="112dp"
             android:padding="20dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+
             app:layout_constraintEnd_toEndOf="@+id/FeaturedEventRecylerView"
             app:layout_constraintHorizontal_bias="0.462"
             app:layout_constraintStart_toStartOf="@+id/leftGuide"
+            app:layout_constraintTop_toBottomOf="@+id/featureEventsTextView"
             app:lottie_autoPlay="true"
             app:lottie_loop="true"
             app:lottie_rawRes="@raw/gama" />
@@ -93,7 +96,7 @@
             android:id="@+id/linearLayout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="34dp"
+            android:layout_marginTop="28dp"
             android:gravity="center"
 
             android:orientation="horizontal"
@@ -101,7 +104,7 @@
             app:layout_constraintEnd_toStartOf="@id/rightGuide"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="@+id/leftGuide"
-            app:layout_constraintTop_toBottomOf="@+id/commingsoon">
+            app:layout_constraintTop_toBottomOf="@+id/congo">
 
             <TextView
                 android:id="@+id/days1"
@@ -230,7 +233,7 @@
         <ImageView
             android:id="@+id/effeNameLogoImageView"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="130dp"
             android:layout_marginTop="6dp"
             android:src="@drawable/effebrushlogofull"
             app:layout_constraintEnd_toStartOf="@+id/rightGuide"
@@ -239,7 +242,7 @@
 
 
         <TextView
-            android:id="@+id/commingsoon"
+            android:id="@+id/congo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="170dp"
@@ -259,10 +262,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="64dp"
-            android:fontFamily="@font/east_sea_dokdo"
+            android:fontFamily="@font/poppins_medium"
             android:text="Featured Events"
             android:textColor="@color/white"
-            android:textSize="48sp"
+            android:textSize="28sp"
             android:textStyle="normal"
             app:layout_constraintBottom_toTopOf="@id/FeaturedEventRecylerView"
             app:layout_constraintEnd_toStartOf="@+id/rightGuide"
@@ -275,14 +278,15 @@
             android:layout_height="200dp"
             android:layout_marginTop="12dp"
             android:orientation="vertical"
+            android:layout_marginBottom="60dp"
             android:visibility="visible"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/featureEventsTextView"
             tools:listitem="@layout/featuredeventlayout" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
-
+    </androidx.core.widget.NestedScrollView>
 </FrameLayout>

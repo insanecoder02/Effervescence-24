@@ -1,20 +1,26 @@
 package com.example.keries.fragments
 
 
+import android.content.Context.MODE_PRIVATE
 import android.opengl.Visibility
 import android.view.WindowManager
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.os.Handler
 import android.os.Looper
+import android.util.DisplayMetrics
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.ViewTreeObserver
+import android.widget.TextView
 import android.widget.Toast
+import androidx.core.widget.NestedScrollView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.viewpager.widget.ViewPager
 import com.example.keries.R
 import com.example.keries.adapter.featuredEventsAdapter
 import com.example.keries.dataClass.Event_DataClass
@@ -37,10 +43,10 @@ class Home : Fragment() {
     private val cache = mutableMapOf<String, List<FeaturedEventes>>()
     private val db = FirebaseFirestore.getInstance()
     private lateinit var countDownTimer: CountDownTimer
+    private lateinit var commingsoon: TextView
     private var isTimerRunning = false
     private val bringmeDateboy = Constants.MY_SET_DATE
-
-    override fun onCreateView(
+        override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
@@ -50,6 +56,7 @@ class Home : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
         mainStageEventAdapter = featuredEventsAdapter(aox, this)
         binding.FeaturedEventRecylerView.layoutManager = CarouselLayoutManager(
             true, true, 0.5F, true, true, true, LinearLayoutManager.HORIZONTAL
@@ -58,7 +65,7 @@ class Home : Fragment() {
         binding.FeaturedEventRecylerView.adapter = mainStageEventAdapter
         (binding.FeaturedEventRecylerView as CarouselRecyclerview).setInfinite(true)
         fetchFromFireStoreEvents("Main Stage", binding.FeaturedEventRecylerView)
-
+        commingsoon  = binding.congo
         val autoScrollManager = AutoScrollManager(binding.FeaturedEventRecylerView)
         autoScrollManager.startAutoScroll(2000)
         fetchSystemDateTime()
@@ -80,6 +87,9 @@ class Home : Fragment() {
         bundle.putString("time", item.time ?: "Time")
         bundle.putString("url", item.url ?: "Url")
         bundle.putString("venue", item.venue ?: "Venue")
+        bundle.putString("live",item.live ?: "live")
+        bundle.putString("soc",item.societyName ?: "soc")
+
         val nextFragment = eventinfo()
         nextFragment.arguments = bundle
         val transaction = requireActivity().supportFragmentManager.beginTransaction()
@@ -128,6 +138,7 @@ class Home : Fragment() {
             override fun onFinish() {
                 binding.linearLayout.visibility = ViewGroup.GONE
                 binding.dayLinearLayout.visibility = ViewGroup.GONE
+                binding.congo.visibility = ViewGroup.GONE
                 countDownTimer.cancel()
                 isTimerRunning = false
             }
@@ -186,8 +197,10 @@ class Home : Fragment() {
                 val time = document.getString("time") ?: ""
                 val url = document.getString("url") ?: ""
                 val venue = document.getString("venue") ?: ""
+                val live = document.getString("live")?:""
+                val socityname = document.getString("nameofSoc")?:""
                 showeventlist.add(
-                    FeaturedEventes(date, details, form, name, no, time, url, venue)
+                    FeaturedEventes(date, details, form, name, no, time, url, venue,live,socityname)
                 )
             }
             aox.clear()

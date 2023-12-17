@@ -9,4 +9,6 @@ data class Event_DataClass(
     val time : String,
     val url : String ,
     val venue: String,
+    val live: String,
+    val societyName: String,
 )

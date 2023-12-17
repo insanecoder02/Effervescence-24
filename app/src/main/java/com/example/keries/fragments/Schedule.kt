@@ -56,9 +56,6 @@ class Schedule : Fragment() {
                 val bitmap = drawable.bitmap
                 // Implement logic to save the bitmap to the phone storage
                 saveBitmapToStorage(requireContext(),bitmap)
-
-
-
             }
         }
     }
@@ -66,6 +63,9 @@ class Schedule : Fragment() {
     private fun saveBitmapToStorage( alpha: Context,bitmap: Bitmap) {
         val filename = "image.png"
         val file = File(alpha.getExternalFilesDir(null), filename)
+        Toast.makeText(
+            alpha, "Trying to Download the Image.....", Toast.LENGTH_SHORT
+        ).show()
 
         try {
             val fos = FileOutputStream(file)

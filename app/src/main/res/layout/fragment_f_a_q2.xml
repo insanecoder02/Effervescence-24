@@ -17,6 +17,31 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp">
 
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="0dp"
+            android:padding="10dp"
+            android:src="@drawable/effebrushlogofull"
+            app:layout_constraintEnd_toStartOf="@+id/rightGuide"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/leftGuide"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
+            android:text="FAQs"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/leftGuide"
+            app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+
+
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/rightGuide"
             android:layout_width="wrap_content"
@@ -46,7 +71,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:background="#40808080"
+            android:background="#33ffffff"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="@id/rightGuide"
             app:layout_constraintStart_toStartOf="@id/leftGuide"
@@ -99,7 +124,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:background="#40808080"
+            android:background="#33ffffff"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="@id/rightGuide"
             app:layout_constraintStart_toStartOf="@id/leftGuide"
@@ -152,7 +177,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:background="#40808080"
+            android:background="#33ffffff"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="@id/rightGuide"
             app:layout_constraintStart_toStartOf="@id/leftGuide"
@@ -205,7 +230,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:background="#40808080"
+            android:background="#33ffffff"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="@id/rightGuide"
             app:layout_constraintStart_toStartOf="@id/leftGuide"
@@ -259,7 +284,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:background="#40808080"
+            android:background="#33ffffff"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="@id/rightGuide"
             app:layout_constraintStart_toStartOf="@id/leftGuide"
@@ -309,16 +334,32 @@
                 android:visibility="gone" />
         </LinearLayout>
 
+        <ImageView
+            android:id="@+id/takmeBackaboutus"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="20dp"
+            android:background="#33FFFFFF"
+            android:elevation="8dp"
+            android:src="@drawable/baseline_keyboard_backspace_24"
+            android:backgroundTint="@color/transparent"
+            android:layout_marginStart="20dp"
+            app:layout_constraintHorizontal_bias="0.08"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <LinearLayout
             android:id="@+id/l6"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:background="#40808080"
+            android:background="#33ffffff"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="@id/rightGuide"
             app:layout_constraintStart_toStartOf="@id/leftGuide"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toBottomOf="@id/textView6">
+
+
 
             <RelativeLayout
                 android:id="@+id/r6"

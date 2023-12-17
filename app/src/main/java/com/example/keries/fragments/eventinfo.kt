@@ -30,6 +30,8 @@ class eventinfo : Fragment(){
         val time = root.findViewById<TextView>(R.id.TimeTextView)
         val image = root.findViewById<ImageView>(R.id.eventImage)
         val backButton = root.findViewById<ImageView>(R.id.backButton)
+        val live_button = root.findViewById<TextView>(R.id.live_button)
+
 
         val date = arguments?.getString("date")
         val details = arguments?.getString("details")
@@ -38,7 +40,17 @@ class eventinfo : Fragment(){
         val timee = arguments?.getString("time")
         val url = arguments?.getString("url")
         val venue = arguments?.getString("venue")
+        val livevalue = arguments?.getString("live")
+        val soco = arguments?.getString("soc")
 //        val no = arguments?.getString("no")
+
+
+        if(livevalue=="NO"){
+            live_button.visibility = ViewGroup.GONE
+        }
+        else{
+            live_button.visibility = ViewGroup.VISIBLE
+        }
 
 
         Log.d("eventinfo", "Received data - Date: $date, Details: $details, Form: $formLink, Name: $name, Time: $timee, URL: $url, Venue: $venue ")
@@ -52,11 +64,10 @@ class eventinfo : Fragment(){
             }
         }
 
-       // societyName.text = "Your Society Name"
+        societyName.text = soco
         eventDescription.text = details
         eventName.text = name
         location.text=venue
-        time.text=timee
         time.text=timee
         Picasso.get().load(url).into(image)
 

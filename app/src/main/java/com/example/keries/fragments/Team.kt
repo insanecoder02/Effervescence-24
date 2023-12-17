@@ -91,9 +91,27 @@ class Team : Fragment() {
         fetchAndPopulateData("BRANDING & LOGISTICS", binding.brnding)
         fetchAndPopulateData("CREATIVES", binding.creativesreyc)
         fetchAndPopulateData("HOSPITALITY & TRAVEL", binding.hospitalllty)
-        binding.swiperefreshteam.setOnRefreshListener {
-            binding.swiperefreshteam.isRefreshing = false
+//        binding.swiperefreshteam.setOnRefreshListener {
+//            binding.swiperefreshteam.isRefreshing = false
+//        }
+        binding.takmeBackaboutus.setOnClickListener {
+            fragmentManager?.popBackStack()
         }
+        binding.festiveCordi.isNestedScrollingEnabled = false
+        binding.financerelcyler.isNestedScrollingEnabled = false
+        binding.eventesmangereycl.isNestedScrollingEnabled = false
+        binding.coroprate.isNestedScrollingEnabled = false
+        binding.pr.isNestedScrollingEnabled = false
+        binding.brnding.isNestedScrollingEnabled = false
+        binding.hospitalllty.isNestedScrollingEnabled = false
+        binding.mediaaaa.isNestedScrollingEnabled = false
+        binding.flimingdevven.isNestedScrollingEnabled = false
+        binding.creativesreyc.isNestedScrollingEnabled = false
+        binding.tecnialreycler.isNestedScrollingEnabled = false
+        binding.wed.isNestedScrollingEnabled = false
+        binding.apppp.isNestedScrollingEnabled = false
+        binding.cco.isNestedScrollingEnabled = false
+
     }
 
     private fun shimmerEffect(shim:ShimmerFrameLayout , RV:RecyclerView) {

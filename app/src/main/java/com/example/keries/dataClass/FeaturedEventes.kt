@@ -7,6 +7,8 @@ data class FeaturedEventes(
     val name: String,
     val no : Long,
     val time : String,
-    val url : String ,
+    val url : String,
     val venue: String,
+    val live: String,
+    val societyName: String,
 )
