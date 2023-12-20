@@ -14,7 +14,7 @@ import com.example.keries.databinding.FragmentFAQ2Binding
 class FAQ : Fragment() {
     private lateinit var binding: FragmentFAQ2Binding
     private val buttonStates = mutableMapOf<ImageView, Boolean>()
-    private val dropHeight = 500
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -31,7 +31,6 @@ class FAQ : Fragment() {
         buttonStates[binding.d4] = false
         buttonStates[binding.d5] = false
         buttonStates[binding.d6] = false
-
 
         binding.takmeBackaboutus.setOnClickListener {
             fragmentManager?.popBackStack()

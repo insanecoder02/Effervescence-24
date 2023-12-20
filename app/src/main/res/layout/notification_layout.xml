@@ -17,6 +17,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="52dp"
+        android:background="@drawable/whilte_broder"
         android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -29,13 +30,13 @@
             android:layout_weight="0"
             android:layout_height="match_parent"
             android:layout_marginStart="10dp"
-            android:src="@drawable/effesvghome" />
+            android:src="@drawable/effe_logo_svg" />
 
         <TextView
             android:id="@+id/titleTextView"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_marginHorizontal="20dp"
+            android:layout_marginHorizontal="5dp"
             android:fontFamily="@font/montserrat"
             android:gravity="center_vertical"
             android:text="Title"

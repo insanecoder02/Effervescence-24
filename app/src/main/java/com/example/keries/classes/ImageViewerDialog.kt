@@ -28,7 +28,12 @@ class ImageViewerDialog(context: Context, private val imageUrl: String) : Dialog
         val rootView = findViewById<RelativeLayout>(R.id.rootView)
         val imageView = findViewById<ImageView>(R.id.enlargedImageView)
 
-        window?.setBackgroundDrawable(ContextCompat.getDrawable(context,android.R.color.transparent))
+        window?.setBackgroundDrawable(
+            ContextCompat.getDrawable(
+                context,
+                android.R.color.transparent
+            )
+        )
 
         Glide.with(context)
             .load(imageUrl)

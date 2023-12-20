@@ -14,6 +14,7 @@ import android.os.Build
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.example.keries.fragments.Events
@@ -22,6 +23,7 @@ import com.example.keries.fragments.More
 import com.example.keries.R
 import com.example.keries.fragments.Schedule
 import com.example.keries.fragments.Shop
+import kotlin.system.exitProcess
 
 class BaseHome : AppCompatActivity() {
 
@@ -79,6 +81,7 @@ class BaseHome : AppCompatActivity() {
             false
         }
 
+    @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -89,34 +92,20 @@ class BaseHome : AppCompatActivity() {
         window.statusBarColor = Color.TRANSPARENT
         checkPermissions()
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            window.statusBarColor = ContextCompat.getColor(this, R.color.transparent)
-        }
+        window.statusBarColor = ContextCompat.getColor(this, R.color.transparent)
         if (permissionGranted) {
             setContentView(R.layout.activity_base_home)
-
-//
-//            val fragmentContainer = findViewById<ViewGroup>(R.id.fragment_container)
-//            val fragmentContainerHeight = fragmentContainer.height
-//            resources.getDimensionPixelSize(R.dimen.fragment_container_height)
-//            if (fragmentContainerHeight > 0) {
-//                val prefs = getSharedPreferences("com.example.keries", MODE_PRIVATE)
-//                prefs.edit().putInt("fragment_container_height", fragmentContainerHeight).apply()
-//            }
-
-
             bottomNavigationView = findViewById(R.id.bottomNavigationView)
             bottomNavigationView.setOnNavigationItemSelectedListener(
                 onNavigationItemSelectedListener
             )
             loadFragment(Home())
             window.decorView.setBackgroundResource(R.drawable.homefragmentbackgorundimage)
-
-
             bottomNavigationView.selectedItemId = R.id.navigation_home
         }
     }
 
+    @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     private fun checkPermissions() {
         val notification = ContextCompat.checkSelfPermission(
             this, android.Manifest.permission.POST_NOTIFICATIONS
@@ -127,7 +116,7 @@ class BaseHome : AppCompatActivity() {
             makeRequest()
         }
     }
-
+    @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     private fun makeRequest() {
         val notification = android.Manifest.permission.POST_NOTIFICATIONS
         ActivityCompat.requestPermissions(this, arrayOf(notification), notificationPermissionCode)
@@ -159,16 +148,12 @@ class BaseHome : AppCompatActivity() {
             .commit()
     }
 
-    private fun showToast(message: String) {
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
-    }
-
     private fun showPermissionDeniedDialog() {
         val builder = AlertDialog.Builder(this)
         builder.setTitle("Notification Permission Required")
         builder.setMessage("To use this app, please grant notification permissions.")
         builder.setPositiveButton("OK") { dialogInterface: DialogInterface, i: Int ->
-            System.exit(0)
+            exitProcess(0)
         }
         builder.setCancelable(false)
         builder.show()

@@ -21,7 +21,6 @@ import com.example.keries.R
 import com.example.keries.adapter.TeamAdapter
 import com.example.keries.dataClass.TeamMember
 import com.example.keries.databinding.FragmentTeamBinding
-import com.facebook.drawee.backends.pipeline.Fresco
 import com.facebook.shimmer.Shimmer
 import com.facebook.shimmer.ShimmerFrameLayout
 import com.google.firebase.firestore.FirebaseFirestore
@@ -45,7 +44,6 @@ class Team : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        Fresco.initialize(requireContext())
 
         binding.festiveCordi.layoutManager = LinearLayoutManager(context)
         binding.financerelcyler.layoutManager = LinearLayoutManager(context)

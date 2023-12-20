@@ -48,9 +48,9 @@ class notification : Fragment() {
         db.collection("Notification").get().addOnSuccessListener { documents ->
             for (document in documents) {
                 val info = document.getString("info") ?: ""
-//                        val image = document.getString("c")?:""
-//                        val time = document.getString("time")?:""
-                val item = NotificationModel(info)
+                        val image = document.getString("c")?:""
+                        val time = document.getString("time")?:""
+                val item = NotificationModel(info,time)
                 NotificatonList.add(item)
             }
             notificationAdapter.notifyDataSetChanged()

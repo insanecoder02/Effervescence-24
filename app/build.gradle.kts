@@ -40,10 +40,8 @@ android {
 }
 
 dependencies {
-
-    implementation ("com.facebook.fresco:fresco:2.5.0")
+    implementation ("androidx.viewpager2:viewpager2:1.0.0")
     implementation ("io.coil-kt:coil:1.4.0")// Use the latest version available
-    implementation ("com.nostra13.universalimageloader:universal-image-loader:1.9.5")
     implementation(platform("com.google.firebase:firebase-bom:32.2.3"))
     implementation ("com.google.firebase:firebase-messaging-directboot:23.2.1")
     implementation ("com.google.firebase:firebase-firestore:24.7.1")

@@ -10,7 +10,7 @@ import com.bumptech.glide.Glide
 import com.example.keries.R
 import com.example.keries.dataClass.sponserDataClass
 
-class SponsorAdapter(private val items: List<sponserDataClass>):
+class SponsorAdapter(private val items: List<sponserDataClass>) :
     RecyclerView.Adapter<SponsorAdapter.SponserViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SponserViewHolder {

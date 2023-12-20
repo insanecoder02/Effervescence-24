@@ -42,7 +42,6 @@ class eventinfo : Fragment(){
         val venue = arguments?.getString("venue")
         val livevalue = arguments?.getString("live")
         val soco = arguments?.getString("soc")
-//        val no = arguments?.getString("no")
 
 
         if(livevalue=="NO"){
@@ -76,6 +75,4 @@ class eventinfo : Fragment(){
         }
         return root
     }
-
-
 }

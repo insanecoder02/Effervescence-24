@@ -9,11 +9,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.keries.R
 import com.example.keries.dataClass.productDataClass
-import com.example.keries.fragments.Shop
+
 
 class productAdapter(
     private val items: List<productDataClass>,
-    private val itemClickListener: OnItemClickListener  // Change to OnItemClickListener
+    private val itemClickListener: OnItemClickListener
 ) : RecyclerView.Adapter<productAdapter.productViewHolder>() {
 
     interface OnItemClickListener {
@@ -50,7 +50,6 @@ class productAdapter(
         // Bind data to views
         fun bind(productDataClass: productDataClass) {
             productName.text = productDataClass.productNames
-//            productDesctriptionTextView.text = productDataClass.productDescription
             productPrize.text = productDataClass.productPrize
             productType.text = productDataClass.productTypes
 

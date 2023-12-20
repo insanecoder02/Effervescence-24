@@ -1,6 +1,6 @@
 package com.example.keries.dataClass
 
-data class productDataClass (
+data class productDataClass(
     val productNames: String,
     val productTypes: String,
     val productDescription: String,

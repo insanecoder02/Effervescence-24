@@ -14,12 +14,14 @@ import com.bumptech.glide.request.RequestOptions
 import com.example.keries.R
 import com.example.keries.dataClass.FeaturedEventes
 import com.example.keries.fragments.Home
+import com.example.keries.fragments.hf2
 
-class featuredEventsAdapter(private val items: List<FeaturedEventes>,private val itemClickListener: Home) :
-    RecyclerView.Adapter<featuredEventsAdapter.FeaturedEventesViewHolder>() {
+class featuredEventsAdapter(
+    private val items: List<FeaturedEventes>, private val itemClickListener: hf2
+) : RecyclerView.Adapter<featuredEventsAdapter.FeaturedEventesViewHolder>() {
 
-    interface boxo{
-        fun OnItemClick(item:FeaturedEventes)
+    interface boxo {
+        fun OnItemClick(item: FeaturedEventes)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FeaturedEventesViewHolder {
@@ -31,12 +33,7 @@ class featuredEventsAdapter(private val items: List<FeaturedEventes>,private val
     override fun onBindViewHolder(holder: FeaturedEventesViewHolder, position: Int) {
         val item = items[position]
         holder.bind(item)
-//        holder.bind(item).apply {
-//            Glide.with(items).load(item[position]).into(item)
-//        }
-
-
-        holder.itemView.setOnClickListener{
+        holder.itemView.setOnClickListener {
             itemClickListener.onItemClick(item)
         }
     }
@@ -53,9 +50,7 @@ class featuredEventsAdapter(private val items: List<FeaturedEventes>,private val
             val requestOptions = RequestOptions().transform(roundedCorners)
 
 
-            Glide.with(itemView.context)
-                .load(featuredEventes.url)
-                .apply(requestOptions)
+            Glide.with(itemView.context).load(featuredEventes.url).apply(requestOptions)
                 .placeholder(R.drawable.ic_launcher_background) // Add a placeholder image
                 .error(R.drawable.image_svgrepo_com) // Add an error image
                 .into(imageOfEvent)

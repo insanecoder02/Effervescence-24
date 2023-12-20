@@ -139,8 +139,8 @@ class Events : Fragment() {
                         val time = document.getString("time") ?: ""
                         val url = document.getString("url") ?: ""
                         val venue = document.getString("venue") ?: ""
-                        val live = document.getString("live")?:""
-                        val socityname = document.getString("nameofSoc")?:""
+                        val live = document.getString("Live")?:""
+                        val socityname = document.getString("Society Name")?:""
                         showeventlist.add(
                             Event_DataClass(
                                 date, details, form, name, no, time, url, venue, live,socityname

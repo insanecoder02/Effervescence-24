@@ -9,7 +9,11 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.REQUEST_NOTIFICATION_POLICY" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-feature android:name="android.hardware.sensor.accelerometer" android:required="true" />
+
+    <uses-feature
+        android:name="android.hardware.sensor.accelerometer"
+        android:required="true" />
+
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
@@ -22,12 +26,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Keries"
         tools:targetApi="31">
-
+        <activity
+            android:name=".activity.Test"
+            android:exported="false" />
         <activity
             android:name=".activity.BaseHome"
             android:exported="false"
-            android:theme="@style/Base.Theme.Keries"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/Base.Theme.Keries" />
 
         <service
             android:name=".others.MyFirebaseMessagingService"

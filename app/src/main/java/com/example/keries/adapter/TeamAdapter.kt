@@ -66,7 +66,6 @@ class TeamAdapter(private val teamMembers: List<TeamMember>) :
         holder.bind(teamMember)
 //        holder.shimmerLayout.setShimmer()
     }
-
     override fun getItemCount(): Int {
         return teamMembers.size
     }
