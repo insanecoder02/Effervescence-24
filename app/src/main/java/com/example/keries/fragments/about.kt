@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import android.content.Intent
 import android.net.Uri
+import android.os.Handler
+import android.os.Looper
 import android.widget.Toast
 import com.example.keries.databinding.FragmentAboutBinding
 
@@ -28,7 +30,16 @@ class about : Fragment() {
             fragmentManager?.popBackStack()
         }
         binding.imageView3.setOnClickListener {
-            Toast.makeText(requireContext(), "Effe Faad Hoga", Toast.LENGTH_SHORT).show()
+            if (!binding.lottieAnimationView.isAnimating) {
+                Toast.makeText(requireContext(), "#effefaadhoga", Toast.LENGTH_SHORT).show()
+                binding.lottieAnimationView.visibility = View.VISIBLE
+                binding.lottieAnimationView.playAnimation()
+                val delayMillis = 3000L
+                Handler(Looper.getMainLooper()).postDelayed({
+                    binding.lottieAnimationView.cancelAnimation()
+                    binding.lottieAnimationView.visibility = View.GONE
+                }, delayMillis)
+            }
         }
         binding.instaImageView.setOnClickListener {
             openInstagramProfile()

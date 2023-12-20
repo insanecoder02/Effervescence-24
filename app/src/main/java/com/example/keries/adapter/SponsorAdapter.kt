@@ -34,7 +34,9 @@ class SponsorAdapter(private val items: List<sponserDataClass>) :
         fun bind(sponserDataClass: sponserDataClass) {
             sponserNames.text = sponserDataClass.sponserNames
             sponserDesginations.text = sponserDataClass.sponerDesgination
-            Glide.with(itemView.context).load(sponserDataClass.sponserImageUrl).into(sponserImage)
+            Glide.with(itemView.context).load(sponserDataClass.sponserImageUrl)
+                .error(R.drawable.image_svgrepo_com).placeholder(R.drawable.whilte_broder)
+                .into(sponserImage)
         }
     }
 }

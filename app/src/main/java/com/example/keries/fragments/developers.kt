@@ -32,6 +32,7 @@ class developers : Fragment() {
         binding.takmeBackaboutus.setOnClickListener {
             fragmentManager?.popBackStack()
         }
+        playLottieAnimation()
     }
 
     private fun playLottieAnimation() {

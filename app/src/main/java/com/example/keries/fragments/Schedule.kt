@@ -4,6 +4,8 @@ import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -14,6 +16,7 @@ import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.Spinner
 import android.widget.Toast
+import com.bumptech.glide.Glide
 import com.example.keries.R
 import com.example.keries.databinding.FragmentScheduleBinding
 import com.google.firebase.firestore.FirebaseFirestore
@@ -25,36 +28,32 @@ import java.io.IOException
 
 class Schedule : Fragment() {
     private lateinit var binding: FragmentScheduleBinding
-    private lateinit var spinner: Spinner
-    private lateinit var imageView: ImageView
     private val firestore: FirebaseFirestore = FirebaseFirestore.getInstance()
     private val imageUrlMap = mutableMapOf<String, String>()
-    private lateinit var downlaodme: ImageView
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         binding = FragmentScheduleBinding.inflate(inflater, container, false)
-        spinner = binding.root.findViewById(R.id.spinner)
-        downlaodme = binding.root.findViewById(R.id.downlaod)
-        imageView = binding.root.findViewById(R.id.scheduleShowImageView)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding.loadschedule.visibility = View.VISIBLE
+        Handler(Looper.getMainLooper()).postDelayed({
+            binding.scheduleShowImageView.visibility = View.VISIBLE
+            binding.loadschedule.visibility = View.GONE
+        }, 3000)
         fetchDataForSpinner(requireContext())
         setSpinnerListener()
         setDownloadClickListener()
     }
 
     private fun setDownloadClickListener() {
-        downlaodme.setOnClickListener {
-            // Download the image currently displayed in the imageView
-            val drawable = imageView.drawable
-            // Check if the drawable is a BitmapDrawable
+        binding.downlaod.setOnClickListener {
+            val drawable = binding.scheduleShowImageView.drawable
             if (drawable is BitmapDrawable) {
                 val bitmap = drawable.bitmap
-                // Implement logic to save the bitmap to the phone storage
                 saveBitmapToStorage(requireContext(), bitmap)
             }
         }
@@ -66,7 +65,6 @@ class Schedule : Fragment() {
         Toast.makeText(
             alpha, "Trying to Download the Image.....", Toast.LENGTH_SHORT
         ).show()
-
         try {
             val fos = FileOutputStream(file)
             bitmap.compress(Bitmap.CompressFormat.PNG, 100, fos)
@@ -82,32 +80,26 @@ class Schedule : Fragment() {
         }
     }
 
-
     private fun setSpinnerListener() {
-        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+        binding.spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(
                 parentView: AdapterView<*>, selectedItemView: View?, position: Int, id: Long
             ) {
-                // Get the selected item name
                 val selectedItemName = parentView.getItemAtPosition(position).toString()
-
-                // Use Picasso to load the image into the imageView based on the selected item name
                 val imageUrl = imageUrlMap[selectedItemName]
                 if (imageUrl.isNullOrBlank()) {
-                    // If the URL is empty or null, you can set the imageView to display nothing
-                    // or set it to a default image
-                    imageView.setImageResource(R.drawable.effesvghome)
+                    binding.scheduleShowImageView.setImageResource(R.drawable.effesvghome)
                 } else {
-                    Picasso.get().load(imageUrl).into(imageView)
+                    Glide.with(requireContext())
+                        .load(imageUrl)
+                        .placeholder(R.drawable.whilte_broder)
+                        .error(R.drawable.image_svgrepo_com)
+                        .into(binding.scheduleShowImageView)
                 }
             }
 
             override fun onNothingSelected(parentView: AdapterView<*>) {
-                // If the URL is empty or null, you can set the imageView to display nothing
-                // or set it to a default image
-                imageView.setImageResource(R.drawable.effesvghome)  // Set to nothing (empty)
-                // Alternatively, set to a default image
-                // imageView.setImageResource(R.drawable.default_image)
+                binding.scheduleShowImageView.setImageResource(R.drawable.effesvghome)
             }
         }
     }
@@ -118,10 +110,8 @@ class Schedule : Fragment() {
                 querySnapshot?.let {
                     val spinnerDataList = mutableListOf<String>()
                     for (document in it.documents) {
-                        // Assuming each document has fields "name" and "url"
                         val itemName = document.getString("name")
                         val imageUrl = document.getString("url")
-
                         itemName?.let {
                             spinnerDataList.add(it)
                             imageUrl?.let { url ->
@@ -129,13 +119,11 @@ class Schedule : Fragment() {
                             }
                         }
                     }
-
-                    // Create an ArrayAdapter and set it to the spinner
                     val adapter = ArrayAdapter(
                         alpha, android.R.layout.simple_spinner_item, spinnerDataList
                     )
                     adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-                    spinner.adapter = adapter
+                    binding.spinner.adapter = adapter
                     Log.d("ImageUrlMap", imageUrlMap.toString())
                 }
             }.addOnFailureListener { exception ->

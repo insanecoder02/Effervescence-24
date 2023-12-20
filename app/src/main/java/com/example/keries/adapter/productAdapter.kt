@@ -54,7 +54,11 @@ class productAdapter(
             productType.text = productDataClass.productTypes
 
             // Load image using Glide
-            Glide.with(itemView.context).load(productDataClass.productImageUrl).into(productImage)
+            Glide.with(itemView.context)
+                .load(productDataClass.productImageUrl)
+                .placeholder(R.drawable.whilte_broder)
+                .error(R.drawable.image_svgrepo_com)
+                .into(productImage)
         }
     }
 }

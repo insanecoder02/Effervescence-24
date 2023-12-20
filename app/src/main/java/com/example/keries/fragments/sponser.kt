@@ -39,9 +39,9 @@ class sponser : Fragment() {
         binding.sponserRecylerView.adapter = sponseradapter
         binding.sponserRecylerView.layoutManager =
             com.jackandphantom.carouselrecyclerview.CarouselLayoutManager(
-                true, true, 0.5F, true, true, true, LinearLayoutManager.VERTICAL
+                true, true, 0.5F, true, true, true, LinearLayoutManager.HORIZONTAL
             )
-        (binding.sponserRecylerView as CarouselRecyclerview).setInfinite(true)
+//        (binding.sponserRecylerView as CarouselRecyclerview).setInfinite(true)
 
 //        binding.swiperefreshs.setOnRefreshListener {
 //            fetchFirestoreData()

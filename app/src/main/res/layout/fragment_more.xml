@@ -7,12 +7,10 @@
     android:background="@color/transparent"
     tools:context=".fragments.More">
 
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/transparent"
-        android:layoutAnimation="@anim/layout_anim">
+        android:background="@color/transparent">
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/leftguide"
@@ -34,7 +32,6 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.06" />
-
 
         <ImageView
             android:id="@+id/imageView4"

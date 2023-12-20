@@ -248,7 +248,7 @@
             app:lottie_loop="true"
             app:lottie_rawRes="@raw/alpha"
             tools:layout_editor_absoluteX="-3dp"
-            tools:layout_editor_absoluteY="158dp" />
+            tools:layout_editor_absoluteY="158dp"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
