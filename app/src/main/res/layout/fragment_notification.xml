@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
- <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/transparent"
     tools:context=".fragments.notification">
 
@@ -20,7 +20,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                app:layout_constraintGuide_percent="0.1"/>
+                app:layout_constraintGuide_percent="0.1" />
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/rightGuide"
@@ -40,28 +40,28 @@
                 android:id="@+id/takmeBacknotfiy"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
+                android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
                 android:background="#33FFFFFF"
+                android:backgroundTint="@color/transparent"
                 android:elevation="5dp"
                 android:src="@drawable/baseline_keyboard_backspace_24"
-                android:backgroundTint="@color/transparent"
-                android:layout_marginStart="20dp"
                 app:layout_constraintHorizontal_bias="0.08"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-<!--            <ImageView-->
-<!--                android:id="@+id/boso"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginTop="8dp"-->
-<!--                android:src="@drawable/backsvg"-->
-<!--                app:layout_constraintStart_toStartOf="@+id/leftGuide"-->
-<!--                app:layout_constraintTop_toTopOf="@+id/topGuide" />-->
+            <!--            <ImageView-->
+            <!--                android:id="@+id/boso"-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginTop="8dp"-->
+            <!--                android:src="@drawable/backsvg"-->
+            <!--                app:layout_constraintStart_toStartOf="@+id/leftGuide"-->
+            <!--                app:layout_constraintTop_toTopOf="@+id/topGuide" />-->
 
             <androidx.recyclerview.widget.RecyclerView
-                android:layout_width="0dp"
                 android:id="@+id/notificationRecyclerView"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 app:layout_constraintEnd_toEndOf="@id/rightGuide"

@@ -1,47 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/black">
 
     <RelativeLayout
-        android:padding="10dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:padding="10dp">
 
         <ImageView
-            android:layout_marginTop="15dp"
-            android:layout_marginLeft="10dp"
-            android:layout_width="70dp"
-            android:src="@drawable/effesvghome"
             android:id="@+id/logonoto"
-            android:layout_height="70dp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Title"
-            android:fontFamily="@font/montserrat"
-            android:id="@+id/titlenoto"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:textColor="#FFFFFF"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="15dp"
-            android:layout_toRightOf="@id/logonoto"/>
+            android:src="@drawable/effesvghome" />
+
         <TextView
+            android:id="@+id/titlenoto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Desicprioption"
-            android:fontFamily="@font/montserrat"
-            android:id="@+id/nessagenoto"
-            android:textColor="#FFFFFF"
-            android:layout_below="@id/titlenoto"
-            android:textSize="17sp"
             android:layout_marginLeft="10dp"
-            android:layout_toRightOf="@id/logonoto"/>
-    </RelativeLayout>
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@id/logonoto"
+            android:fontFamily="@font/montserrat"
+            android:text="Title"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
+        <TextView
+            android:id="@+id/nessagenoto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/titlenoto"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/logonoto"
+            android:fontFamily="@font/montserrat"
+            android:text="Desicprioption"
+            android:textColor="#FFFFFF"
+            android:textSize="17sp" />
+    </RelativeLayout>
 
 
 </RelativeLayout>

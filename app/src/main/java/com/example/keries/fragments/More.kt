@@ -10,14 +10,14 @@ import com.example.keries.databinding.FragmentMoreBinding
 import sponser
 
 class More : Fragment() {
-    private lateinit var binding:FragmentMoreBinding
+    private lateinit var binding: FragmentMoreBinding
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         binding = FragmentMoreBinding.inflate(inflater, container, false)
         return binding.root
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.FAQ.setOnClickListener {
@@ -36,10 +36,9 @@ class More : Fragment() {
             loadFragment(developers())
         }
     }
+
     private fun loadFragment(fragment: Fragment) {
         requireActivity().supportFragmentManager.beginTransaction()
-            .replace(R.id.fragment_container, fragment)
-            .addToBackStack(null)
-            .commit()
+            .replace(R.id.fragment_container, fragment).addToBackStack(null).commit()
     }
 }

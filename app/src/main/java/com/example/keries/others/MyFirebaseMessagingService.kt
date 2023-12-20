@@ -19,12 +19,14 @@ import com.google.firebase.messaging.RemoteMessage
 const val channelId = "nfc"
 private val TAG = "MyFirebaseMessaging"
 const val channelName = "Effe"
+
 class MyFirebaseMessagingService : FirebaseMessagingService() {
 
 
     override fun onMessageReceived(remoteMesage: RemoteMessage) {
-        if(remoteMesage.notification !=null){
-            generateNotfication(remoteMesage.notification!!.title!!,remoteMesage.notification!!.body!!
+        if (remoteMesage.notification != null) {
+            generateNotfication(
+                remoteMesage.notification!!.title!!, remoteMesage.notification!!.body!!
             )
         }
         Log.d(TAG, "From: ${remoteMesage.from}")
@@ -32,7 +34,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
         // Check if message contains a data payload.
         if (remoteMesage.data.isNotEmpty()) {
             Log.d(TAG, "Message data payload: ${remoteMesage.data}")
-            Toast.makeText(this,"wow",Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "wow", Toast.LENGTH_SHORT).show()
         }
 
         // Check if message contains a notification payload.
@@ -46,40 +48,41 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
         Log.d(TAG, "Refreshed token: $token")
     }
 
-    fun getRemoteView(title: String,messge: String): RemoteViews {
+    fun getRemoteView(title: String, messge: String): RemoteViews {
         val remoteView = RemoteViews("com.example.keries", R.layout.notification)
-        remoteView.setTextViewText(R.id.titlenoto,title)
-        remoteView.setTextViewText(R.id.nessagenoto,messge)
+        remoteView.setTextViewText(R.id.titlenoto, title)
+        remoteView.setTextViewText(R.id.nessagenoto, messge)
         remoteView.setImageViewResource(R.id.logonoto, R.drawable.effesvghome)
 
         return remoteView
 
     }
-    fun generateNotfication(title: String,messge: String){
+
+    fun generateNotfication(title: String, messge: String) {
         val intent = Intent(this, BaseHome::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-        val pendingIntent = PendingIntent.getActivity(this,0,intent,
-            PendingIntent.FLAG_ONE_SHOT or PendingIntent.FLAG_IMMUTABLE)
-
-
-
-        var builder: NotificationCompat.Builder = NotificationCompat.Builder(applicationContext,
-            channelId
+        val pendingIntent = PendingIntent.getActivity(
+            this, 0, intent, PendingIntent.FLAG_ONE_SHOT or PendingIntent.FLAG_IMMUTABLE
         )
 
-            .setSmallIcon(R.drawable.effesvghome)
-            .setAutoCancel(true)
-            .setVibrate(longArrayOf(1000,1000,1000,1000))
-            .setOnlyAlertOnce(true)
+
+        var builder: NotificationCompat.Builder = NotificationCompat.Builder(
+            applicationContext, channelId
+        )
+
+            .setSmallIcon(R.drawable.effesvghome).setAutoCancel(true)
+            .setVibrate(longArrayOf(1000, 1000, 1000, 1000)).setOnlyAlertOnce(true)
             .setContentIntent(pendingIntent)
 
-        builder = builder.setContent(getRemoteView(title,messge))
+        builder = builder.setContent(getRemoteView(title, messge))
 
-        val notificationManager  = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-        val notificationChannel = NotificationChannel(channelId, channelName,NotificationManager.IMPORTANCE_HIGH)
+        val notificationManager =
+            getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        val notificationChannel =
+            NotificationChannel(channelId, channelName, NotificationManager.IMPORTANCE_HIGH)
         notificationManager.createNotificationChannel(notificationChannel)
 
-        notificationManager.notify(0,builder.build())
+        notificationManager.notify(0, builder.build())
 
     }
 

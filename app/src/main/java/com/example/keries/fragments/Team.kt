@@ -7,17 +7,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import android.widget.Toast
 import androidx.core.view.isVisible
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-import com.airbnb.lottie.LottieAnimationView
-import com.example.keries.R
 import com.example.keries.adapter.TeamAdapter
 import com.example.keries.dataClass.TeamMember
 import com.example.keries.databinding.FragmentTeamBinding
@@ -32,12 +26,11 @@ import kotlinx.coroutines.withContext
 class Team : Fragment() {
     private lateinit var binding: FragmentTeamBinding
     private val db = FirebaseFirestore.getInstance()
-    private lateinit var teamAdapter: TeamAdapter
     private var loadedRecyclerViewCount: Int = 1
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentTeamBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -60,20 +53,20 @@ class Team : Fragment() {
         binding.creativesreyc.layoutManager = LinearLayoutManager(context)
         binding.hospitalllty.layoutManager = LinearLayoutManager(context)
 
-        shimmerEffect(binding.shimmerCoordinator,binding.festiveCordi)
-        shimmerEffect(binding.shimmerFinance,binding.financerelcyler)
-        shimmerEffect(binding.shimmerCorporate,binding.coroprate)
-        shimmerEffect(binding.shimmerEvents,binding.eventesmangereycl)
-        shimmerEffect(binding.shimmerWeb,binding.wed)
-        shimmerEffect(binding.shimmerTechnical,binding.tecnialreycler)
-        shimmerEffect(binding.shimmerOoc,binding.cco)
-        shimmerEffect(binding.shimmerHospitalitiy,binding.hospitalllty)
-        shimmerEffect(binding.shimmerBranding,binding.brnding)
-        shimmerEffect(binding.shimmerPublic,binding.pr)
-        shimmerEffect(binding.shimmerMedia,binding.mediaaaa)
-        shimmerEffect(binding.shimmerFilming,binding.flimingdevven)
-        shimmerEffect(binding.shimmerCreatives,binding.creativesreyc)
-        shimmerEffect(binding.shimmerApp,binding.apppp)
+//        shimmerEffect(binding.shimmerCoordinator, binding.festiveCordi)
+//        shimmerEffect(binding.shimmerFinance, binding.financerelcyler)
+//        shimmerEffect(binding.shimmerCorporate, binding.coroprate)
+//        shimmerEffect(binding.shimmerEvents, binding.eventesmangereycl)
+//        shimmerEffect(binding.shimmerWeb, binding.wed)
+//        shimmerEffect(binding.shimmerTechnical, binding.tecnialreycler)
+//        shimmerEffect(binding.shimmerOoc, binding.cco)
+//        shimmerEffect(binding.shimmerHospitalitiy, binding.hospitalllty)
+//        shimmerEffect(binding.shimmerBranding, binding.brnding)
+//        shimmerEffect(binding.shimmerPublic, binding.pr)
+//        shimmerEffect(binding.shimmerMedia, binding.mediaaaa)
+//        shimmerEffect(binding.shimmerFilming, binding.flimingdevven)
+//        shimmerEffect(binding.shimmerCreatives, binding.creativesreyc)
+//        shimmerEffect(binding.shimmerApp, binding.apppp)
 
         fetchAndPopulateData("Coordinator", binding.festiveCordi)
         fetchAndPopulateData("FINANCE", binding.financerelcyler)
@@ -89,9 +82,7 @@ class Team : Fragment() {
         fetchAndPopulateData("BRANDING & LOGISTICS", binding.brnding)
         fetchAndPopulateData("CREATIVES", binding.creativesreyc)
         fetchAndPopulateData("HOSPITALITY & TRAVEL", binding.hospitalllty)
-//        binding.swiperefreshteam.setOnRefreshListener {
-//            binding.swiperefreshteam.isRefreshing = false
-//        }
+
         binding.takmeBackaboutus.setOnClickListener {
             fragmentManager?.popBackStack()
         }
@@ -110,23 +101,11 @@ class Team : Fragment() {
         binding.apppp.isNestedScrollingEnabled = false
         binding.cco.isNestedScrollingEnabled = false
 
-    }
-
-    private fun shimmerEffect(shim:ShimmerFrameLayout , RV:RecyclerView) {
-        RV.isNestedScrollingEnabled = false
-        val shimmer = Shimmer.AlphaHighlightBuilder()
-            .setDirection(Shimmer.Direction.BOTTOM_TO_TOP)
-            .setDuration(5000)
-            .setAutoStart(true)
-            .build()
-        shim.setShimmer(shimmer)
-
+        binding.loadTeam.visibility = View.VISIBLE
         Handler(Looper.getMainLooper()).postDelayed({
-            shim.stopShimmer()
-            shim.isVisible = false
-            RV.isVisible = true
-            RV.isNestedScrollingEnabled = true
-        },3000)
+            binding.teamConstraint.visibility = View.VISIBLE
+            binding.loadTeam.visibility = View.GONE
+        }, 3000)
     }
 
     private fun fetchAndPopulateData(wing: String, recyclerView: RecyclerView) {
@@ -160,5 +139,19 @@ class Team : Fragment() {
         } catch (e: Exception) {
             throw e
         }
+    }
+
+    private fun shimmerEffect(shim: ShimmerFrameLayout, RV: RecyclerView) {
+        RV.isNestedScrollingEnabled = false
+        val shimmer = Shimmer.AlphaHighlightBuilder().setDirection(Shimmer.Direction.BOTTOM_TO_TOP)
+            .setDuration(5000).setAutoStart(true).build()
+        shim.setShimmer(shimmer)
+
+        Handler(Looper.getMainLooper()).postDelayed({
+            shim.stopShimmer()
+            shim.isVisible = false
+            RV.isVisible = true
+            RV.isNestedScrollingEnabled = true
+        }, 3000)
     }
 }

@@ -11,409 +11,408 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:background="#00ffffff"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp">
-
-        <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="0dp"
-            android:layout_height="100dp"
-            android:layout_marginTop="0dp"
-            android:padding="10dp"
-            android:src="@drawable/effebrushlogofull"
-            app:layout_constraintEnd_toStartOf="@+id/rightGuide"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="@+id/leftGuide"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins_medium"
-            android:text="FAQs"
-            android:textColor="@color/white"
-            android:textSize="30sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/leftGuide"
-            app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+            android:layout_marginBottom="20dp"
+            android:background="#00ffffff">
 
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/rightGuide"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.95" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/leftGuide"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.05" />
-
-<!--        <TextView-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginStart="10dp"-->
-<!--            android:text="FAQ"-->
-<!--            android:textColor="@color/white"-->
-<!--            android:textSize="28sp"-->
-<!--            app:layout_constraintStart_toEndOf="@+id/boso"-->
-<!--            app:layout_constraintTop_toTopOf="@+id/topGuide" />-->
-
-        <LinearLayout
-            android:id="@+id/l1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:background="#33ffffff"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="@id/rightGuide"
-            app:layout_constraintStart_toStartOf="@id/leftGuide"
-            app:layout_constraintTop_toBottomOf="@+id/l6">
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:id="@+id/q1"
-                    android:layout_width="310dp"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:fontFamily="@font/roboto"
-                    android:paddingVertical="12dp"
-                    android:paddingStart="12dp"
-                    android:paddingEnd="10dp"
-                    android:text="Will the merch be delivered home?"
-                    android:textColor="@color/white"
-                    android:textSize="16sp" />
-
-                <ImageView
-                    android:id="@+id/d1"
-                    android:layout_width="50dp"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:paddingTop="3dp"
-                    android:src="@drawable/arrow_drop_down_fill0_wght400_grad0_opsz48" />
-            </RelativeLayout>
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="0dp"
+                android:padding="10dp"
+                android:src="@drawable/effebrushlogofull"
+                app:layout_constraintEnd_toStartOf="@+id/rightGuide"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@+id/leftGuide"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/a1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:fontFamily="@font/roboto"
-                android:gravity="center_vertical"
-                android:paddingVertical="5dp"
-                android:paddingStart="12dp"
-                android:text="Yes, it will be delivered to your house."
-                android:textColor="@color/white"
-                android:textSize="14sp"
-                android:visibility="gone" />
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:id="@+id/l2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:background="#33ffffff"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="@id/rightGuide"
-            app:layout_constraintStart_toStartOf="@id/leftGuide"
-            app:layout_constraintTop_toBottomOf="@+id/l1">
-
-            <RelativeLayout
+                android:id="@+id/textView6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/q2"
-                    android:layout_width="310dp"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:paddingEnd="10dp"
-                    android:paddingVertical="12dp"
-                    android:paddingStart="12dp"
-                    android:fontFamily="@font/roboto"
-                    android:text="Is there any delivery charge if I buy the merch?"
-                    android:textColor="@color/white"
-                    android:textSize="16sp" />
-
-                <ImageView
-                    android:id="@+id/d2"
-                    android:layout_width="50dp"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:paddingTop="3dp"
-                    android:src="@drawable/arrow_drop_down_fill0_wght400_grad0_opsz48" />
-            </RelativeLayout>
-
-            <TextView
-                android:id="@+id/a2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:fontFamily="@font/roboto"
-                android:gravity="center_vertical"
-                android:paddingVertical="5dp"
-                android:paddingStart="12dp"
-                android:text="No, the delivery is completely free of cost."
+                android:fontFamily="@font/poppins_medium"
+                android:text="FAQs"
                 android:textColor="@color/white"
-                android:textSize="14sp"
-                android:visibility="gone" />
-        </LinearLayout>
+                android:textSize="30sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/leftGuide"
+                app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
-        <LinearLayout
-            android:id="@+id/l3"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:background="#33ffffff"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="@id/rightGuide"
-            app:layout_constraintStart_toStartOf="@id/leftGuide"
-            app:layout_constraintTop_toBottomOf="@+id/l2">
 
-            <RelativeLayout
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/rightGuide"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.95" />
 
-                <TextView
-                    android:id="@+id/q3"
-                    android:layout_width="310dp"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:fontFamily="@font/roboto"
-                    android:paddingVertical="12dp"
-                    android:paddingStart="12dp"
-                    android:paddingEnd="10dp"
-                    android:text="Is the combo cheaper than buying the individual hoodies?"
-                    android:textColor="@color/white"
-                    android:textSize="16sp" />
-
-                <ImageView
-                    android:id="@+id/d3"
-                    android:layout_width="50dp"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:paddingTop="3dp"
-                    android:src="@drawable/arrow_drop_down_fill0_wght400_grad0_opsz48" />
-            </RelativeLayout>
-
-            <TextView
-                android:id="@+id/a3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:fontFamily="@font/roboto"
-                android:gravity="center_vertical"
-                android:paddingVertical="5dp"
-                android:paddingStart="12dp"
-                android:text="Yes, the combo is much cheaper."
-                android:textColor="@color/white"
-                android:textSize="14sp"
-                android:visibility="gone" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/l4"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:background="#33ffffff"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="@id/rightGuide"
-            app:layout_constraintStart_toStartOf="@id/leftGuide"
-            app:layout_constraintTop_toBottomOf="@+id/l3">
-
-            <RelativeLayout
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/leftGuide"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.05" />
+
+            <!--        <TextView-->
+            <!--            android:layout_width="wrap_content"-->
+            <!--            android:layout_height="wrap_content"-->
+            <!--            android:layout_marginStart="10dp"-->
+            <!--            android:text="FAQ"-->
+            <!--            android:textColor="@color/white"-->
+            <!--            android:textSize="28sp"-->
+            <!--            app:layout_constraintStart_toEndOf="@+id/boso"-->
+            <!--            app:layout_constraintTop_toTopOf="@+id/topGuide" />-->
+
+            <LinearLayout
+                android:id="@+id/l1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="#33ffffff"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="@id/rightGuide"
+                app:layout_constraintStart_toStartOf="@id/leftGuide"
+                app:layout_constraintTop_toBottomOf="@+id/l6">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/q1"
+                        android:layout_width="310dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:fontFamily="@font/roboto"
+                        android:paddingVertical="12dp"
+                        android:paddingStart="12dp"
+                        android:paddingEnd="10dp"
+                        android:text="Will the merch be delivered home?"
+                        android:textColor="@color/white"
+                        android:textSize="16sp" />
+
+                    <ImageView
+                        android:id="@+id/d1"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:paddingTop="3dp"
+                        android:src="@drawable/arrow_drop_down_fill0_wght400_grad0_opsz48" />
+                </RelativeLayout>
 
                 <TextView
-                    android:id="@+id/q4"
-                    android:layout_width="310dp"
+                    android:id="@+id/a1"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_marginStart="2dp"
+                    android:layout_marginBottom="5dp"
                     android:fontFamily="@font/roboto"
-                    android:paddingVertical="12dp"
+                    android:gravity="center_vertical"
+                    android:paddingVertical="5dp"
                     android:paddingStart="12dp"
-                    android:paddingEnd="10dp"
-                    android:text="Can outsiders come to Effervescence '23?"
+                    android:text="Yes, it will be delivered to your house."
                     android:textColor="@color/white"
-                    android:textSize="16sp" />
+                    android:textSize="14sp"
+                    android:visibility="gone" />
+            </LinearLayout>
 
-                <ImageView
-                    android:id="@+id/d4"
-                    android:layout_width="50dp"
+
+            <LinearLayout
+                android:id="@+id/l2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="#33ffffff"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="@id/rightGuide"
+                app:layout_constraintStart_toStartOf="@id/leftGuide"
+                app:layout_constraintTop_toBottomOf="@+id/l1">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:paddingTop="3dp"
-                    android:src="@drawable/arrow_drop_down_fill0_wght400_grad0_opsz48" />
-            </RelativeLayout>
+                    android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/a4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:fontFamily="@font/roboto"
-                android:gravity="center_vertical"
-                android:paddingVertical="5dp"
-                android:paddingStart="12dp"
-                android:text="Yes, with a nominal fee, outsiders can attend the majestic Effervescence '23!"
-                android:textColor="@color/white"
-                android:textSize="14sp"
-                android:visibility="gone" />
-        </LinearLayout>
+                    <TextView
+                        android:id="@+id/q2"
+                        android:layout_width="310dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:fontFamily="@font/roboto"
+                        android:paddingVertical="12dp"
+                        android:paddingStart="12dp"
+                        android:paddingEnd="10dp"
+                        android:text="Is there any delivery charge if I buy the merch?"
+                        android:textColor="@color/white"
+                        android:textSize="16sp" />
 
-        <LinearLayout
-            android:id="@+id/l5"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:background="#33ffffff"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="@id/rightGuide"
-            app:layout_constraintStart_toStartOf="@id/leftGuide"
-            app:layout_constraintTop_toBottomOf="@+id/l4">
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                    <ImageView
+                        android:id="@+id/d2"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:paddingTop="3dp"
+                        android:src="@drawable/arrow_drop_down_fill0_wght400_grad0_opsz48" />
+                </RelativeLayout>
 
                 <TextView
-                    android:id="@+id/q5"
-                    android:layout_width="310dp"
+                    android:id="@+id/a2"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginStart="0dp"
+                    android:layout_marginBottom="5dp"
                     android:fontFamily="@font/roboto"
-                    android:paddingVertical="12dp"
+                    android:gravity="center_vertical"
+                    android:paddingVertical="5dp"
                     android:paddingStart="12dp"
-                    android:paddingEnd="10dp"
-                    android:text="How do i take part in effe team"
+                    android:text="No, the delivery is completely free of cost."
                     android:textColor="@color/white"
-                    android:textSize="16sp" />
+                    android:textSize="14sp"
+                    android:visibility="gone" />
+            </LinearLayout>
 
-                <ImageView
-                    android:id="@+id/d5"
-                    android:layout_width="50dp"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:paddingTop="3dp"
-                    android:src="@drawable/arrow_drop_down_fill0_wght400_grad0_opsz48" />
-            </RelativeLayout>
-
-            <TextView
-                android:id="@+id/a5"
-                android:layout_width="match_parent"
+            <LinearLayout
+                android:id="@+id/l3"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:fontFamily="@font/roboto"
-                android:gravity="center_vertical"
-                android:paddingVertical="5dp"
-                android:paddingStart="12dp"
-                android:text="There will be a interview process for it "
-                android:textColor="@color/white"
-                android:textSize="14sp"
-                android:visibility="gone" />
-        </LinearLayout>
+                android:layout_marginTop="12dp"
+                android:background="#33ffffff"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="@id/rightGuide"
+                app:layout_constraintStart_toStartOf="@id/leftGuide"
+                app:layout_constraintTop_toBottomOf="@+id/l2">
 
-        <ImageView
-            android:id="@+id/takmeBackaboutus"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="20dp"
-            android:background="#33FFFFFF"
-            android:elevation="8dp"
-            android:src="@drawable/baseline_keyboard_backspace_24"
-            android:backgroundTint="@color/transparent"
-            android:layout_marginStart="20dp"
-            app:layout_constraintHorizontal_bias="0.08"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
-        <LinearLayout
-            android:id="@+id/l6"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:background="#33ffffff"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="@id/rightGuide"
-            app:layout_constraintStart_toStartOf="@id/leftGuide"
-            app:layout_constraintTop_toBottomOf="@id/textView6">
+                    <TextView
+                        android:id="@+id/q3"
+                        android:layout_width="310dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:fontFamily="@font/roboto"
+                        android:paddingVertical="12dp"
+                        android:paddingStart="12dp"
+                        android:paddingEnd="10dp"
+                        android:text="Is the combo cheaper than buying the individual hoodies?"
+                        android:textColor="@color/white"
+                        android:textSize="16sp" />
 
-
-
-            <RelativeLayout
-                android:id="@+id/r6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                    <ImageView
+                        android:id="@+id/d3"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:paddingTop="3dp"
+                        android:src="@drawable/arrow_drop_down_fill0_wght400_grad0_opsz48" />
+                </RelativeLayout>
 
                 <TextView
-                    android:id="@+id/q6"
-                    android:layout_width="310dp"
+                    android:id="@+id/a3"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
+                    android:layout_marginBottom="5dp"
                     android:fontFamily="@font/roboto"
-                    android:paddingVertical="12dp"
+                    android:gravity="center_vertical"
+                    android:paddingVertical="5dp"
                     android:paddingStart="12dp"
-                    android:paddingEnd="10dp"
-                    android:text="How can I buy the Effervescence merch?"
+                    android:text="Yes, the combo is much cheaper."
                     android:textColor="@color/white"
-                    android:textSize="16sp" />
+                    android:textSize="14sp"
+                    android:visibility="gone" />
+            </LinearLayout>
 
-                <ImageView
-                    android:id="@+id/d6"
-                    android:layout_width="50dp"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:paddingTop="3dp"
-                    android:src="@drawable/arrow_drop_down_fill0_wght400_grad0_opsz48" />
-            </RelativeLayout>
-
-            <TextView
-                android:id="@+id/a6"
-                android:layout_width="match_parent"
+            <LinearLayout
+                android:id="@+id/l4"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:fontFamily="@font/roboto"
-                android:gravity="center_vertical"
-                android:paddingVertical="5dp"
-                android:paddingStart="12dp"
-                android:text="Just fill the google form circulated to buy the Effervescence '22 merch."
-                android:textColor="@color/white"
-                android:textSize="14sp"
-                android:visibility="gone" />
-        </LinearLayout>
+                android:layout_marginTop="12dp"
+                android:background="#33ffffff"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="@id/rightGuide"
+                app:layout_constraintStart_toStartOf="@id/leftGuide"
+                app:layout_constraintTop_toBottomOf="@+id/l3">
 
-<!--        <ImageView-->
-<!--            android:id="@+id/boso"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginTop="8dp"-->
-<!--            android:src="@drawable/backsvg"-->
-<!--            app:layout_constraintStart_toStartOf="@+id/leftGuide"-->
-<!--            app:layout_constraintTop_toTopOf="@+id/topGuide" />-->
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/q4"
+                        android:layout_width="310dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginStart="2dp"
+                        android:fontFamily="@font/roboto"
+                        android:paddingVertical="12dp"
+                        android:paddingStart="12dp"
+                        android:paddingEnd="10dp"
+                        android:text="Can outsiders come to Effervescence '23?"
+                        android:textColor="@color/white"
+                        android:textSize="16sp" />
+
+                    <ImageView
+                        android:id="@+id/d4"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:paddingTop="3dp"
+                        android:src="@drawable/arrow_drop_down_fill0_wght400_grad0_opsz48" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/a4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:fontFamily="@font/roboto"
+                    android:gravity="center_vertical"
+                    android:paddingVertical="5dp"
+                    android:paddingStart="12dp"
+                    android:text="Yes, with a nominal fee, outsiders can attend the majestic Effervescence '23!"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/l5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="#33ffffff"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="@id/rightGuide"
+                app:layout_constraintStart_toStartOf="@id/leftGuide"
+                app:layout_constraintTop_toBottomOf="@+id/l4">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/q5"
+                        android:layout_width="310dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginStart="0dp"
+                        android:fontFamily="@font/roboto"
+                        android:paddingVertical="12dp"
+                        android:paddingStart="12dp"
+                        android:paddingEnd="10dp"
+                        android:text="How do i take part in effe team"
+                        android:textColor="@color/white"
+                        android:textSize="16sp" />
+
+                    <ImageView
+                        android:id="@+id/d5"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:paddingTop="3dp"
+                        android:src="@drawable/arrow_drop_down_fill0_wght400_grad0_opsz48" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/a5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:fontFamily="@font/roboto"
+                    android:gravity="center_vertical"
+                    android:paddingVertical="5dp"
+                    android:paddingStart="12dp"
+                    android:text="There will be a interview process for it "
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/takmeBackaboutus"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:background="#33FFFFFF"
+                android:backgroundTint="@color/transparent"
+                android:elevation="8dp"
+                android:src="@drawable/baseline_keyboard_backspace_24"
+                app:layout_constraintHorizontal_bias="0.08"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <LinearLayout
+                android:id="@+id/l6"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:background="#33ffffff"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="@id/rightGuide"
+                app:layout_constraintStart_toStartOf="@id/leftGuide"
+                app:layout_constraintTop_toBottomOf="@id/textView6">
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                <RelativeLayout
+                    android:id="@+id/r6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/q6"
+                        android:layout_width="310dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:fontFamily="@font/roboto"
+                        android:paddingVertical="12dp"
+                        android:paddingStart="12dp"
+                        android:paddingEnd="10dp"
+                        android:text="How can I buy the Effervescence merch?"
+                        android:textColor="@color/white"
+                        android:textSize="16sp" />
+
+                    <ImageView
+                        android:id="@+id/d6"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:paddingTop="3dp"
+                        android:src="@drawable/arrow_drop_down_fill0_wght400_grad0_opsz48" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/a6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:fontFamily="@font/roboto"
+                    android:gravity="center_vertical"
+                    android:paddingVertical="5dp"
+                    android:paddingStart="12dp"
+                    android:text="Just fill the google form circulated to buy the Effervescence '22 merch."
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <!--        <ImageView-->
+            <!--            android:id="@+id/boso"-->
+            <!--            android:layout_width="wrap_content"-->
+            <!--            android:layout_height="wrap_content"-->
+            <!--            android:layout_marginTop="8dp"-->
+            <!--            android:src="@drawable/backsvg"-->
+            <!--            app:layout_constraintStart_toStartOf="@+id/leftGuide"-->
+            <!--            app:layout_constraintTop_toTopOf="@+id/topGuide" />-->
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.core.widget.NestedScrollView>
 

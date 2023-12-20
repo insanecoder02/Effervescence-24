@@ -1,100 +1,99 @@
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@color/transparent"
-    android:layout_marginBottom="10dp">
+    android:layout_marginBottom="10dp"
+    android:background="@color/transparent">
+
     <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:cardUseCompatPadding="true"
+        android:backgroundTint="#40808080"
+        android:elevation="4dp"
         app:cardCornerRadius="8dp"
         app:cardElevation="0dp"
-        android:elevation="4dp"
-        android:backgroundTint="#40808080"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent">
-
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="10dp"
-        android:layout_marginVertical="15dp"
-        android:orientation="horizontal"
+        app:cardUseCompatPadding="true"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="1dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0"
-            android:orientation="vertical">
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginVertical="15dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="1dp">
 
-            <TextView
-                android:id="@+id/productName"
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/productName"
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_medium"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="10dp"
+                    android:text="Product Name"
+                    android:textColor="@color/white"
+                    android:textSize="28sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/productType"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:fontFamily="@font/roboto"
+                    android:gravity="top"
+                    android:paddingStart="10dp"
+                    android:paddingBottom="5dp"
+                    android:text="product type"
+                    android:textColor="#FC7848"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/productDescription"
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="5dp"
+                    android:fontFamily="@font/roboto"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="10dp"
+                    android:text="product description "
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/produtPrize"
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:paddingStart="10dp"
+                    android:text="prize"
+                    android:textColor="@color/white"
+                    android:textSize="24sp" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/productImage"
                 android:layout_width="180dp"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto_medium"
-                android:gravity="center_vertical"
-                android:paddingHorizontal="10dp"
-                android:text="Product Name"
-                android:textStyle="bold"
-                android:textColor="@color/white"
-                android:textSize="28sp" />
-
-            <TextView
-                android:id="@+id/productType"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto"
-                android:gravity="top"
-                android:layout_marginBottom="5dp"
-                android:paddingStart="10dp"
-                android:paddingBottom="5dp"
-                android:text="product type"
-                android:textColor="#FC7848"
-                android:textSize="18sp" />
-
-            <TextView
-                android:id="@+id/productDescription"
-                android:layout_width="180dp"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/roboto"
-                android:gravity="center_vertical"
-                android:visibility="gone"
-                android:paddingHorizontal="10dp"
-                android:text="product description "
-                android:layout_marginVertical="5dp"
-                android:textColor="@color/white"
-                android:textSize="14sp" />
-
-            <TextView
-                android:id="@+id/produtPrize"
-                android:layout_width="180dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:paddingStart="10dp"
-                android:text="prize"
-                android:textColor="@color/white"
-                android:textSize="24sp" />
+                android:layout_height="180dp"
+                android:paddingEnd="20dp"
+                android:src="@drawable/whilte_broder"
+                android:scaleType="centerInside" />
 
         </LinearLayout>
-
-        <ImageView
-            android:id="@+id/productImage"
-            android:layout_width="180dp"
-            android:src="@drawable/whilte_broder"
-            android:paddingEnd="20dp"
-            android:layout_height="180dp"
-            android:scaleType="centerInside" />
-
-    </LinearLayout>
     </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

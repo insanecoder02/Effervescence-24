@@ -20,22 +20,22 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                app:layout_constraintGuide_percent="0.95"/>
+                app:layout_constraintGuide_percent="0.95" />
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/leftGuide"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                app:layout_constraintGuide_percent="0.05"/>
+                app:layout_constraintGuide_percent="0.05" />
 
 
             <ImageView
                 android:id="@+id/imageView4"
                 android:layout_width="0dp"
                 android:layout_height="100dp"
-                android:padding="10dp"
                 android:layout_marginTop="30dp"
+                android:padding="10dp"
                 android:src="@drawable/effebrushlogofull"
                 app:layout_constraintEnd_toStartOf="@+id/rightGuide"
                 app:layout_constraintStart_toStartOf="@+id/leftGuide"
@@ -48,32 +48,32 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_medium"
                 android:text="Schedule"
-                app:layout_constraintStart_toEndOf="@id/leftGuide"
-                app:layout_constraintEnd_toStartOf="@id/rightGuide"
                 android:textColor="@color/white"
                 android:textSize="30sp"
+                app:layout_constraintEnd_toStartOf="@id/rightGuide"
+                app:layout_constraintStart_toEndOf="@id/leftGuide"
                 app:layout_constraintTop_toBottomOf="@+id/imageView4"
                 tools:layout_editor_absoluteX="105dp" />
 
 
             <ImageView
-                android:layout_marginTop="20dp"
-                android:layout_marginHorizontal="12dp"
                 android:id="@+id/scheduleShowImageView"
                 android:layout_width="0dp"
                 android:layout_height="300dp"
-                android:background="@drawable/whilte_broder"
+                android:layout_marginHorizontal="12dp"
+                android:layout_marginTop="20dp"
                 android:padding="10dp"
-                app:layout_constraintStart_toEndOf="@id/leftGuide"
-                app:layout_constraintEnd_toStartOf="@id/rightGuide"
                 android:paddingHorizontal="12dp"
+                android:src="@drawable/whilte_broder"
+                app:layout_constraintEnd_toStartOf="@id/rightGuide"
+                app:layout_constraintStart_toEndOf="@id/leftGuide"
                 app:layout_constraintTop_toBottomOf="@+id/textView6"
                 tools:layout_editor_absoluteX="136dp" />
 
             <LinearLayout
-                android:layout_marginTop="24dp"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
+                android:layout_marginTop="24dp"
                 android:orientation="horizontal"
                 app:layout_constraintEnd_toStartOf="@id/rightGuide"
                 app:layout_constraintStart_toEndOf="@id/leftGuide"
@@ -83,18 +83,19 @@
 
                 <Spinner
                     android:id="@+id/spinner"
-                    android:gravity="center"
                     android:layout_width="160dp"
                     android:layout_height="match_parent"
                     android:background="@drawable/spinner_bag"
+                    android:backgroundTint="#30808080"
+                    android:gravity="center"
                     android:spinnerMode="dialog"
                     android:textAlignment="center" />
 
                 <ImageView
                     android:id="@+id/downlaod"
                     android:layout_width="42dp"
-                    android:layout_marginStart="8dp"
                     android:layout_height="42dp"
+                    android:layout_marginStart="8dp"
                     android:src="@drawable/baseline_download_24"
                     app:tint="@color/white"
                     tools:layout_editor_absoluteY="525dp" />

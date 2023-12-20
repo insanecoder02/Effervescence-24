@@ -36,7 +36,7 @@ class Schedule : Fragment() {
         binding = FragmentScheduleBinding.inflate(inflater, container, false)
         spinner = binding.root.findViewById(R.id.spinner)
         downlaodme = binding.root.findViewById(R.id.downlaod)
-        imageView=binding.root.findViewById(R.id.scheduleShowImageView)
+        imageView = binding.root.findViewById(R.id.scheduleShowImageView)
         return binding.root
     }
 
@@ -55,12 +55,12 @@ class Schedule : Fragment() {
             if (drawable is BitmapDrawable) {
                 val bitmap = drawable.bitmap
                 // Implement logic to save the bitmap to the phone storage
-                saveBitmapToStorage(requireContext(),bitmap)
+                saveBitmapToStorage(requireContext(), bitmap)
             }
         }
     }
 
-    private fun saveBitmapToStorage( alpha: Context,bitmap: Bitmap) {
+    private fun saveBitmapToStorage(alpha: Context, bitmap: Bitmap) {
         val filename = "image.png"
         val file = File(alpha.getExternalFilesDir(null), filename)
         Toast.makeText(

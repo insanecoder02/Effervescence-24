@@ -8,41 +8,40 @@
     tools:context=".fragments.More">
 
 
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:background="@color/transparent"
-        android:layoutAnimation="@anim/layout_anim"
-        android:layout_height="match_parent">
+        android:layoutAnimation="@anim/layout_anim">
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/leftguide"
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.05"
-            android:layout_height="wrap_content"/>
+            app:layout_constraintGuide_percent="0.05" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/rightguide"
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.95"
-            android:layout_height="wrap_content"/>
+            app:layout_constraintGuide_percent="0.95" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/upguide"
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.06"
-            android:layout_height="wrap_content"/>
+            app:layout_constraintGuide_percent="0.06" />
 
 
         <ImageView
             android:id="@+id/imageView4"
             android:layout_width="0dp"
             android:layout_height="100dp"
-            android:padding="10dp"
             android:layout_marginTop="30dp"
+            android:padding="10dp"
             android:src="@drawable/effebrushlogofull"
             app:layout_constraintEnd_toStartOf="@+id/rightguide"
             app:layout_constraintStart_toStartOf="@+id/leftguide"
@@ -53,8 +52,8 @@
             android:layout_width="0dp"
             android:layout_height="48dp"
             android:layout_marginTop="200dp"
-            android:backgroundTint="#30808080"
             android:background="@drawable/ripple1effect"
+            android:backgroundTint="#30808080"
             app:layout_constraintEnd_toStartOf="@+id/rightguide"
             app:layout_constraintStart_toStartOf="@+id/leftguide"
             app:layout_constraintTop_toTopOf="parent">
@@ -83,8 +82,8 @@
             android:layout_width="0dp"
             android:layout_height="48dp"
             android:layout_marginTop="14dp"
-            android:backgroundTint="#30808080"
             android:background="@drawable/ripple1effect"
+            android:backgroundTint="#30808080"
             app:layout_constraintEnd_toEndOf="@id/rightguide"
             app:layout_constraintStart_toStartOf="@id/leftguide"
             app:layout_constraintTop_toBottomOf="@+id/AboutUsss">
@@ -113,8 +112,8 @@
             android:layout_width="0dp"
             android:layout_height="48dp"
             android:layout_marginTop="14dp"
-            android:backgroundTint="#30808080"
             android:background="@drawable/ripple1effect"
+            android:backgroundTint="#30808080"
             app:layout_constraintEnd_toEndOf="@id/rightguide"
             app:layout_constraintStart_toStartOf="@id/leftguide"
             app:layout_constraintTop_toBottomOf="@+id/teamlayout">
@@ -143,8 +142,8 @@
             android:layout_width="0dp"
             android:layout_height="48dp"
             android:layout_marginTop="14dp"
-            android:backgroundTint="#30808080"
             android:background="@drawable/ripple1effect"
+            android:backgroundTint="#30808080"
             app:layout_constraintEnd_toEndOf="@id/rightguide"
             app:layout_constraintStart_toStartOf="@id/leftguide"
             app:layout_constraintTop_toBottomOf="@+id/SPONS">
@@ -175,12 +174,11 @@
             android:layout_width="0dp"
             android:layout_height="48dp"
             android:layout_marginTop="14dp"
-            android:backgroundTint="#30808080"
             android:background="@drawable/ripple1effect"
+            android:backgroundTint="#30808080"
             app:layout_constraintEnd_toEndOf="@id/rightguide"
             app:layout_constraintStart_toStartOf="@id/leftguide"
-            app:layout_constraintTop_toBottomOf="@+id/FAQ"
-            >
+            app:layout_constraintTop_toBottomOf="@+id/FAQ">
 
             <ImageView
                 android:id="@+id/imageView1"
@@ -202,6 +200,6 @@
                 android:textColor="@color/white"
                 android:textSize="20sp" />
         </LinearLayout>
-        
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

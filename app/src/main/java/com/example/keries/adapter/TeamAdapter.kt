@@ -24,24 +24,22 @@ class TeamAdapter(private val teamMembers: List<TeamMember>) :
         private val nameTextView: TextView = itemView.findViewById(R.id.nameTextView)
         private val wingTextView: TextView = itemView.findViewById(R.id.desginations)
         private val imageView: ImageView = itemView.findViewById(R.id.imageView)
-        private val teamLinear:LinearLayout = itemView.findViewById(R.id.teamLinear)
+        private val teamLinear: LinearLayout = itemView.findViewById(R.id.teamLinear)
 
         fun bind(teamMember: TeamMember) {
             nameTextView.text = teamMember.name
-            if(teamMember.no<42){
+            if (teamMember.no < 42) {
                 wingTextView.text = "HEAD"
-            }else {
+            } else {
                 // Hide the view for team members with no > 42
                 itemView.visibility = View.GONE
                 itemView.layoutParams = RecyclerView.LayoutParams(0, 0)
             }
 
-            Glide.with(itemView.context)
-                .load(teamMember.url)
+            Glide.with(itemView.context).load(teamMember.url)
                 .placeholder(R.drawable.image_svgrepo_com) // Add a placeholder image
                 .error(R.drawable.image_svgrepo_com) // Add an error image
-                .transform(CircleCrop())
-                .into(imageView)
+                .transform(CircleCrop()).into(imageView)
 
             imageView.setOnClickListener {
                 val dialog = ImageViewerDialog(itemView.context, teamMember.url)
@@ -56,8 +54,8 @@ class TeamAdapter(private val teamMembers: List<TeamMember>) :
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TeamViewHolder {
-        val itemView = LayoutInflater.from(parent.context)
-            .inflate(R.layout.teammemberlayout, parent, false)
+        val itemView =
+            LayoutInflater.from(parent.context).inflate(R.layout.teammemberlayout, parent, false)
         return TeamViewHolder(itemView)
     }
 

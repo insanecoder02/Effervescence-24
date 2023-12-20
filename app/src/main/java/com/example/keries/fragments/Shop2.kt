@@ -3,6 +3,8 @@ package com.example.keries.fragments
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -23,6 +25,8 @@ class Shop2 : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.loadimgEvent.visibility = View.VISIBLE
+
         val prize = arguments?.getString("prize")
         val name = arguments?.getString("name")
         val type = arguments?.getString("type")
@@ -40,11 +44,16 @@ class Shop2 : Fragment() {
             }
         }
 
-        binding.backBut.setOnClickListener{fragmentManager?.popBackStack()}
+        binding.backBut.setOnClickListener { fragmentManager?.popBackStack() }
         binding.textView1.text = name
         binding.textView2.text = type
         binding.textView3.text = prize
         binding.productDescription.text = descrip
         Picasso.get().load(image).into(binding.shopImage)
+
+        Handler(Looper.getMainLooper()).postDelayed({
+            binding.shopImage.visibility = View.VISIBLE
+            binding.loadimgEvent.visibility = View.GONE
+        },3000)
     }
 }

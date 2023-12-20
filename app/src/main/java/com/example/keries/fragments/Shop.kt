@@ -29,6 +29,7 @@ class Shop : Fragment(), productAdapter.OnItemClickListener {
         binding = FragmentShopBinding.inflate(inflater, container, false)
         return binding.root
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -47,6 +48,7 @@ class Shop : Fragment(), productAdapter.OnItemClickListener {
             fetchFirestoreData()
         }
     }
+
     override fun onItemClick(item: productDataClass) {
         val bundle = Bundle()
         bundle.putString("prize", item.productPrize)

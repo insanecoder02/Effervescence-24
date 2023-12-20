@@ -3,7 +3,8 @@ package com.example.keries.fragments
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
+import android.os.Handler
+import android.os.Looper
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -13,25 +14,23 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
 import com.example.keries.R
+import com.example.keries.databinding.FragmentEventsBinding
+import com.example.keries.databinding.FragmentEventslayoutBinding
 import com.squareup.picasso.Picasso
 
-class eventinfo : Fragment(){
+class eventinfo : Fragment() {
+    private lateinit var binding: FragmentEventslayoutBinding
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        val root = inflater.inflate(R.layout.event_layout, container, false)
-        val register = root.findViewById<AppCompatButton>(R.id.register)
-        val societyName = root.findViewById<TextView>(R.id.textView2)
-        val eventName = root.findViewById<TextView>(R.id.textView)
-        val eventDescription = root.findViewById<TextView>(R.id.descriptionEventTextView)
-        val location = root.findViewById<TextView>(R.id.locationTextView)
-        val time = root.findViewById<TextView>(R.id.TimeTextView)
-        val image = root.findViewById<ImageView>(R.id.eventImage)
-        val backButton = root.findViewById<ImageView>(R.id.backButton)
-        val live_button = root.findViewById<TextView>(R.id.live_button)
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+    ): View {
+        binding = FragmentEventslayoutBinding.inflate(inflater, container, false)
+        return binding.root
+    }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.loadimgEvent.visibility = View.VISIBLE
 
         val date = arguments?.getString("date")
         val details = arguments?.getString("details")
@@ -43,36 +42,35 @@ class eventinfo : Fragment(){
         val livevalue = arguments?.getString("live")
         val soco = arguments?.getString("soc")
 
-
-        if(livevalue=="NO"){
-            live_button.visibility = ViewGroup.GONE
+        if (livevalue == "NO") {
+            binding.liveButton.visibility = ViewGroup.GONE
+        } else {
+            binding.liveButton.visibility = ViewGroup.VISIBLE
         }
-        else{
-            live_button.visibility = ViewGroup.VISIBLE
-        }
-
-
-        Log.d("eventinfo", "Received data - Date: $date, Details: $details, Form: $formLink, Name: $name, Time: $timee, URL: $url, Venue: $venue ")
-
-        register.setOnClickListener {
+        binding.register.setOnClickListener {
             if (!formLink.isNullOrBlank()) {
                 val intent = Intent(Intent.ACTION_VIEW, Uri.parse(formLink))
                 startActivity(intent)
             } else {
-                Toast.makeText(requireContext(), "The Link is Not Available", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "The Link is Not Available", Toast.LENGTH_SHORT)
+                    .show()
             }
         }
 
-        societyName.text = soco
-        eventDescription.text = details
-        eventName.text = name
-        location.text=venue
-        time.text=timee
-        Picasso.get().load(url).into(image)
+        binding.textView2.text = soco
+        binding.descriptionEventTextView.text = details
+        binding.textView.text = name
+        binding.locationTextView.text = venue
+        binding.TimeTextView.text = timee
+        Picasso.get().load(url).into(binding.eventImage)
 
-        backButton.setOnClickListener {
+        Handler(Looper.getMainLooper()).postDelayed({
+            binding.eventImage.visibility = View.VISIBLE
+            binding.loadimgEvent.visibility = View.GONE
+        },3000)
+
+        binding.backButton.setOnClickListener {
             requireActivity().supportFragmentManager.popBackStack()
         }
-        return root
     }
 }

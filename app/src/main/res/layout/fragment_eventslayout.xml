@@ -31,6 +31,17 @@
                 android:orientation="vertical"
                 app:layout_constraintGuide_percent="0.05" />
 
+            <ImageView
+                android:id="@+id/logoeffee"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="30dp"
+                android:padding="10dp"
+                android:src="@drawable/effebrushlogofull"
+                app:layout_constraintStart_toStartOf="@id/leftGuide"
+                app:layout_constraintEnd_toEndOf="@id/rightGuide"
+                app:layout_constraintTop_toTopOf="parent"/>
+
             <LinearLayout
                 android:id="@+id/linearLayout2"
                 android:layout_width="0dp"
@@ -48,14 +59,14 @@
                     android:layout_weight="0.32"
                     android:elevation="1dp"
                     android:ellipsize="end"
-                    android:gravity="center_vertical"
                     android:fontFamily="@font/montserrat_semibold"
+                    android:gravity="center_vertical"
                     android:maxLines="1"
                     android:text="Event Name"
+                    android:textAllCaps="false"
                     android:textColor="@color/white"
                     android:textSize="24sp"
                     android:textStyle="normal"
-                    android:textAllCaps="false"
                     app:layout_constraintEnd_toEndOf="@id/rightGuide"
                     app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toStartOf="@id/leftGuide"
@@ -77,19 +88,16 @@
 
             </LinearLayout>
 
-
-
-
             <ImageView
                 android:id="@+id/backButton"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
+                android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
                 android:background="#33FFFFFF"
+                android:backgroundTint="@color/transparent"
                 android:elevation="8dp"
                 android:src="@drawable/baseline_keyboard_backspace_24"
-                android:backgroundTint="@color/transparent"
-                android:layout_marginStart="20dp"
                 app:layout_constraintHorizontal_bias="0.08"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -97,20 +105,32 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/eventCard"
                 android:layout_width="0dp"
-                android:backgroundTint="@color/transparent"
-                app:cardCornerRadius="10dp"
-                app:cardUseCompatPadding="true"
                 android:layout_height="wrap_content"
+                app:cardBackgroundColor="#30808080"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="0dp"
+                app:cardUseCompatPadding="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toBottomOf="@id/logoeffee">
 
-            <ImageView
-                android:id="@+id/eventImage"
-                android:layout_width="match_parent"
-                android:layout_height="290dp"
-                android:scaleType="fitXY"
-                android:src="@drawable/whilte_broder" />
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/loadimgEvent"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    android:elevation="5dp"
+                    android:padding="20dp"
+                    app:lottie_autoPlay="true"
+                    app:lottie_loop="true"
+                    app:lottie_rawRes="@raw/gama" />
+
+                <ImageView
+                    android:id="@+id/eventImage"
+                    android:layout_width="match_parent"
+                    android:visibility="invisible"
+                    android:layout_height="290dp"
+                    android:scaleType="fitXY" />
             </androidx.cardview.widget.CardView>
 
             <androidx.appcompat.widget.AppCompatButton
@@ -150,9 +170,9 @@
 
             <LinearLayout
                 android:id="@+id/l3"
-                android:layout_marginTop="0dp"
                 android:layout_width="0dp"
                 android:layout_height="28dp"
+                android:layout_marginTop="0dp"
                 android:elevation="1dp"
                 android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="@id/rightGuide"
@@ -164,56 +184,56 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="0"
-                    android:textColor="#A7A7A7"
                     android:fontFamily="@font/montserrat"
                     android:gravity="center_vertical"
-                    android:text="SAC" />
+                    android:text="SAC"
+                    android:textColor="#A7A7A7" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
+                    android:layout_marginHorizontal="5dp"
                     android:layout_marginStart="7dp"
                     android:layout_weight="0"
-                    android:textColor="#A7A7A7"
                     android:fontFamily="@font/montserrat"
-                    android:layout_marginHorizontal="5dp"
                     android:gravity="center_vertical"
-                    android:text="|" />
+                    android:text="|"
+                    android:textColor="#A7A7A7" />
 
                 <TextView
                     android:id="@+id/TimeTextView"
-                    android:textColor="#A7A7A7"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginStart="7dp"
                     android:layout_weight="0"
                     android:fontFamily="@font/montserrat"
                     android:gravity="center_vertical"
-                    android:text="10:00 - 11:00 Pm" />
+                    android:text="10:00 - 11:00 Pm"
+                    android:textColor="#A7A7A7" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
+                    android:layout_marginHorizontal="5dp"
                     android:layout_marginStart="7dp"
                     android:layout_weight="0"
-                    android:textColor="#A7A7A7"
                     android:fontFamily="@font/montserrat"
-                    android:layout_marginHorizontal="5dp"
                     android:gravity="center_vertical"
-                    android:text="|" />
+                    android:text="|"
+                    android:textColor="#A7A7A7" />
 
 
                 <TextView
                     android:id="@+id/textView2"
                     android:layout_width="wrap_content"
                     android:layout_height="32dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="7dp"
+                    android:fontFamily="@font/montserrat"
                     android:gravity="center_vertical"
                     android:text="Society Name"
-                    android:layout_marginStart="7dp"
                     android:textColor="#A7A7A7"
-                    android:layout_gravity="center_vertical"
-                    android:fontFamily="@font/montserrat"
-                    android:textStyle="normal"  />
+                    android:textStyle="normal" />
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>

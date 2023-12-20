@@ -5,6 +5,7 @@ import android.os.Handler
 import android.util.Log
 import androidx.recyclerview.widget.RecyclerView
 import java.util.*
+
 class AutoScrollManager(private val recyclerView: RecyclerView) {
     private var timer: Timer? = null
     private var isAutoScrolling = false

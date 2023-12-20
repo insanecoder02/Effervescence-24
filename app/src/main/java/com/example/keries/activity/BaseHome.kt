@@ -116,6 +116,7 @@ class BaseHome : AppCompatActivity() {
             makeRequest()
         }
     }
+
     @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     private fun makeRequest() {
         val notification = android.Manifest.permission.POST_NOTIFICATIONS
