@@ -97,14 +97,14 @@
 
                 <Spinner
                     android:id="@+id/spinner"
-                    android:layout_width="160dp"
+                    android:layout_width="100dp"
                     android:layout_height="match_parent"
                     android:background="@drawable/spinner_bag"
                     android:dropDownSelector="@drawable/arrow_drop_down_fill0_wght400_grad0_opsz48"
                     android:dropDownWidth="wrap_content"
                     android:backgroundTint="#40808080"
-                    android:spinnerMode="dropdown"
-                    android:textAlignment="center" />
+                    android:textAlignment="center"
+                    android:spinnerMode="dropdown" />
 
                 <ImageView
                     android:id="@+id/downlaod"

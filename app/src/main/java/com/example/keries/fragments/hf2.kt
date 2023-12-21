@@ -26,6 +26,7 @@ class hf2 : Fragment() {
     private val db = FirebaseFirestore.getInstance()
     private lateinit var FeaturedEventRecylerView: RecyclerView
     private lateinit var loadMe: View
+    private val autoScrollManagers = mutableListOf<AutoScrollManager>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -52,7 +53,12 @@ class hf2 : Fragment() {
 
         val autoScrollManager = AutoScrollManager(FeaturedEventRecylerView)
         autoScrollManager.startAutoScroll(2000)
+        autoScrollManagers.add(autoScrollManager)
+    }
 
+    override fun onPause() {
+        super.onPause()
+        autoScrollManagers.forEach { it.stopAutoScroll() }
     }
 
     private fun fetchData() {

@@ -27,6 +27,9 @@ class Events : Fragment() {
     private lateinit var showEventAdapter: ShowEventAdapter
     private var ij: MutableList<Event_DataClass> = mutableListOf()
     private val cache = mutableMapOf<String, List<Event_DataClass>>()
+    private val autoScrollManagers = mutableListOf<AutoScrollManager>()
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
@@ -80,6 +83,7 @@ class Events : Fragment() {
         rotor(binding.virtuosiRV)
         rotor(binding.gamingRv)
         rotor(binding.InformalRv)
+
     }
 
     private fun rotor(recyclerView: RecyclerView) {
@@ -87,6 +91,12 @@ class Events : Fragment() {
             LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         val autoScrollManager = AutoScrollManager(recyclerView)
         autoScrollManager.startAutoScroll(2000)
+        autoScrollManagers.add(autoScrollManager)
+    }
+
+    override fun onPause() {
+        super.onPause()
+        autoScrollManagers.forEach { it.stopAutoScroll() }
     }
 
     fun onItemClick(item: Event_DataClass) {
