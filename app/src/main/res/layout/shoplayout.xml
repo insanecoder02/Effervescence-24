@@ -90,8 +90,7 @@
                 android:layout_width="180dp"
                 android:layout_height="180dp"
                 android:paddingEnd="20dp"
-                android:src="@drawable/whilte_broder"
-                android:scaleType="centerInside" />
+                android:scaleType="fitXY"/>
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>

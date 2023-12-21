@@ -32,20 +32,15 @@ class Shop : Fragment(), productAdapter.OnItemClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        val shimmer = Shimmer.AlphaHighlightBuilder().setDirection(BOTTOM_TO_TOP).setDuration(5000)
-            .setAutoStart(true).build()
-        binding.shimmer.setShimmer(shimmer)
-
         productadapter = productAdapter(productList, this)
         binding.productreyclerview.layoutManager = LinearLayoutManager(requireContext())
         binding.productreyclerview.adapter = productadapter
 
-//        binding.swiperefreshshop.setOnRefreshListener {
-//            fetchFirestoreData()
-//        }
         if (savedInstanceState == null) {
             fetchFirestoreData()
+            val shimmer = Shimmer.AlphaHighlightBuilder().setDirection(BOTTOM_TO_TOP).setDuration(5000)
+                .setAutoStart(true).build()
+            binding.shimmer.setShimmer(shimmer)
         }
     }
 
@@ -84,7 +79,7 @@ class Shop : Fragment(), productAdapter.OnItemClickListener {
                     binding.shimmer.stopShimmer()
                     binding.shimmer.isVisible = false
                     binding.productreyclerview.isVisible = true
-                }, 3000)
+                }, 2000)
 
             }
             productadapter.notifyDataSetChanged()

@@ -7,9 +7,13 @@
     android:background="@color/transparent"
     tools:context=".fragments.developers">
 
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:orientation="vertical">
 
@@ -52,49 +56,59 @@
             app:layout_constraintStart_toStartOf="@+id/leftGuide"
             app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
-
-        <LinearLayout
-            android:id="@+id/prakriti"
-            android:layout_width="wrap_content"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/developersRV"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_weight="0.5"
-            android:background="@drawable/gradient2"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toStartOf="@+id/rightGuide"
-            app:layout_constraintStart_toStartOf="@+id/leftGuide"
-            app:layout_constraintTop_toBottomOf="@id/bhumika">
+            android:layout_marginTop="50dp"
+            app:layout_constraintEnd_toEndOf="@id/rightGuide"
+            app:layout_constraintStart_toStartOf="@id/leftGuide"
+            app:layout_constraintTop_toBottomOf="@id/textView6"
+            tools:listitem="@layout/teammemberlayout" />
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginStart="12dp"
-                android:orientation="vertical">
 
-                <TextView
-                    android:layout_width="200dp"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/montserrat_semibold"
-                    android:text="Prakriti Vashishtha"
-                    android:textColor="@color/white"
-                    android:textSize="20sp" />
+        <!--        <LinearLayout-->
+        <!--            android:id="@+id/prakriti"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginTop="10dp"-->
+        <!--            android:layout_weight="0.5"-->
+        <!--            android:background="@drawable/gradient2"-->
+        <!--            android:orientation="horizontal"-->
+        <!--            app:layout_constraintEnd_toStartOf="@+id/rightGuide"-->
+        <!--            app:layout_constraintStart_toStartOf="@+id/leftGuide"-->
+        <!--            app:layout_constraintTop_toBottomOf="@id/bhumika">-->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/montserrat"
-                    android:text="Executive"
-                    android:textColor="@color/white"
-                    android:textSize="17sp" />
-            </LinearLayout>
+        <!--            <LinearLayout-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:layout_gravity="center"-->
+        <!--                android:layout_marginStart="12dp"-->
+        <!--                android:orientation="vertical">-->
 
-            <ImageView
-                android:layout_width="72dp"
-                android:layout_height="72dp"
-                android:padding="10dp"
-                android:src="@drawable/github_mark_white" />
-        </LinearLayout>
+        <!--                <TextView-->
+        <!--                    android:layout_width="200dp"-->
+        <!--                    android:layout_height="wrap_content"-->
+        <!--                    android:fontFamily="@font/montserrat_semibold"-->
+        <!--                    android:text="Prakriti Vashishtha"-->
+        <!--                    android:textColor="@color/white"-->
+        <!--                    android:textSize="20sp" />-->
+
+        <!--                <TextView-->
+        <!--                    android:layout_width="wrap_content"-->
+        <!--                    android:layout_height="wrap_content"-->
+        <!--                    android:fontFamily="@font/montserrat"-->
+        <!--                    android:text="Executive"-->
+        <!--                    android:textColor="@color/white"-->
+        <!--                    android:textSize="17sp" />-->
+        <!--            </LinearLayout>-->
+
+        <!--            <ImageView-->
+        <!--                android:layout_width="72dp"-->
+        <!--                android:layout_height="72dp"-->
+        <!--                android:padding="10dp"-->
+        <!--                android:src="@drawable/github_mark_white" />-->
+        <!--        </LinearLayout>-->
 
         <ImageView
             android:id="@+id/takmeBackaboutus"
@@ -110,146 +124,148 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <LinearLayout
-            android:id="@+id/bhumika"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:layout_weight="0.5"
-            android:background="@drawable/gradient2"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toStartOf="@+id/rightGuide"
-            app:layout_constraintStart_toStartOf="@+id/leftGuide"
-            app:layout_constraintTop_toBottomOf="@id/textView6">
+        <!--        <LinearLayout-->
+        <!--            android:id="@+id/bhumika"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginTop="24dp"-->
+        <!--            android:layout_weight="0.5"-->
+        <!--            android:background="@drawable/gradient2"-->
+        <!--            android:orientation="horizontal"-->
+        <!--            app:layout_constraintEnd_toStartOf="@+id/rightGuide"-->
+        <!--            app:layout_constraintStart_toStartOf="@+id/leftGuide"-->
+        <!--            app:layout_constraintTop_toBottomOf="@id/textView6">-->
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginStart="12dp"
-                android:orientation="vertical">
+        <!--            <LinearLayout-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:layout_gravity="center"-->
+        <!--                android:layout_marginStart="12dp"-->
+        <!--                android:orientation="vertical">-->
 
-                <TextView
-                    android:layout_width="200dp"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/montserrat_semibold"
-                    android:text="Bhumika Kalaru"
-                    android:textColor="@color/white"
-                    android:textSize="20sp" />
+        <!--                <TextView-->
+        <!--                    android:layout_width="200dp"-->
+        <!--                    android:layout_height="wrap_content"-->
+        <!--                    android:fontFamily="@font/montserrat_semibold"-->
+        <!--                    android:text="Bhumika Kalaru"-->
+        <!--                    android:textColor="@color/white"-->
+        <!--                    android:textSize="20sp" />-->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/montserrat"
-                    android:text="Executive"
-                    android:textColor="@color/white"
-                    android:textSize="17sp" />
-            </LinearLayout>
+        <!--                <TextView-->
+        <!--                    android:layout_width="wrap_content"-->
+        <!--                    android:layout_height="wrap_content"-->
+        <!--                    android:fontFamily="@font/montserrat"-->
+        <!--                    android:text="Executive"-->
+        <!--                    android:textColor="@color/white"-->
+        <!--                    android:textSize="17sp" />-->
+        <!--            </LinearLayout>-->
 
-            <ImageView
-                android:layout_width="72dp"
-                android:layout_height="72dp"
-                android:padding="10dp"
-                android:src="@drawable/github_mark_white" />
-        </LinearLayout>
+        <!--            <ImageView-->
+        <!--                android:layout_width="72dp"-->
+        <!--                android:layout_height="72dp"-->
+        <!--                android:padding="10dp"-->
+        <!--                android:src="@drawable/github_mark_white" />-->
+        <!--        </LinearLayout>-->
 
-        <LinearLayout
-            android:id="@+id/gaurav"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_weight="0.5"
-            android:background="@drawable/gradient2"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toStartOf="@+id/rightGuide"
-            app:layout_constraintStart_toStartOf="@+id/leftGuide"
-            app:layout_constraintTop_toBottomOf="@id/prakriti">
+        <!--        <LinearLayout-->
+        <!--            android:id="@+id/gaurav"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginTop="10dp"-->
+        <!--            android:layout_weight="0.5"-->
+        <!--            android:background="@drawable/gradient2"-->
+        <!--            android:orientation="horizontal"-->
+        <!--            app:layout_constraintEnd_toStartOf="@+id/rightGuide"-->
+        <!--            app:layout_constraintStart_toStartOf="@+id/leftGuide"-->
+        <!--            app:layout_constraintTop_toBottomOf="@id/prakriti">-->
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginStart="12dp"
-                android:orientation="vertical">
+        <!--            <LinearLayout-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:layout_gravity="center"-->
+        <!--                android:layout_marginStart="12dp"-->
+        <!--                android:orientation="vertical">-->
 
-                <TextView
-                    android:layout_width="200dp"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/montserrat_semibold"
-                    android:text="Gaurav Chhetri"
-                    android:textColor="@color/white"
-                    android:textSize="20sp" />
+        <!--                <TextView-->
+        <!--                    android:layout_width="200dp"-->
+        <!--                    android:layout_height="wrap_content"-->
+        <!--                    android:fontFamily="@font/montserrat_semibold"-->
+        <!--                    android:text="Gaurav Chhetri"-->
+        <!--                    android:textColor="@color/white"-->
+        <!--                    android:textSize="20sp" />-->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/montserrat"
-                    android:text="Executive"
-                    android:textColor="@color/white"
-                    android:textSize="17sp" />
-            </LinearLayout>
+        <!--                <TextView-->
+        <!--                    android:layout_width="wrap_content"-->
+        <!--                    android:layout_height="wrap_content"-->
+        <!--                    android:fontFamily="@font/montserrat"-->
+        <!--                    android:text="Executive"-->
+        <!--                    android:textColor="@color/white"-->
+        <!--                    android:textSize="17sp" />-->
+        <!--            </LinearLayout>-->
 
-            <ImageView
-                android:layout_width="72dp"
-                android:layout_height="72dp"
-                android:padding="10dp"
-                android:src="@drawable/github_mark_white" />
-        </LinearLayout>
+        <!--            <ImageView-->
+        <!--                android:layout_width="72dp"-->
+        <!--                android:layout_height="72dp"-->
+        <!--                android:padding="10dp"-->
+        <!--                android:src="@drawable/github_mark_white" />-->
+        <!--        </LinearLayout>-->
 
-        <LinearLayout
-            android:id="@+id/ishantKumawat"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_weight="0.5"
-            android:background="@drawable/gradient2"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toStartOf="@+id/rightGuide"
-            app:layout_constraintStart_toStartOf="@+id/leftGuide"
-            app:layout_constraintTop_toBottomOf="@id/gaurav">
+        <!--        <LinearLayout-->
+        <!--            android:id="@+id/ishantKumawat"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginTop="10dp"-->
+        <!--            android:layout_weight="0.5"-->
+        <!--            android:background="@drawable/gradient2"-->
+        <!--            android:orientation="horizontal"-->
+        <!--            app:layout_constraintEnd_toStartOf="@+id/rightGuide"-->
+        <!--            app:layout_constraintStart_toStartOf="@+id/leftGuide"-->
+        <!--            app:layout_constraintTop_toBottomOf="@id/gaurav">-->
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginStart="12dp"
-                android:orientation="vertical">
+        <!--            <LinearLayout-->
+        <!--                android:layout_width="wrap_content"-->
+        <!--                android:layout_height="wrap_content"-->
+        <!--                android:layout_gravity="center"-->
+        <!--                android:layout_marginStart="12dp"-->
+        <!--                android:orientation="vertical">-->
 
-                <TextView
-                    android:layout_width="200dp"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/montserrat_semibold"
-                    android:text="Ishant Kumawat"
-                    android:textColor="@color/white"
-                    android:textSize="20sp" />
+        <!--                <TextView-->
+        <!--                    android:layout_width="200dp"-->
+        <!--                    android:layout_height="wrap_content"-->
+        <!--                    android:fontFamily="@font/montserrat_semibold"-->
+        <!--                    android:text="Ishant Kumawat"-->
+        <!--                    android:textColor="@color/white"-->
+        <!--                    android:textSize="20sp" />-->
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/montserrat"
-                    android:text="Executive"
-                    android:textColor="@color/white"
-                    android:textSize="17sp" />
-            </LinearLayout>
+        <!--                <TextView-->
+        <!--                    android:layout_width="wrap_content"-->
+        <!--                    android:layout_height="wrap_content"-->
+        <!--                    android:fontFamily="@font/montserrat"-->
+        <!--                    android:text="Executive"-->
+        <!--                    android:textColor="@color/white"-->
+        <!--                    android:textSize="17sp" />-->
+        <!--            </LinearLayout>-->
 
-            <ImageView
-                android:layout_width="72dp"
-                android:layout_height="72dp"
-                android:padding="10dp"
-                android:src="@drawable/github_mark_white" />
-        </LinearLayout>
+        <!--            <ImageView-->
+        <!--                android:layout_width="72dp"-->
+        <!--                android:layout_height="72dp"-->
+        <!--                android:padding="10dp"-->
+        <!--                android:src="@drawable/github_mark_white" />-->
+        <!--        </LinearLayout>-->
 
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/lottieAnimationView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="720dp"
             android:layout_gravity="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             app:lottie_autoPlay="false"
             app:lottie_loop="true"
-            app:lottie_rawRes="@raw/alpha"
-            tools:layout_editor_absoluteX="-3dp"
-            tools:layout_editor_absoluteY="158dp"/>
+            app:lottie_rawRes="@raw/alpha" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
 
 </FrameLayout>

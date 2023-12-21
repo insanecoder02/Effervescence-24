@@ -10,6 +10,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import com.bumptech.glide.Glide
+import com.example.keries.R
 import com.example.keries.databinding.FragmentShop2Binding
 import com.squareup.picasso.Picasso
 
@@ -49,11 +51,16 @@ class Shop2 : Fragment() {
         binding.textView2.text = type
         binding.textView3.text = prize
         binding.productDescription.text = descrip
-        Picasso.get().load(image).into(binding.shopImage)
+
+        Glide.with(requireContext())
+            .load(image)
+            .placeholder(R.drawable.whilte_broder)
+            .error(R.drawable.image_svgrepo_com)
+            .into(binding.shopImage)
 
         Handler(Looper.getMainLooper()).postDelayed({
             binding.shopImage.visibility = View.VISIBLE
             binding.loadimgEvent.visibility = View.GONE
-        },3000)
+        },2000)
     }
 }

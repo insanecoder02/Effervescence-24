@@ -7,13 +7,285 @@
     android:background="@color/transparent"
     tools:context=".fragments.Home">
 
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/view_pager"
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollMe"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:background="@color/transparent">
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/beta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/rightGuide"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.95" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/leftGuide"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.05" />
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/loadMe"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="112dp"
+                android:padding="20dp"
+
+                app:layout_constraintEnd_toEndOf="@+id/FeaturedEventRecylerView"
+                app:layout_constraintHorizontal_bias="0.462"
+                app:layout_constraintStart_toStartOf="@+id/leftGuide"
+                app:layout_constraintTop_toBottomOf="@+id/featureEventsTextView"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/gama" />
+
+            <LinearLayout
+                android:id="@+id/dayLinearLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/rightGuide"
+                app:layout_constraintHorizontal_bias="0.822"
+                app:layout_constraintStart_toStartOf="@+id/leftGuide"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="33sp"
+                    android:fontFamily="@font/poppins_extralight"
+                    android:text="Day"
+                    android:textColor="@color/white"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="30sp"
+                    android:fontFamily="@font/poppins_extralight"
+                    android:text="Hour"
+                    android:textColor="@color/white"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="30sp"
+                    android:fontFamily="@font/poppins_extralight"
+                    android:text="Min"
+                    android:textColor="@color/white"
+                    android:textSize="24sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:gravity="center"
+
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/rightGuide"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="@+id/leftGuide"
+                app:layout_constraintTop_toBottomOf="@+id/congo">
+
+                <TextView
+                    android:id="@+id/days1"
+                    android:layout_width="35dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/round_back"
+                    android:gravity="center"
+                    android:textAlignment="center"
+                    android:textColor="#FFFFFF"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/days2"
+                    android:layout_width="35dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="4dp"
+                    android:background="@drawable/round_back"
+                    android:gravity="center"
+                    android:textAlignment="center"
+                    android:textColor="#FFFFFF"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:text=":"
+                    android:textColor="#FFFFFF"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
+
+
+                <TextView
+                    android:id="@+id/hours1"
+                    android:layout_width="35dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/round_back"
+                    android:gravity="center"
+                    android:textAlignment="center"
+                    android:textColor="#FFFFFF"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/hours2"
+                    android:layout_width="35dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="4dp"
+                    android:background="@drawable/round_back"
+                    android:gravity="center"
+                    android:textAlignment="center"
+                    android:textColor="#FFFFFF"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:text=":"
+                    android:textColor="#FFFFFF"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/minutes1"
+                    android:layout_width="35dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/round_back"
+                    android:gravity="center"
+
+                    android:textAlignment="center"
+                    android:textColor="#FFFFFF"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/minutes2"
+                    android:layout_width="35dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="4dp"
+                    android:background="@drawable/round_back"
+                    android:gravity="center"
+                    android:textAlignment="center"
+                    android:textColor="#FFFFFF"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
+
+
+                <!--        <TextView-->
+                <!--            android:layout_width="wrap_content"-->
+                <!--            android:layout_height="wrap_content"-->
+                <!--            android:layout_marginStart="10dp"-->
+                <!--            android:layout_marginEnd="10dp"-->
+                <!--            android:text=":"-->
+                <!--            android:textColor="#FFFFFF"-->
+                <!--            android:textSize="30sp"-->
+                <!--            android:textStyle="bold" />-->
+
+                <!--        <TextView-->
+                <!--            android:id="@+id/seconds"-->
+                <!--            android:layout_width="50dp"-->
+                <!--            android:layout_height="50dp"-->
+                <!--            android:background="@drawable/round_back" />-->
+
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="24dp"
+                android:src="@drawable/baseline_notifications_24"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/white" />
+
+            <ImageView
+                android:id="@+id/effeNameLogoImageView"
+                android:layout_width="0dp"
+                android:layout_height="130dp"
+                android:layout_marginTop="6dp"
+                android:src="@drawable/effebrushlogofull"
+                app:layout_constraintEnd_toStartOf="@+id/rightGuide"
+                app:layout_constraintStart_toStartOf="@+id/leftGuide"
+                app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+            <TextView
+                android:id="@+id/congo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="80dp"
+                android:fontFamily="@font/poppins_medium"
+                android:letterSpacing=".1"
+                android:text="COMING  SOON"
+                android:textColor="@color/white"
+                android:textSize="32sp"
+                android:textStyle="normal"
+                app:layout_constraintEnd_toStartOf="@+id/rightGuide"
+                app:layout_constraintHorizontal_bias="0.491"
+                app:layout_constraintStart_toStartOf="@+id/leftGuide"
+                app:layout_constraintTop_toBottomOf="@+id/effeNameLogoImageView" />
+
+            <TextView
+                android:id="@+id/featureEventsTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="64dp"
+                android:fontFamily="@font/poppins_medium"
+                android:text="Featured Events"
+                android:textColor="@color/white"
+                android:textSize="28sp"
+                android:textStyle="normal"
+                app:layout_constraintBottom_toTopOf="@id/FeaturedEventRecylerView"
+                app:layout_constraintEnd_toStartOf="@+id/rightGuide"
+                app:layout_constraintStart_toStartOf="@+id/leftGuide"
+                app:layout_constraintTop_toBottomOf="@id/dayLinearLayout" />
+
+            <com.jackandphantom.carouselrecyclerview.CarouselRecyclerview
+                android:id="@+id/FeaturedEventRecylerView"
+                android:layout_width="0dp"
+                android:layout_height="200dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="60dp"
+                android:orientation="vertical"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/featureEventsTextView"
+                tools:listitem="@layout/featuredeventlayout" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
 </FrameLayout>

@@ -1,8 +1,10 @@
 package com.example.keries.fragments
 
 import android.content.Context
+import android.content.Intent
 import android.hardware.Sensor
 import android.hardware.SensorManager
+import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -10,13 +12,17 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.keries.adapter.DevelopersAdapter
+import com.example.keries.dataClass.DevelopersList
 import com.example.keries.databinding.FragmentDevelopersBinding
 
 
-class developers : Fragment() {
+class developers : Fragment(), DevelopersAdapter.OnItemClickListener {
     private lateinit var binding: FragmentDevelopersBinding
     private lateinit var sensorManager: SensorManager
     private var accelerometer: Sensor? = null
+    private lateinit var developersList: MutableList<DevelopersList>
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -27,12 +33,59 @@ class developers : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        developersList = mutableListOf()
+
+        developersList.add(
+            DevelopersList(
+                "PRAKRITI VASHISHTHA", "https://github.com/Prakriti-19", "Head"
+            )
+        )
+        developersList.add(
+            DevelopersList(
+                "RIBHAV BANSAL", "https://github.com/RibhavBansal", "Head"
+            )
+        )
+        developersList.add(
+            DevelopersList(
+                "BHUMIKA KALARU", "https://github.com/bhumika-kalaru", "Head"
+            )
+        )
+        developersList.add(
+            DevelopersList(
+                "GAURAV CHHETRI", "https://github.com/muffinboy19", "Executive"
+            )
+        )
+        developersList.add(
+            DevelopersList(
+                "ISHANT KUMAWAT", "https://github.com/insanecoder02", "Geekhaven Member"
+            )
+        )
+        developersList.add(
+            DevelopersList(
+                "PRANAV BANSAL", "https://github.com/PranavBansal21", "Executive"
+            )
+        )
+        developersList.add(
+            DevelopersList(
+                "AYUSHMAAN SONI", "https://github.com/AyushmanSoni", "Executive"
+            )
+        )
+
+        binding.developersRV.adapter = DevelopersAdapter(developersList, this)
+        binding.developersRV.layoutManager = LinearLayoutManager(requireContext())
+
         sensorManager = requireActivity().getSystemService(Context.SENSOR_SERVICE) as SensorManager
         accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
         binding.takmeBackaboutus.setOnClickListener {
             fragmentManager?.popBackStack()
         }
         playLottieAnimation()
+    }
+
+    override fun onItemClick(item: DevelopersList) {
+        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(item.Github_id))
+        startActivity(intent)
     }
 
     private fun playLottieAnimation() {

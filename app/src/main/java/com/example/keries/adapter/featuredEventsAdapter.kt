@@ -7,17 +7,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
-import androidx.viewpager2.widget.ViewPager2
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
 import com.example.keries.R
 import com.example.keries.dataClass.FeaturedEventes
 import com.example.keries.fragments.Home
-import com.example.keries.fragments.hf2
 
 class featuredEventsAdapter(
-    private val items: List<FeaturedEventes>, private val itemClickListener: hf2
+    private val items: List<FeaturedEventes>, private val itemClickListener: Home
 ) : RecyclerView.Adapter<featuredEventsAdapter.FeaturedEventesViewHolder>() {
 
     interface boxo {
