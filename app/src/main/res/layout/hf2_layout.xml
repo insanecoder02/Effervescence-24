@@ -7,10 +7,11 @@
     android:background="@color/transparent"
     android:layout_height="match_parent"
     tools:context=".fragments.hf2">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:background="@color/transparent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/transparent">
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/rightGuide"
@@ -27,16 +28,6 @@
             app:layout_constraintGuide_percent="0.05" />
 
 
-        <ImageView
-            android:id="@+id/effeNameLogoImageView"
-            android:layout_width="0dp"
-            android:layout_height="130dp"
-            android:layout_marginTop="20dp"
-            android:src="@drawable/effebrushlogofull"
-            app:layout_constraintEnd_toStartOf="@+id/rightGuide"
-            app:layout_constraintStart_toStartOf="@+id/leftGuide"
-            app:layout_constraintTop_toTopOf="parent" />
-
         <com.jackandphantom.carouselrecyclerview.CarouselRecyclerview
             android:id="@+id/FeaturedEventRecylerView"
             android:layout_width="0dp"
@@ -52,24 +43,48 @@
 
 
         <TextView
+            android:id="@+id/reelTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:fontFamily="@font/poppins_medium"
+            android:text="Explore Event Reels"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toStartOf="@+id/rightGuide"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="@+id/leftGuide"
+            app:layout_constraintTop_toBottomOf="@id/FeaturedEventRecylerView" />
+
+        <TextView
             android:id="@+id/featureEventsTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="64dp"
+            android:layout_marginTop="32dp"
             android:fontFamily="@font/poppins_medium"
             android:text="Featured Events"
             android:textColor="@color/white"
-            android:textSize="28sp"
+            android:textSize="24sp"
             android:textStyle="normal"
             app:layout_constraintEnd_toStartOf="@+id/rightGuide"
             app:layout_constraintStart_toStartOf="@+id/leftGuide"
-            app:layout_constraintTop_toBottomOf="@id/effeNameLogoImageView" />
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/reelRV"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            app:layout_constraintEnd_toStartOf="@+id/rightGuide"
+            app:layout_constraintStart_toStartOf="@+id/leftGuide"
+            app:layout_constraintTop_toBottomOf="@+id/reelTextView" />
 
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/loadMe"
             android:layout_width="100dp"
-            android:layout_marginTop="24dp"
             android:layout_height="100dp"
+            android:layout_marginTop="24dp"
             android:layout_marginBottom="112dp"
             android:padding="20dp"
             app:layout_constraintEnd_toEndOf="@+id/FeaturedEventRecylerView"

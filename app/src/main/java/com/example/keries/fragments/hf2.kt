@@ -11,8 +11,11 @@ import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.keries.R
+import com.example.keries.adapter.ReelAdapter
+import com.example.keries.adapter.ShowEventAdapter
 import com.example.keries.adapter.featuredEventsAdapter
 import com.example.keries.dataClass.FeaturedEventes
+import com.example.keries.dataClass.reelDataClass
 import com.example.keries.others.AutoScrollManager
 import com.google.firebase.firestore.FirebaseFirestore
 import com.jackandphantom.carouselrecyclerview.CarouselLayoutManager
@@ -21,10 +24,13 @@ import com.jackandphantom.carouselrecyclerview.CarouselRecyclerview
 
 class hf2 : Fragment() {
     private lateinit var mainStageEventAdapter: featuredEventsAdapter
+    private lateinit var reelEventAdapter: ReelAdapter
     private var aox: MutableList<FeaturedEventes> = mutableListOf()
+    private var box: MutableList<reelDataClass> = mutableListOf()
     private val cache = mutableMapOf<String, List<FeaturedEventes>>()
     private val db = FirebaseFirestore.getInstance()
     private lateinit var FeaturedEventRecylerView: RecyclerView
+    private lateinit var ReelRecylerView : RecyclerView
     private lateinit var loadMe: View
     private val autoScrollManagers = mutableListOf<AutoScrollManager>()
 
@@ -38,23 +44,57 @@ class hf2 : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        loadMe = view.findViewById(R.id.loadMe)
+
+
+        ReelRecylerView = view.findViewById(R.id.reelRV)
+        reelEventAdapter = ReelAdapter(box,this)
+        ReelRecylerView.layoutManager =  LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        ReelRecylerView.adapter = reelEventAdapter
+
+
 
         FeaturedEventRecylerView = view.findViewById(R.id.FeaturedEventRecylerView)
-        loadMe = view.findViewById(R.id.loadMe)
         mainStageEventAdapter = featuredEventsAdapter(aox, this)
         FeaturedEventRecylerView.layoutManager = CarouselLayoutManager(
             true, true, 0.5F, true, true, true, LinearLayoutManager.HORIZONTAL
         )
 
-
         FeaturedEventRecylerView.adapter = mainStageEventAdapter
         (FeaturedEventRecylerView as CarouselRecyclerview).setInfinite(true)
+
+
+
         fetchFromFireStoreEvents("Main Stage", FeaturedEventRecylerView)
+        fetchVideoUrls()
 
         val autoScrollManager = AutoScrollManager(FeaturedEventRecylerView)
         autoScrollManager.startAutoScroll(2000)
         autoScrollManagers.add(autoScrollManager)
     }
+
+    private fun fetchVideoUrls() {
+        db.collection("reel") // Assuming you have a collection for video URLs under each event
+            .get()
+            .addOnSuccessListener { querySnapshot ->
+                val videoUrlList = mutableListOf<reelDataClass>()
+                for (document in querySnapshot) {
+                    val eventId = document.id
+                    val reelNamme = document.getString("Name")?:"Reel"
+                    val url = document.getString("Url") ?: ""
+                    videoUrlList.add(reelDataClass(reelNamme, eventId, url))
+                    box.clear()
+                    box.addAll(videoUrlList)
+                    reelEventAdapter.notifyDataSetChanged()
+                }
+
+            }
+            .addOnFailureListener {
+                Toast.makeText(requireContext(), "Error fetching video URLs", Toast.LENGTH_SHORT).show()
+            }
+    }
+
+
 
     override fun onPause() {
         super.onPause()
@@ -64,6 +104,19 @@ class hf2 : Fragment() {
     private fun fetchData() {
         Log.d("Home", "Fetching data...")
         this.fetchFromFireStoreEvents("Main Stage", FeaturedEventRecylerView)
+    }
+
+    fun onReelItemClick(item: reelDataClass) {
+        val bundle = Bundle()
+        bundle.putString("reelName", item.reelName ?: "Reel")
+        bundle.putString("reelID", item.reelId ?: "")
+        bundle.putString("reelURL", item.url ?:"")
+        val nextFragment = reelinfo()
+        nextFragment.arguments = bundle
+        val transaction = requireActivity().supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.fragment_container, nextFragment)
+        transaction.addToBackStack(null)
+        transaction.commit()
     }
     fun onItemClick(item: FeaturedEventes) {
         val bundle = Bundle()

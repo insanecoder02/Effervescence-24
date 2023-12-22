@@ -34,14 +34,31 @@
         app:layout_constraintEnd_toStartOf="@+id/rightGuide"
         app:layout_constraintStart_toStartOf="@+id/leftGuide"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+    <TextView
+        android:id="@+id/explore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:background="@drawable/backroundreel"
+        android:fontFamily="@font/poppins_semibold"
+        android:text="Explore"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:padding="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/rightGuide"
+        app:layout_constraintStart_toStartOf="@+id/leftGuide"
+        app:layout_constraintTop_toBottomOf="@+id/dayLinearLayout" />
+
     <TextView
         android:id="@+id/congo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="170dp"
+        android:layout_marginTop="140dp"
         android:fontFamily="@font/poppins_medium"
-        android:letterSpacing=".1"
-        android:text="COMING  SOON"
+        android:letterSpacing="0.3"
+        android:text="@string/coming_soon"
         android:textColor="@color/white"
         android:textSize="32sp"
         android:textStyle="normal"
@@ -61,6 +78,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:tint="@color/white" />
+
     <LinearLayout
         android:id="@+id/dayLinearLayout"
         android:layout_width="0dp"
@@ -70,7 +88,6 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintEnd_toStartOf="@id/rightGuide"
-        app:layout_constraintHorizontal_bias="0.822"
         app:layout_constraintStart_toStartOf="@+id/leftGuide"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
@@ -78,7 +95,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="33sp"
+            android:layout_marginHorizontal="30sp"
             android:fontFamily="@font/poppins_extralight"
             android:text="Day"
             android:textColor="@color/white"
@@ -87,7 +104,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="30sp"
+            android:layout_marginHorizontal="40sp"
             android:fontFamily="@font/poppins_extralight"
             android:text="Hour"
             android:textColor="@color/white"
@@ -210,10 +227,6 @@
 
 
     </LinearLayout>
-
-
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

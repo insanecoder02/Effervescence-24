@@ -2,14 +2,18 @@ package com.example.keries.fragments
 
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.os.SystemClock
 import android.util.Log
+import android.util.TypedValue
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.viewpager2.widget.ViewPager2
 import com.example.keries.R
 import com.example.keries.databinding.FragmentHomeBinding
 import com.example.keries.others.Constants
@@ -17,6 +21,13 @@ import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.Locale
 import java.util.concurrent.TimeUnit
+
+
+interface ExploreClickListener {
+    fun onExploreClick()
+}
+
+
 
 private lateinit var countDownTimer: CountDownTimer
 private lateinit var commingsoon: TextView
@@ -30,7 +41,9 @@ private lateinit var hours2: TextView
 private lateinit var minutes2: TextView
 private lateinit var linearLayout: ViewGroup
 private lateinit var dayLinearLayout: ViewGroup
-private lateinit var congo: ViewGroup
+private lateinit var congo: TextView
+private lateinit var exploreClickListener: ExploreClickListener
+
 class hf1 : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,6 +56,10 @@ class hf1 : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val explore = view.findViewById<TextView>(R.id.explore)
+        explore.setOnClickListener{
+            exploreClickListener.onExploreClick()
+        }
         commingsoon = view.findViewById(R.id.congo)
         days1 = view.findViewById(R.id.days1)
         hours1 = view.findViewById(R.id.hours1)
@@ -59,9 +76,9 @@ class hf1 : Fragment() {
         imageView22.setOnClickListener { loadFragment(notification()) }
 
     }
-
-
-
+    fun setExploreClickListener(listener: ExploreClickListener) {
+        exploreClickListener = listener
+    }
     private fun loadFragment(fragment: Fragment) {
         requireActivity().supportFragmentManager.beginTransaction()
             .replace(R.id.fragment_container, fragment)
@@ -100,10 +117,12 @@ class hf1 : Fragment() {
             }
 
             override fun onFinish() {
-                linearLayout.visibility = ViewGroup.GONE
-                dayLinearLayout.visibility = ViewGroup.GONE
-                congo.visibility = ViewGroup.GONE
-                countDownTimer.cancel()
+//                linearLayout.visibility = ViewGroup.GONE
+//                dayLinearLayout.visibility = ViewGroup.GONE
+                commingsoon.text = "The Wait is Over..."
+                commingsoon.setTextSize(TypedValue.COMPLEX_UNIT_SP, 24f)
+                commingsoon.letterSpacing = 0f
+                resetUI()
                 isTimerRunning = false
             }
         }
@@ -119,20 +138,15 @@ class hf1 : Fragment() {
         minutes2.text = (hourMinSec[2].toInt() % 10).toString()
         days2.text = (hourMinSec[0].toInt() % 10).toString()
     }
-    private fun stopCountdown() {
-        if (isTimerRunning) {
-            linearLayout.visibility = ViewGroup.GONE
-            dayLinearLayout.visibility = ViewGroup.GONE
-            countDownTimer.cancel()
-            isTimerRunning = false
-        }
-    }
-
     private fun resetUI() {
-        days1.text = "00"
-        hours1.text = "00"
-        minutes1.text = "00"
+        days1.text = "0"
+        hours1.text = "0"
+        minutes1.text = "0"
+        days2.text = "0"
+        hours2.text = "0"
+        minutes2.text = "0"
         isTimerRunning = false
 
     }
+
 }

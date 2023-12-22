@@ -49,4 +49,14 @@
         libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
+    <string name="nirmiti">Nirmiti</string>
+    <string name="rangtarigini">Rangtarigini</string>
+    <string name="sarasva">Sarasva</string>
+    <string name="virtuosi">Virtuosi</string>
+    <string name="geneticx">Geneticx</string>
+    <string name="ams">AMS</string>
+    <string name="gaming">Gaming</string>
+    <string name="infromal">Infromal</string>
+    <string name="schedule">Schedule</string>
+    <string name="coming_soon">COMING SOON</string>
 </resources>

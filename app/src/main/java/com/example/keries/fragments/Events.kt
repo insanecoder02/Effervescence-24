@@ -1,6 +1,6 @@
 package com.example.keries.fragments
 
-import android.util.Log
+
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -100,10 +100,10 @@ class Events : Fragment() {
     }
 
     fun onItemClick(item: Event_DataClass) {
-        Log.d(
-            "Events",
-            "Date: ${item.date}, Details: ${item.details}, Form: ${item.form}, Name: ${item.name}, No: ${item.no}, Time: ${item.time}, URL: ${item.url}, Venue: ${item.venue} , live: ${item.live}\""
-        )
+//        Log.d(
+//            "Events",
+//            "Date: ${item.date}, Details: ${item.details}, Form: ${item.form}, Name: ${item.name}, No: ${item.no}, Time: ${item.time}, URL: ${item.url}, Venue: ${item.venue} , live: ${item.live}\""
+//        )
         val bundle = Bundle()
         bundle.putString("date", item.date ?: "Date")
         bundle.putString("details", item.details)

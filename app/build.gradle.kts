@@ -40,6 +40,8 @@ android {
 }
 
 dependencies {
+    implementation ("com.google.android.exoplayer:exoplayer:2.16.1")
+    implementation ("com.google.android.exoplayer:exoplayer-ui:2.16.1")
     implementation ("androidx.viewpager2:viewpager2:1.0.0")
     implementation ("io.coil-kt:coil:1.4.0")// Use the latest version available
     implementation(platform("com.google.firebase:firebase-bom:32.2.3"))
