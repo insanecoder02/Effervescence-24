@@ -5,7 +5,6 @@ import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
-import android.os.Build
 import android.util.Log
 import android.widget.RemoteViews
 import android.widget.Toast
@@ -48,11 +47,11 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
         Log.d(TAG, "Refreshed token: $token")
     }
 
-    fun getRemoteView(title: String, messge: String): RemoteViews {
+    fun getRemoteView(title: String): RemoteViews {
         val remoteView = RemoteViews("com.example.keries", R.layout.notification)
         remoteView.setTextViewText(R.id.titlenoto, title)
-        remoteView.setTextViewText(R.id.nessagenoto, messge)
-        remoteView.setImageViewResource(R.id.logonoto, R.drawable.effesvghome)
+//        remoteView.setTextViewText(R.id.nessagenoto, messge)
+        remoteView.setImageViewResource(R.id.logonoto, R.drawable.effe_logo_svg)
 
         return remoteView
 
@@ -74,7 +73,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
             .setVibrate(longArrayOf(1000, 1000, 1000, 1000)).setOnlyAlertOnce(true)
             .setContentIntent(pendingIntent)
 
-        builder = builder.setContent(getRemoteView(title, messge))
+        builder = builder.setContent(getRemoteView(title))
 
         val notificationManager =
             getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager

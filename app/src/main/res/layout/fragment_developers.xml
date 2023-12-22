@@ -14,7 +14,6 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
         android:orientation="vertical">
 
         <androidx.constraintlayout.widget.Guideline
@@ -59,8 +58,10 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/developersRV"
             android:layout_width="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="60dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="40dp"
             app:layout_constraintEnd_toEndOf="@id/rightGuide"
             app:layout_constraintStart_toStartOf="@id/leftGuide"
             app:layout_constraintTop_toBottomOf="@id/textView6"
@@ -252,19 +253,6 @@
         <!--                android:padding="10dp"-->
         <!--                android:src="@drawable/github_mark_white" />-->
         <!--        </LinearLayout>-->
-
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/lottieAnimationView"
-            android:layout_width="match_parent"
-            android:layout_height="720dp"
-            android:layout_gravity="center"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:lottie_autoPlay="false"
-            app:lottie_loop="true"
-            app:lottie_rawRes="@raw/alpha" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 

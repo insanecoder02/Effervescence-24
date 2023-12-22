@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.keries.adapter.DevelopersAdapter
 import com.example.keries.dataClass.DevelopersList
@@ -20,8 +21,6 @@ import com.example.keries.databinding.FragmentDevelopersBinding
 
 class developers : Fragment(), DevelopersAdapter.OnItemClickListener {
     private lateinit var binding: FragmentDevelopersBinding
-    private lateinit var sensorManager: SensorManager
-    private var accelerometer: Sensor? = null
     private lateinit var developersList: MutableList<DevelopersList>
 
     override fun onCreateView(
@@ -53,48 +52,57 @@ class developers : Fragment(), DevelopersAdapter.OnItemClickListener {
         )
         developersList.add(
             DevelopersList(
-                "GAURAV CHHETRI", "https://github.com/muffinboy19", "Executive"
+                "GAURAV CHHETRI", "https://github.com/muffinboy19", "App Wing Executive"
             )
         )
         developersList.add(
             DevelopersList(
-                "ISHANT KUMAWAT", "https://github.com/insanecoder02", "Geekhaven Member"
+                "ISHANT KUMAWAT", "https://github.com/insanecoder02", "App Wing Executive"
             )
         )
         developersList.add(
             DevelopersList(
-                "PRANAV BANSAL", "https://github.com/PranavBansal21", "Executive"
+                "PRANAV BANSAL", "https://github.com/PranavBansal21", "App Wing Executive"
             )
         )
         developersList.add(
             DevelopersList(
-                "AYUSHMAAN SONI", "https://github.com/AyushmanSoni", "Executive"
+                "AYUSHMAAN SONI", "https://github.com/AyushmanSoni", "Design Wing Executive"
             )
         )
 
         binding.developersRV.adapter = DevelopersAdapter(developersList, this)
         binding.developersRV.layoutManager = LinearLayoutManager(requireContext())
 
-        sensorManager = requireActivity().getSystemService(Context.SENSOR_SERVICE) as SensorManager
-        accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
-        binding.takmeBackaboutus.setOnClickListener {
-            fragmentManager?.popBackStack()
-        }
-        playLottieAnimation()
     }
 
     override fun onItemClick(item: DevelopersList) {
-        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(item.Github_id))
-        startActivity(intent)
+
+
+        if (item.name == "GAURAV CHHETRI") {
+            Toast.makeText(
+                requireContext(),
+                " :) ",
+                Toast.LENGTH_SHORT
+            ).show()
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(item.Github_id))
+            startActivity(intent)
+        } else {
+            // For other developers, open their GitHub profile in a browser
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(item.Github_id))
+            startActivity(intent)
+        }
+//        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(item.Github_id))
+//        startActivity(intent)
     }
 
-    private fun playLottieAnimation() {
-        binding.lottieAnimationView.visibility = View.VISIBLE
-        binding.lottieAnimationView.playAnimation()
-        val delayMillis = 3000L
-        Handler(Looper.getMainLooper()).postDelayed({
-            binding.lottieAnimationView.cancelAnimation()
-            binding.lottieAnimationView.visibility = View.GONE
-        }, delayMillis)
-    }
+//    private fun playLottieAnimation() {
+//        binding.lottieAnimationView.visibility = View.VISIBLE
+//        binding.lottieAnimationView.playAnimation()
+//        val delayMillis = 3000L
+//        Handler(Looper.getMainLooper()).postDelayed({
+//            binding.lottieAnimationView.cancelAnimation()
+//            binding.lottieAnimationView.visibility = View.GONE
+//        }, delayMillis)
+//    }
 }

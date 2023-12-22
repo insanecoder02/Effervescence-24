@@ -15,6 +15,7 @@ import com.example.keries.adapter.SponsorAdapter
 import com.example.keries.dataClass.sponserDataClass
 import com.example.keries.databinding.FragmentShop2Binding
 import com.example.keries.databinding.FragmentSponserBinding
+import com.example.keries.others.AutoScrollManager
 import com.google.android.material.carousel.CarouselLayoutManager
 import com.google.firebase.firestore.FirebaseFirestore
 import com.jackandphantom.carouselrecyclerview.CarouselRecyclerview
@@ -23,6 +24,7 @@ class sponser : Fragment() {
     private lateinit var binding: FragmentSponserBinding
     private lateinit var sponseradapter: SponsorAdapter
     private var SponserList: MutableList<sponserDataClass> = mutableListOf()
+    private val autoScrollManagers = mutableListOf<AutoScrollManager>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -49,8 +51,13 @@ class sponser : Fragment() {
         binding.backsponser.setOnClickListener {
             fragmentManager?.popBackStack()
         }
+        val autoScrollManager = AutoScrollManager(binding.sponserRecylerView)
+        autoScrollManager.startAutoScroll(2000)
+        autoScrollManagers.add(autoScrollManager)
         fetchFirestoreData()
     }
+
+
 
     private fun fetchFirestoreData() {
         val db = FirebaseFirestore.getInstance()

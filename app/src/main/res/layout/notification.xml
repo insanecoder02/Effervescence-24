@@ -4,25 +4,34 @@
     android:layout_height="wrap_content"
     android:background="@color/black">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:padding="10dp">
-
         <ImageView
             android:id="@+id/logonoto"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="15dp"
-            android:src="@drawable/effesvghome" />
+            android:src="@drawable/effe_logo_svg" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_gravity="center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+
+
+
 
         <TextView
             android:id="@+id/titlenoto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
             android:layout_marginTop="15dp"
+            android:layout_gravity="center"
+            android:layout_marginStart="5dp"
             android:layout_toRightOf="@id/logonoto"
             android:fontFamily="@font/montserrat"
             android:text="Title"
@@ -30,18 +39,8 @@
             android:textSize="20sp"
             android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/nessagenoto"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/titlenoto"
-            android:layout_marginLeft="10dp"
-            android:layout_toRightOf="@id/logonoto"
-            android:fontFamily="@font/montserrat"
-            android:text="Desicprioption"
-            android:textColor="#FFFFFF"
-            android:textSize="17sp" />
-    </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
 
 
 </RelativeLayout>

@@ -22,7 +22,7 @@ class DevelopersAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view =
-            LayoutInflater.from(parent.context).inflate(R.layout.teammemberlayout, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.developerlayout, parent, false)
         return ViewHolder(view)
     }
 

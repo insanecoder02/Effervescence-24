@@ -32,6 +32,7 @@ class hf2 : Fragment() {
     private lateinit var FeaturedEventRecylerView: RecyclerView
     private lateinit var ReelRecylerView : RecyclerView
     private lateinit var loadMe: View
+    private lateinit var loadMe2: View
     private val autoScrollManagers = mutableListOf<AutoScrollManager>()
 
     override fun onCreateView(
@@ -45,6 +46,7 @@ class hf2 : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         loadMe = view.findViewById(R.id.loadMe)
+        loadMe2 = view.findViewById(R.id.loadMe2)
 
 
         ReelRecylerView = view.findViewById(R.id.reelRV)
@@ -71,9 +73,11 @@ class hf2 : Fragment() {
         val autoScrollManager = AutoScrollManager(FeaturedEventRecylerView)
         autoScrollManager.startAutoScroll(2000)
         autoScrollManagers.add(autoScrollManager)
+        rotor(ReelRecylerView)
     }
 
     private fun fetchVideoUrls() {
+        loadMe2.visibility = View.VISIBLE
         db.collection("reel") // Assuming you have a collection for video URLs under each event
             .get()
             .addOnSuccessListener { querySnapshot ->
@@ -85,6 +89,7 @@ class hf2 : Fragment() {
                     videoUrlList.add(reelDataClass(reelNamme, eventId, url))
                     box.clear()
                     box.addAll(videoUrlList)
+                    loadMe2.visibility = View.GONE
                     reelEventAdapter.notifyDataSetChanged()
                 }
 
@@ -196,5 +201,13 @@ class hf2 : Fragment() {
         }.addOnFailureListener {
             Toast.makeText(requireContext(), "error", Toast.LENGTH_SHORT).show()
         }
+    }
+
+    private fun rotor(recyclerView: RecyclerView) {
+        recyclerView.layoutManager =
+            LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        val autoScrollManager = AutoScrollManager(recyclerView)
+        autoScrollManager.startAutoScroll(2000)
+        autoScrollManagers.add(autoScrollManager)
     }
 }

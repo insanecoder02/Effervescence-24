@@ -94,6 +94,20 @@
             app:lottie_autoPlay="true"
             app:lottie_loop="true"
             app:lottie_rawRes="@raw/gama" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/loadMe2"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="24dp"
+            android:padding="20dp"
+            app:layout_constraintEnd_toEndOf="@+id/FeaturedEventRecylerView"
+            app:layout_constraintHorizontal_bias="0.462"
+            app:layout_constraintStart_toStartOf="@+id/leftGuide"
+            app:layout_constraintTop_toBottomOf="@+id/reelTextView"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/gama" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>
