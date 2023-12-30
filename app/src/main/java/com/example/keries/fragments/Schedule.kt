@@ -87,12 +87,15 @@ class Schedule : Fragment() {
             ) {
                 val selectedItemName = parentView.getItemAtPosition(position).toString()
                 val imageUrl = imageUrlMap[selectedItemName]
+                if (imageUrl.isNullOrBlank()) {
+                    binding.scheduleShowImageView.setImageResource(R.drawable.effesvghome)
+                } else {
                     Glide.with(requireContext())
                         .load(imageUrl)
                         .placeholder(R.drawable.whilte_broder)
-                        .error(R.drawable.effesvghome)
+                        .error(R.drawable.image_svgrepo_com)
                         .into(binding.scheduleShowImageView)
-
+                }
             }
 
             override fun onNothingSelected(parentView: AdapterView<*>) {
