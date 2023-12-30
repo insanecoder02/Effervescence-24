@@ -29,7 +29,6 @@ class Events : Fragment() {
     private val cache = mutableMapOf<String, List<Event_DataClass>>()
     private val autoScrollManagers = mutableListOf<AutoScrollManager>()
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
@@ -83,7 +82,6 @@ class Events : Fragment() {
         rotor(binding.virtuosiRV)
         rotor(binding.gamingRv)
         rotor(binding.InformalRv)
-
     }
 
     private fun rotor(recyclerView: RecyclerView) {
@@ -100,21 +98,17 @@ class Events : Fragment() {
     }
 
     fun onItemClick(item: Event_DataClass) {
-//        Log.d(
-//            "Events",
-//            "Date: ${item.date}, Details: ${item.details}, Form: ${item.form}, Name: ${item.name}, No: ${item.no}, Time: ${item.time}, URL: ${item.url}, Venue: ${item.venue} , live: ${item.live}\""
-//        )
         val bundle = Bundle()
         bundle.putString("date", item.date ?: "Date")
         bundle.putString("details", item.details)
-        bundle.putString("form", item.form ?: "Form")
+        bundle.putString("form", item.form ?: "")
         bundle.putString("name", item.name ?: "Name")
         bundle.putLong("no", item.no ?: 123)
         bundle.putString("time", item.time ?: "Time")
         bundle.putString("url", item.url ?: "Url")
         bundle.putString("venue", item.venue ?: "Venue")
         bundle.putString("live", item.live ?: "Venue")
-        bundle.putString("soc",item.societyName ?: "soc")
+        bundle.putString("soc", item.societyName ?: "soc")
         val nextFragment = eventinfo()
         nextFragment.arguments = bundle
         val transaction = requireActivity().supportFragmentManager.beginTransaction()
@@ -149,11 +143,11 @@ class Events : Fragment() {
                         val time = document.getString("time") ?: ""
                         val url = document.getString("url") ?: ""
                         val venue = document.getString("venue") ?: ""
-                        val live = document.getString("Live")?:""
-                        val socityname = document.getString("Society Name")?:""
+                        val live = document.getString("Live") ?: ""
+                        val socityname = document.getString("Society Name") ?: ""
                         showeventlist.add(
                             Event_DataClass(
-                                date, details, form, name, no, time, url, venue, live,socityname
+                                date, details, form, name, no, time, url, venue, live, socityname
                             )
                         )
                     }
