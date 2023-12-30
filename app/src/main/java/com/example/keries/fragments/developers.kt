@@ -72,12 +72,12 @@ class developers : Fragment(), DevelopersAdapter.OnItemClickListener {
         )
         developersList.add(
             DevelopersList(
-                "PRAKRUTI SHETTI", "", "Executive"
+                "PRAKRUTI SHETTI", "https://github.com/praxyz19", "App Wing Executive"
             )
         )
         developersList.add(
             DevelopersList(
-                "SALIK SAIF", "", "Executive"
+                "MOHD SALIK", "https://github.com/DIECINIUM", "App Wing Executive"
             )
         )
         developersList.add(
@@ -102,9 +102,6 @@ class developers : Fragment(), DevelopersAdapter.OnItemClickListener {
             ).show()
             val intent = Intent(Intent.ACTION_VIEW, Uri.parse(item.Github_id))
             startActivity(intent)
-        }
-        else if(item.Github_id =="" ){
-
         }
         else {
             // For other developers, open their GitHub profile in a browser
