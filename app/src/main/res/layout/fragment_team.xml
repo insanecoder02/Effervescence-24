@@ -41,7 +41,6 @@
                 android:orientation="vertical"
                 app:layout_constraintGuide_percent="0.95" />
 
-
             <ImageView
                 android:id="@+id/logo"
                 android:layout_width="0dp"
@@ -73,12 +72,13 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginTop="15dp"
+                android:layout_marginVertical="15dp"
                 android:fontFamily="@font/montserrat"
                 android:text="coordinator"
                 android:textAllCaps="true"
                 android:textColor="@color/white"
                 android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@id/festiveCordi"
                 app:layout_constraintEnd_toEndOf="@id/rightguide"
                 app:layout_constraintStart_toStartOf="@+id/leftguide"
                 app:layout_constraintTop_toBottomOf="@id/textView6" />
@@ -93,22 +93,22 @@
                 app:layout_constraintStart_toStartOf="@+id/leftguide"
                 app:layout_constraintTop_toBottomOf="@id/coordinator" />
 
-
             <TextView
                 android:id="@+id/finance"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginTop="210dp"
+                android:layout_marginVertical="15dp"
                 android:fontFamily="@font/montserrat"
                 android:text="finance"
                 android:textAllCaps="true"
                 android:textColor="@color/white"
                 android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@id/financerelcyler"
                 app:layout_constraintEnd_toEndOf="@id/rightguide"
                 app:layout_constraintStart_toStartOf="@+id/leftguide"
-                app:layout_constraintTop_toBottomOf="@id/coordinator" />
+                app:layout_constraintTop_toBottomOf="@id/festiveCordi" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/financerelcyler"
@@ -119,42 +119,22 @@
                 app:layout_constraintStart_toStartOf="@+id/leftguide"
                 app:layout_constraintTop_toBottomOf="@id/finance" />
 
-<!--            <com.facebook.shimmer.ShimmerFrameLayout-->
-<!--                android:id="@+id/shimmerFinance"-->
-<!--                android:layout_width="0dp"-->
-<!--                android:layout_height="match_parent"-->
-<!--                android:layout_marginTop="10dp"-->
-<!--                app:layout_constraintEnd_toEndOf="@id/rightguide"-->
-<!--                app:layout_constraintStart_toStartOf="@id/leftguide"-->
-<!--                app:layout_constraintTop_toBottomOf="@id/finance">-->
-
-<!--                <LinearLayout-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:orientation="vertical">-->
-
-<!--                    <include layout="@layout/teams_shimmer" />-->
-
-<!--                    <include layout="@layout/teams_shimmer" />-->
-<!--                </LinearLayout>-->
-<!--            </com.facebook.shimmer.ShimmerFrameLayout>-->
-
             <TextView
                 android:id="@+id/eventsnmange"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginTop="120dp"
-                android:layout_marginBottom="200dp"
+                android:layout_marginVertical="15dp"
                 android:fontFamily="@font/montserrat"
                 android:text="Events &amp; Mangement"
                 android:textAllCaps="true"
                 android:textColor="@color/white"
                 android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@id/eventesmangereycl"
                 app:layout_constraintEnd_toStartOf="@id/rightguide"
                 app:layout_constraintStart_toStartOf="@+id/leftguide"
-                app:layout_constraintTop_toBottomOf="@id/finance" />
+                app:layout_constraintTop_toBottomOf="@id/financerelcyler" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/eventesmangereycl"
@@ -165,41 +145,22 @@
                 app:layout_constraintStart_toStartOf="@+id/leftguide"
                 app:layout_constraintTop_toBottomOf="@id/eventsnmange" />
 
-<!--            <com.facebook.shimmer.ShimmerFrameLayout-->
-<!--                android:id="@+id/shimmerEvents"-->
-<!--                android:layout_width="0dp"-->
-<!--                android:layout_height="match_parent"-->
-<!--                android:layout_marginTop="10dp"-->
-<!--                app:layout_constraintEnd_toEndOf="@id/rightguide"-->
-<!--                app:layout_constraintStart_toStartOf="@id/leftguide"-->
-<!--                app:layout_constraintTop_toBottomOf="@id/eventsnmange">-->
-
-<!--                <LinearLayout-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:orientation="vertical">-->
-
-<!--                    <include layout="@layout/teams_shimmer" />-->
-
-<!--                    <include layout="@layout/teams_shimmer" />-->
-<!--                </LinearLayout>-->
-<!--            </com.facebook.shimmer.ShimmerFrameLayout>-->
-
             <TextView
                 android:id="@+id/corporaterelations"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginTop="290dp"
+                android:layout_marginVertical="15dp"
                 android:fontFamily="@font/montserrat"
                 android:text="Corporate Relations"
                 android:textAllCaps="true"
                 android:textColor="@color/white"
                 android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@id/coroprate"
                 app:layout_constraintEnd_toEndOf="@id/rightguide"
                 app:layout_constraintStart_toStartOf="@+id/leftguide"
-                app:layout_constraintTop_toBottomOf="@id/eventsnmange" />
+                app:layout_constraintTop_toBottomOf="@id/eventesmangereycl" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/coroprate"
@@ -211,41 +172,22 @@
                 app:layout_constraintTop_toBottomOf="@id/corporaterelations"
                 tools:layout_editor_absoluteX="20dp" />
 
-<!--            <com.facebook.shimmer.ShimmerFrameLayout-->
-<!--                android:id="@+id/shimmerCorporate"-->
-<!--                android:layout_width="0dp"-->
-<!--                android:layout_height="match_parent"-->
-<!--                android:layout_marginTop="10dp"-->
-<!--                app:layout_constraintEnd_toEndOf="@id/rightguide"-->
-<!--                app:layout_constraintStart_toStartOf="@id/leftguide"-->
-<!--                app:layout_constraintTop_toBottomOf="@id/corporaterelations">-->
-
-<!--                <LinearLayout-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:orientation="vertical">-->
-
-<!--                    <include layout="@layout/teams_shimmer" />-->
-
-<!--                    <include layout="@layout/teams_shimmer" />-->
-<!--                </LinearLayout>-->
-<!--            </com.facebook.shimmer.ShimmerFrameLayout>-->
-
             <TextView
                 android:id="@+id/publicrealations"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginTop="370dp"
+                android:layout_marginVertical="15dp"
                 android:fontFamily="@font/montserrat"
                 android:text="Public relations"
                 android:textAllCaps="true"
                 android:textColor="@color/white"
                 android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@id/pr"
                 app:layout_constraintEnd_toEndOf="@id/rightguide"
                 app:layout_constraintStart_toStartOf="@+id/leftguide"
-                app:layout_constraintTop_toBottomOf="@id/corporaterelations" />
+                app:layout_constraintTop_toBottomOf="@id/coroprate" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/pr"
@@ -257,41 +199,22 @@
                 app:layout_constraintTop_toBottomOf="@id/publicrealations"
                 tools:layout_editor_absoluteX="8dp" />
 
-<!--            <com.facebook.shimmer.ShimmerFrameLayout-->
-<!--                android:id="@+id/shimmerPublic"-->
-<!--                android:layout_width="0dp"-->
-<!--                android:layout_height="match_parent"-->
-<!--                android:layout_marginTop="10dp"-->
-<!--                app:layout_constraintEnd_toEndOf="@id/rightguide"-->
-<!--                app:layout_constraintStart_toStartOf="@id/leftguide"-->
-<!--                app:layout_constraintTop_toBottomOf="@id/publicrealations">-->
-
-<!--                <LinearLayout-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:orientation="vertical">-->
-
-<!--                    <include layout="@layout/teams_shimmer" />-->
-
-<!--                    <include layout="@layout/teams_shimmer" />-->
-<!--                </LinearLayout>-->
-<!--            </com.facebook.shimmer.ShimmerFrameLayout>-->
-
             <TextView
                 android:id="@+id/branding"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginTop="290dp"
+                android:layout_marginVertical="15dp"
                 android:fontFamily="@font/montserrat"
                 android:text="branding &amp; logistics"
                 android:textAllCaps="true"
                 android:textColor="@color/white"
                 android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@id/brnding"
                 app:layout_constraintEnd_toEndOf="@id/rightguide"
                 app:layout_constraintStart_toStartOf="@+id/leftguide"
-                app:layout_constraintTop_toBottomOf="@id/publicrealations"
+                app:layout_constraintTop_toBottomOf="@id/pr"
                 tools:layout_editor_absoluteX="21dp"
                 tools:layout_editor_absoluteY="283dp" />
 
@@ -306,41 +229,22 @@
                 tools:layout_editor_absoluteX="8dp"
                 tools:layout_editor_absoluteY="714dp" />
 
-<!--            <com.facebook.shimmer.ShimmerFrameLayout-->
-<!--                android:id="@+id/shimmerBranding"-->
-<!--                android:layout_width="0dp"-->
-<!--                android:layout_height="match_parent"-->
-<!--                android:layout_marginTop="10dp"-->
-<!--                app:layout_constraintEnd_toEndOf="@id/rightguide"-->
-<!--                app:layout_constraintStart_toStartOf="@id/leftguide"-->
-<!--                app:layout_constraintTop_toBottomOf="@id/branding">-->
-
-<!--                <LinearLayout-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:orientation="vertical">-->
-
-<!--                    <include layout="@layout/teams_shimmer" />-->
-
-<!--                    <include layout="@layout/teams_shimmer" />-->
-<!--                </LinearLayout>-->
-<!--            </com.facebook.shimmer.ShimmerFrameLayout>-->
-
             <TextView
                 android:id="@+id/hospitatltiy"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginTop="290dp"
+                android:layout_marginVertical="15dp"
                 android:fontFamily="@font/montserrat"
                 android:text="Hospitality &amp; travel"
                 android:textAllCaps="true"
                 android:textColor="@color/white"
                 android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@id/hospitalllty"
                 app:layout_constraintEnd_toEndOf="@id/rightguide"
                 app:layout_constraintStart_toStartOf="@+id/leftguide"
-                app:layout_constraintTop_toBottomOf="@id/branding" />
+                app:layout_constraintTop_toBottomOf="@id/brnding" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/hospitalllty"
@@ -353,42 +257,22 @@
                 tools:layout_editor_absoluteX="8dp"
                 tools:layout_editor_absoluteY="641dp" />
 
-<!--            <com.facebook.shimmer.ShimmerFrameLayout-->
-<!--                android:id="@+id/shimmerHospitalitiy"-->
-<!--                android:layout_width="0dp"-->
-<!--                android:layout_height="match_parent"-->
-<!--                android:layout_marginTop="10dp"-->
-<!--                app:layout_constraintEnd_toEndOf="@id/rightguide"-->
-<!--                app:layout_constraintStart_toStartOf="@id/leftguide"-->
-<!--                app:layout_constraintTop_toBottomOf="@id/hospitatltiy">-->
-
-<!--                <LinearLayout-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:orientation="vertical">-->
-
-<!--                    <include layout="@layout/teams_shimmer" />-->
-
-<!--                    <include layout="@layout/teams_shimmer" />-->
-<!--                </LinearLayout>-->
-<!--            </com.facebook.shimmer.ShimmerFrameLayout>-->
-
             <TextView
                 android:id="@+id/media"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginTop="290dp"
+                android:layout_marginVertical="15dp"
                 android:fontFamily="@font/montserrat"
                 android:text="Media"
                 android:textAllCaps="true"
                 android:textColor="@color/white"
                 android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@id/mediaaaa"
                 app:layout_constraintEnd_toEndOf="@id/rightguide"
                 app:layout_constraintStart_toStartOf="@+id/leftguide"
-                app:layout_constraintTop_toBottomOf="@id/hospitatltiy" />
-
+                app:layout_constraintTop_toBottomOf="@id/hospitalllty" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/mediaaaa"
@@ -401,22 +285,22 @@
                 tools:layout_editor_absoluteX="8dp"
                 tools:layout_editor_absoluteY="641dp" />
 
-
             <TextView
                 android:id="@+id/filming"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginTop="290dp"
+                android:layout_marginVertical="15dp"
                 android:fontFamily="@font/montserrat"
                 android:text="filming"
                 android:textAllCaps="true"
                 android:textColor="@color/white"
                 android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@id/flimingdevven"
                 app:layout_constraintEnd_toEndOf="@id/rightguide"
                 app:layout_constraintStart_toStartOf="@+id/leftguide"
-                app:layout_constraintTop_toBottomOf="@id/media" />
+                app:layout_constraintTop_toBottomOf="@id/mediaaaa" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/flimingdevven"
@@ -433,16 +317,15 @@
                 android:id="@+id/takmeBackaboutus"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
+                android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
                 android:background="#33FFFFFF"
+                android:backgroundTint="@color/transparent"
                 android:elevation="8dp"
                 android:src="@drawable/baseline_keyboard_backspace_24"
-                android:backgroundTint="@color/transparent"
-                android:layout_marginStart="20dp"
                 app:layout_constraintHorizontal_bias="0.08"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-
 
             <TextView
                 android:id="@+id/creatives"
@@ -450,15 +333,16 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginTop="290dp"
+                android:layout_marginVertical="15dp"
                 android:fontFamily="@font/montserrat"
                 android:text="creatives"
                 android:textAllCaps="true"
                 android:textColor="@color/white"
                 android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@id/creativesreyc"
                 app:layout_constraintEnd_toEndOf="@id/rightguide"
                 app:layout_constraintStart_toStartOf="@+id/leftguide"
-                app:layout_constraintTop_toBottomOf="@id/filming" />
+                app:layout_constraintTop_toBottomOf="@id/flimingdevven" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/creativesreyc"
@@ -469,22 +353,22 @@
                 app:layout_constraintStart_toStartOf="@+id/leftguide"
                 app:layout_constraintTop_toBottomOf="@id/creatives" />
 
-
             <TextView
                 android:id="@+id/technical"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginTop="290dp"
+                android:layout_marginVertical="15dp"
                 android:fontFamily="@font/montserrat"
                 android:text="technical"
                 android:textAllCaps="true"
                 android:textColor="@color/white"
                 android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@id/tecnialreycler"
                 app:layout_constraintEnd_toEndOf="@id/rightguide"
                 app:layout_constraintStart_toStartOf="@+id/leftguide"
-                app:layout_constraintTop_toBottomOf="@id/creatives" />
+                app:layout_constraintTop_toBottomOf="@id/creativesreyc" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/tecnialreycler"
@@ -497,24 +381,22 @@
                 tools:layout_editor_absoluteX="25dp"
                 tools:layout_editor_absoluteY="590dp" />
 
-
-
             <TextView
                 android:id="@+id/weboperations"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginTop="290dp"
+                android:layout_marginVertical="15dp"
                 android:fontFamily="@font/montserrat"
                 android:text="web operations"
                 android:textAllCaps="true"
                 android:textColor="@color/white"
                 android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@id/wed"
                 app:layout_constraintEnd_toEndOf="@id/rightguide"
                 app:layout_constraintStart_toStartOf="@+id/leftguide"
-                app:layout_constraintTop_toBottomOf="@id/technical" />
-
+                app:layout_constraintTop_toBottomOf="@id/tecnialreycler" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/wed"
@@ -526,23 +408,22 @@
                 app:layout_constraintTop_toBottomOf="@id/weboperations"
                 tools:layout_editor_absoluteX="167dp" />
 
-
-
             <TextView
                 android:id="@+id/appi"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginTop="290dp"
+                android:layout_marginVertical="15dp"
                 android:fontFamily="@font/montserrat"
                 android:text="App operations"
                 android:textAllCaps="true"
                 android:textColor="@color/white"
                 android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@id/apppp"
                 app:layout_constraintEnd_toEndOf="@id/rightguide"
                 app:layout_constraintStart_toStartOf="@+id/leftguide"
-                app:layout_constraintTop_toBottomOf="@id/weboperations" />
+                app:layout_constraintTop_toBottomOf="@id/wed" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/apppp"
@@ -555,22 +436,22 @@
                 tools:layout_editor_absoluteX="8dp"
                 tools:layout_editor_absoluteY="661dp" />
 
-
             <TextView
                 android:id="@+id/ooc"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginTop="290dp"
+                android:layout_marginVertical="15dp"
                 android:fontFamily="@font/montserrat"
                 android:text="OOC"
                 android:textAllCaps="true"
                 android:textColor="@color/white"
                 android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@id/cco"
                 app:layout_constraintEnd_toEndOf="@id/rightguide"
                 app:layout_constraintStart_toStartOf="@+id/leftguide"
-                app:layout_constraintTop_toBottomOf="@id/appi" />
+                app:layout_constraintTop_toBottomOf="@id/apppp" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/cco"
@@ -586,5 +467,4 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
-
 </FrameLayout>
