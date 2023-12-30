@@ -17,6 +17,7 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.FragmentManager
 import com.example.keries.fragments.Events
 import com.example.keries.fragments.Home
 import com.example.keries.fragments.More
@@ -36,6 +37,8 @@ class BaseHome : AppCompatActivity() {
             when (item.itemId) {
                 R.id.navigation_events -> {
                     if (supportFragmentManager.findFragmentById(R.id.fragment_container) !is Events) {
+
+                        getSupportFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
                         loadFragment(Events())
                         window.decorView.setBackgroundResource(R.drawable.splash_background)
                     }
@@ -44,6 +47,7 @@ class BaseHome : AppCompatActivity() {
 
                 R.id.navigation_schedule -> {
                     if (supportFragmentManager.findFragmentById(R.id.fragment_container) !is Schedule) {
+                        getSupportFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
                         loadFragment(Schedule())
                         window.decorView.setBackgroundResource(R.drawable.splash_background)
 
@@ -53,6 +57,7 @@ class BaseHome : AppCompatActivity() {
 
                 R.id.navigation_home -> {
                     if (supportFragmentManager.findFragmentById(R.id.fragment_container) !is Home) {
+                        getSupportFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
                         loadFragment(Home())
                         window.decorView.setBackgroundResource(R.drawable.homefragmentbackgorundimage)
 
@@ -62,6 +67,7 @@ class BaseHome : AppCompatActivity() {
 
                 R.id.navigation_shop -> {
                     if (supportFragmentManager.findFragmentById(R.id.fragment_container) !is Shop) {
+                        getSupportFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
                         loadFragment(Shop())
                         window.decorView.setBackgroundResource(R.drawable.splash_background)
 
@@ -71,6 +77,7 @@ class BaseHome : AppCompatActivity() {
 
                 R.id.navigation_more -> {
                     if (supportFragmentManager.findFragmentById(R.id.fragment_container) !is More) {
+                        getSupportFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
                         loadFragment(More())
                         window.decorView.setBackgroundResource(R.drawable.splash_background)
 
@@ -99,6 +106,7 @@ class BaseHome : AppCompatActivity() {
             bottomNavigationView.setOnNavigationItemSelectedListener(
                 onNavigationItemSelectedListener
             )
+            getSupportFragmentManager().popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
             loadFragment(Home())
             window.decorView.setBackgroundResource(R.drawable.homefragmentbackgorundimage)
             bottomNavigationView.selectedItemId = R.id.navigation_home
@@ -135,6 +143,7 @@ class BaseHome : AppCompatActivity() {
                 bottomNavigationView.setOnNavigationItemSelectedListener(
                     onNavigationItemSelectedListener
                 )
+                supportFragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
                 loadFragment(Home())
                 window.decorView.setBackgroundResource(R.drawable.homefragmentbackgorundimage)
                 bottomNavigationView.selectedItemId = R.id.navigation_home

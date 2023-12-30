@@ -33,6 +33,11 @@ class developers : Fragment(), DevelopersAdapter.OnItemClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
+        binding.takmeBackaboutus.setOnClickListener {
+            fragmentManager?.popBackStack()
+        }
+
         developersList = mutableListOf()
 
         developersList.add(

@@ -70,7 +70,7 @@
             <TextView
                 android:id="@+id/coordinator"
                 android:layout_width="0dp"
-                android:layout_height="24dp"
+                android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="15dp"
@@ -93,30 +93,11 @@
                 app:layout_constraintStart_toStartOf="@+id/leftguide"
                 app:layout_constraintTop_toBottomOf="@id/coordinator" />
 
-<!--            <com.facebook.shimmer.ShimmerFrameLayout-->
-<!--                android:id="@+id/shimmerCoordinator"-->
-<!--                android:layout_width="0dp"-->
-<!--                android:layout_height="match_parent"-->
-<!--                android:layout_marginTop="10dp"-->
-<!--                app:layout_constraintEnd_toEndOf="@id/rightguide"-->
-<!--                app:layout_constraintStart_toStartOf="@id/leftguide"-->
-<!--                app:layout_constraintTop_toBottomOf="@id/coordinator">-->
-
-<!--                <LinearLayout-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:orientation="vertical">-->
-
-<!--                    <include layout="@layout/teams_shimmer" />-->
-
-<!--                    <include layout="@layout/teams_shimmer" />-->
-<!--                </LinearLayout>-->
-<!--            </com.facebook.shimmer.ShimmerFrameLayout>-->
 
             <TextView
                 android:id="@+id/finance"
                 android:layout_width="0dp"
-                android:layout_height="24dp"
+                android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="210dp"
@@ -161,7 +142,7 @@
             <TextView
                 android:id="@+id/eventsnmange"
                 android:layout_width="0dp"
-                android:layout_height="24dp"
+                android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="120dp"
@@ -207,7 +188,7 @@
             <TextView
                 android:id="@+id/corporaterelations"
                 android:layout_width="0dp"
-                android:layout_height="24dp"
+                android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="290dp"
@@ -253,7 +234,7 @@
             <TextView
                 android:id="@+id/publicrealations"
                 android:layout_width="0dp"
-                android:layout_height="24dp"
+                android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="370dp"
@@ -299,7 +280,7 @@
             <TextView
                 android:id="@+id/branding"
                 android:layout_width="0dp"
-                android:layout_height="24dp"
+                android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="290dp"
@@ -348,7 +329,7 @@
             <TextView
                 android:id="@+id/hospitatltiy"
                 android:layout_width="0dp"
-                android:layout_height="24dp"
+                android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="290dp"
@@ -395,7 +376,7 @@
             <TextView
                 android:id="@+id/media"
                 android:layout_width="0dp"
-                android:layout_height="24dp"
+                android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="290dp"
@@ -420,30 +401,11 @@
                 tools:layout_editor_absoluteX="8dp"
                 tools:layout_editor_absoluteY="641dp" />
 
-<!--            <com.facebook.shimmer.ShimmerFrameLayout-->
-<!--                android:id="@+id/shimmerMedia"-->
-<!--                android:layout_width="0dp"-->
-<!--                android:layout_height="match_parent"-->
-<!--                android:layout_marginTop="10dp"-->
-<!--                app:layout_constraintEnd_toEndOf="@id/rightguide"-->
-<!--                app:layout_constraintStart_toStartOf="@id/leftguide"-->
-<!--                app:layout_constraintTop_toBottomOf="@id/media">-->
-
-<!--                <LinearLayout-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:orientation="vertical">-->
-
-<!--                    <include layout="@layout/teams_shimmer" />-->
-
-<!--                    <include layout="@layout/teams_shimmer" />-->
-<!--                </LinearLayout>-->
-<!--            </com.facebook.shimmer.ShimmerFrameLayout>-->
 
             <TextView
                 android:id="@+id/filming"
                 android:layout_width="0dp"
-                android:layout_height="24dp"
+                android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="290dp"
@@ -481,30 +443,11 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-<!--            <com.facebook.shimmer.ShimmerFrameLayout-->
-<!--                android:id="@+id/shimmerFilming"-->
-<!--                android:layout_width="0dp"-->
-<!--                android:layout_height="match_parent"-->
-<!--                android:layout_marginTop="10dp"-->
-<!--                app:layout_constraintEnd_toEndOf="@id/rightguide"-->
-<!--                app:layout_constraintStart_toStartOf="@id/leftguide"-->
-<!--                app:layout_constraintTop_toBottomOf="@id/filming">-->
-
-<!--                <LinearLayout-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:orientation="vertical">-->
-
-<!--                    <include layout="@layout/teams_shimmer" />-->
-
-<!--                    <include layout="@layout/teams_shimmer" />-->
-<!--                </LinearLayout>-->
-<!--            </com.facebook.shimmer.ShimmerFrameLayout>-->
 
             <TextView
                 android:id="@+id/creatives"
                 android:layout_width="0dp"
-                android:layout_height="24dp"
+                android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="290dp"
@@ -526,30 +469,11 @@
                 app:layout_constraintStart_toStartOf="@+id/leftguide"
                 app:layout_constraintTop_toBottomOf="@id/creatives" />
 
-<!--            <com.facebook.shimmer.ShimmerFrameLayout-->
-<!--                android:id="@+id/shimmerCreatives"-->
-<!--                android:layout_width="0dp"-->
-<!--                android:layout_height="match_parent"-->
-<!--                android:layout_marginTop="10dp"-->
-<!--                app:layout_constraintEnd_toEndOf="@id/rightguide"-->
-<!--                app:layout_constraintStart_toStartOf="@id/leftguide"-->
-<!--                app:layout_constraintTop_toBottomOf="@id/creatives">-->
-
-<!--                <LinearLayout-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:orientation="vertical">-->
-
-<!--                    <include layout="@layout/teams_shimmer" />-->
-
-<!--                    <include layout="@layout/teams_shimmer" />-->
-<!--                </LinearLayout>-->
-<!--            </com.facebook.shimmer.ShimmerFrameLayout>-->
 
             <TextView
                 android:id="@+id/technical"
                 android:layout_width="0dp"
-                android:layout_height="24dp"
+                android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="290dp"
@@ -573,30 +497,12 @@
                 tools:layout_editor_absoluteX="25dp"
                 tools:layout_editor_absoluteY="590dp" />
 
-<!--            <com.facebook.shimmer.ShimmerFrameLayout-->
-<!--                android:id="@+id/shimmerTechnical"-->
-<!--                android:layout_width="0dp"-->
-<!--                android:layout_height="match_parent"-->
-<!--                android:layout_marginTop="10dp"-->
-<!--                app:layout_constraintEnd_toEndOf="@id/rightguide"-->
-<!--                app:layout_constraintStart_toStartOf="@id/leftguide"-->
-<!--                app:layout_constraintTop_toBottomOf="@id/technical">-->
 
-<!--                <LinearLayout-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:orientation="vertical">-->
-
-<!--                    <include layout="@layout/teams_shimmer" />-->
-
-<!--                    <include layout="@layout/teams_shimmer" />-->
-<!--                </LinearLayout>-->
-<!--            </com.facebook.shimmer.ShimmerFrameLayout>-->
 
             <TextView
                 android:id="@+id/weboperations"
                 android:layout_width="0dp"
-                android:layout_height="24dp"
+                android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="290dp"
@@ -620,30 +526,12 @@
                 app:layout_constraintTop_toBottomOf="@id/weboperations"
                 tools:layout_editor_absoluteX="167dp" />
 
-<!--            <com.facebook.shimmer.ShimmerFrameLayout-->
-<!--                android:id="@+id/shimmerWeb"-->
-<!--                android:layout_width="0dp"-->
-<!--                android:layout_height="match_parent"-->
-<!--                android:layout_marginTop="10dp"-->
-<!--                app:layout_constraintEnd_toEndOf="@id/rightguide"-->
-<!--                app:layout_constraintStart_toStartOf="@id/leftguide"-->
-<!--                app:layout_constraintTop_toBottomOf="@id/weboperations">-->
 
-<!--                <LinearLayout-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:orientation="vertical">-->
-
-<!--                    <include layout="@layout/teams_shimmer" />-->
-
-<!--                    <include layout="@layout/teams_shimmer" />-->
-<!--                </LinearLayout>-->
-<!--            </com.facebook.shimmer.ShimmerFrameLayout>-->
 
             <TextView
                 android:id="@+id/appi"
                 android:layout_width="0dp"
-                android:layout_height="24dp"
+                android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="290dp"
@@ -667,30 +555,11 @@
                 tools:layout_editor_absoluteX="8dp"
                 tools:layout_editor_absoluteY="661dp" />
 
-<!--            <com.facebook.shimmer.ShimmerFrameLayout-->
-<!--                android:id="@+id/shimmerApp"-->
-<!--                android:layout_width="0dp"-->
-<!--                android:layout_height="match_parent"-->
-<!--                android:layout_marginTop="10dp"-->
-<!--                app:layout_constraintEnd_toEndOf="@id/rightguide"-->
-<!--                app:layout_constraintStart_toStartOf="@id/leftguide"-->
-<!--                app:layout_constraintTop_toBottomOf="@id/appi">-->
-
-<!--                <LinearLayout-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:orientation="vertical">-->
-
-<!--                    <include layout="@layout/teams_shimmer" />-->
-
-<!--                    <include layout="@layout/teams_shimmer" />-->
-<!--                </LinearLayout>-->
-<!--            </com.facebook.shimmer.ShimmerFrameLayout>-->
 
             <TextView
                 android:id="@+id/ooc"
                 android:layout_width="0dp"
-                android:layout_height="24dp"
+                android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="290dp"
@@ -714,27 +583,6 @@
                 app:layout_constraintEnd_toStartOf="@+id/rightguide"
                 app:layout_constraintStart_toStartOf="@+id/leftguide"
                 app:layout_constraintTop_toBottomOf="@id/ooc" />
-
-<!--            <com.facebook.shimmer.ShimmerFrameLayout-->
-<!--                android:id="@+id/shimmerOoc"-->
-<!--                android:layout_width="0dp"-->
-<!--                android:layout_height="match_parent"-->
-<!--                android:layout_marginTop="10dp"-->
-<!--                app:layout_constraintEnd_toEndOf="@id/rightguide"-->
-<!--                app:layout_constraintStart_toStartOf="@id/leftguide"-->
-<!--                app:layout_constraintTop_toBottomOf="@id/ooc">-->
-
-<!--                <LinearLayout-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:orientation="vertical">-->
-
-<!--                    <include layout="@layout/teams_shimmer" />-->
-
-<!--                    <include layout="@layout/teams_shimmer" />-->
-<!--                </LinearLayout>-->
-<!--            </com.facebook.shimmer.ShimmerFrameLayout>-->
-
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
