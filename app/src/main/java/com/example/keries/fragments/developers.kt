@@ -67,17 +67,17 @@ class developers : Fragment(), DevelopersAdapter.OnItemClickListener {
         )
         developersList.add(
             DevelopersList(
-                "PRANAV BANSAL", "https://github.com/PranavBansal21", "App Wing Executive"
+                "PRANAV BANSAL", "https://github.com/PranavBansal21", "Cloud and Console"
             )
         )
         developersList.add(
             DevelopersList(
-                "PRAKRUTI SHETTI", "https://github.com/praxyz19", "App Wing Executive"
+                "PRAKRUTI SHETTI", "https://github.com/praxyz19", "Testing"
             )
         )
         developersList.add(
             DevelopersList(
-                "MOHD SALIK", "https://github.com/DIECINIUM", "App Wing Executive"
+                "MOHD SALIK", "https://github.com/DIECINIUM", "Testing"
             )
         )
         developersList.add(

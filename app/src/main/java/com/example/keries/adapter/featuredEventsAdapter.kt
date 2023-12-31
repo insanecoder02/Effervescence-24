@@ -51,7 +51,7 @@ class featuredEventsAdapter(
 
 
             Glide.with(itemView.context).load(featuredEventes.url).apply(requestOptions)
-                .placeholder(R.drawable.ic_launcher_background) // Add a placeholder image
+                .placeholder(R.drawable.whilte_broder) // Add a placeholder image
                 .error(R.drawable.image_svgrepo_com) // Add an error image
                 .into(imageOfEvent)
         }

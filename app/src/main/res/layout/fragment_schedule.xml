@@ -102,9 +102,9 @@
                     android:background="@drawable/spinner_bag"
                     android:dropDownSelector="@drawable/arrow_drop_down_fill0_wght400_grad0_opsz48"
                     android:dropDownWidth="wrap_content"
-                    android:backgroundTint="#ffffff"
+                    android:backgroundTint="#FFFFFF"
                     android:textAlignment="center"
-                    android:spinnerMode="dropdown" />
+                    android:spinnerMode="dropdown"/>
 
                 <ImageView
                     android:id="@+id/downlaod"
