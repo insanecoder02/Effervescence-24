@@ -408,7 +408,7 @@
                     android:gravity="center_vertical"
                     android:paddingVertical="5dp"
                     android:paddingStart="12dp"
-                    android:text="Just fill the google form circulated to buy the Effervescence '22 merch."
+                    android:text="Just fill the google form circulated to buy the Effervescence '23 merch."
                     android:textColor="@color/white"
                     android:textSize="14sp"
                     android:visibility="gone" />
