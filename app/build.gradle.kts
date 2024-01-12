@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.keries"
+    namespace = "com.effervescence.nipher"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.keries"
+        applicationId = "com.effervescence.nipher"
         minSdk = 27
         targetSdk = 33
         versionCode = 1
