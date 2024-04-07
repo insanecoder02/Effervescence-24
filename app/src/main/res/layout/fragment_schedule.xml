@@ -49,7 +49,7 @@
                 android:fontFamily="@font/poppins_medium"
                 android:text="Schedule"
                 android:textColor="@color/white"
-                android:textSize="30sp"
+                android:textSize="30dp"
                 app:layout_constraintEnd_toStartOf="@id/rightGuide"
                 app:layout_constraintStart_toEndOf="@id/leftGuide"
                 app:layout_constraintTop_toBottomOf="@+id/imageView4"

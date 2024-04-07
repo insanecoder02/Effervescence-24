@@ -56,11 +56,14 @@ class ShowEventAdapter(
         }
     }
 
-    override fun getItemCount(): Int {
-        return if (showevents!!.isEmpty()) {
-            0
-        } else {
-            Int.MAX_VALUE
-        }
+//    override fun getItemCount(): Int {
+//        return if (showevents!!.isEmpty()) {
+//            0
+//        } else {
+//            Int.MAX_VALUE
+//        }
+//    }
+    override fun getItemCount(): Int{
+        return showevents!!.size
     }
 }

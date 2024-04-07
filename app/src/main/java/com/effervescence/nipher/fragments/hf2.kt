@@ -32,7 +32,7 @@ class hf2 : Fragment() {
     private lateinit var ReelRecylerView : RecyclerView
     private lateinit var loadMe: View
     private lateinit var loadMe2: View
-    private val autoScrollManagers = mutableListOf<AutoScrollManager>()
+//    private val autoScrollManagers = mutableListOf<AutoScrollManager>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -62,16 +62,16 @@ class hf2 : Fragment() {
         )
 
         FeaturedEventRecylerView.adapter = mainStageEventAdapter
-        (FeaturedEventRecylerView as CarouselRecyclerview).setInfinite(true)
+        (FeaturedEventRecylerView as CarouselRecyclerview).setInfinite(false)
 
 
 
         fetchFromFireStoreEvents("Main Stage", FeaturedEventRecylerView)
         fetchVideoUrls()
 
-        val autoScrollManager = AutoScrollManager(FeaturedEventRecylerView)
-        autoScrollManager.startAutoScroll(2000)
-        autoScrollManagers.add(autoScrollManager)
+//        val autoScrollManager = AutoScrollManager(FeaturedEventRecylerView)
+//        autoScrollManager.startAutoScroll(2000)
+//        autoScrollManagers.add(autoScrollManager)
         rotor(ReelRecylerView)
     }
 
@@ -100,10 +100,10 @@ class hf2 : Fragment() {
 
 
 
-    override fun onPause() {
-        super.onPause()
-        autoScrollManagers.forEach { it.stopAutoScroll() }
-    }
+//    override fun onPause() {
+//        super.onPause()
+//        autoScrollManagers.forEach { it.stopAutoScroll() }
+//    }
 
     private fun fetchData() {
         Log.d("Home", "Fetching data...")
@@ -205,8 +205,8 @@ class hf2 : Fragment() {
     private fun rotor(recyclerView: RecyclerView) {
         recyclerView.layoutManager =
             LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-        val autoScrollManager = AutoScrollManager(recyclerView)
-        autoScrollManager.startAutoScroll(2000)
-        autoScrollManagers.add(autoScrollManager)
+//        val autoScrollManager = AutoScrollManager(recyclerView)
+//        autoScrollManager.startAutoScroll(2000)
+//        autoScrollManagers.add(autoScrollManager)
     }
 }

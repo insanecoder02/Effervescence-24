@@ -50,7 +50,7 @@
                 android:fontFamily="@font/poppins"
                 android:text="Our Cart"
                 android:textColor="@color/white"
-                android:textSize="20sp"
+                android:textSize="20dp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toStartOf="@+id/rightGuide"
                 app:layout_constraintStart_toStartOf="@+id/leftGuide"

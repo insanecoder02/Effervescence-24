@@ -36,7 +36,7 @@
                 android:fontFamily="@font/poppins_medium"
                 android:text="FAQs"
                 android:textColor="@color/white"
-                android:textSize="30sp"
+                android:textSize="30dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/leftGuide"
                 app:layout_constraintTop_toBottomOf="@+id/imageView4" />
@@ -94,7 +94,7 @@
                         android:paddingEnd="10dp"
                         android:text="Will the merch be delivered home?"
                         android:textColor="@color/white"
-                        android:textSize="16sp" />
+                        android:textSize="16dp" />
 
                     <ImageView
                         android:id="@+id/d1"
@@ -116,7 +116,7 @@
                     android:paddingStart="12dp"
                     android:text="Yes, it will be delivered to your house."
                     android:textColor="@color/white"
-                    android:textSize="14sp"
+                    android:textSize="14dp"
                     android:visibility="gone" />
             </LinearLayout>
 
@@ -150,7 +150,7 @@
                         android:paddingEnd="10dp"
                         android:text="Is there any delivery charge if I buy the merch?"
                         android:textColor="@color/white"
-                        android:textSize="16sp" />
+                        android:textSize="16dp" />
 
                     <ImageView
                         android:id="@+id/d2"
@@ -172,7 +172,7 @@
                     android:paddingStart="12dp"
                     android:text="No, the delivery is completely free of cost."
                     android:textColor="@color/white"
-                    android:textSize="14sp"
+                    android:textSize="14dp"
                     android:visibility="gone" />
             </LinearLayout>
 
@@ -205,7 +205,7 @@
                         android:paddingEnd="10dp"
                         android:text="Is the combo cheaper than buying the individual hoodies?"
                         android:textColor="@color/white"
-                        android:textSize="16sp" />
+                        android:textSize="16dp" />
 
                     <ImageView
                         android:id="@+id/d3"
@@ -227,7 +227,7 @@
                     android:paddingStart="12dp"
                     android:text="Yes, the combo is much cheaper."
                     android:textColor="@color/white"
-                    android:textSize="14sp"
+                    android:textSize="14dp"
                     android:visibility="gone" />
             </LinearLayout>
 
@@ -261,7 +261,7 @@
                         android:paddingEnd="10dp"
                         android:text="Can outsiders come to Effervescence '23?"
                         android:textColor="@color/white"
-                        android:textSize="16sp" />
+                        android:textSize="16dp" />
 
                     <ImageView
                         android:id="@+id/d4"
@@ -283,7 +283,7 @@
                     android:paddingStart="12dp"
                     android:text="Yes, with a nominal fee, outsiders can attend the majestic Effervescence '23!"
                     android:textColor="@color/white"
-                    android:textSize="14sp"
+                    android:textSize="14dp"
                     android:visibility="gone" />
             </LinearLayout>
 
@@ -318,7 +318,7 @@
                         android:paddingEnd="10dp"
                         android:text="How do i take part in effe team"
                         android:textColor="@color/white"
-                        android:textSize="16sp" />
+                        android:textSize="16dp" />
 
                     <ImageView
                         android:id="@+id/d5"
@@ -340,7 +340,7 @@
                     android:paddingStart="12dp"
                     android:text="There will be a interview process for it "
                     android:textColor="@color/white"
-                    android:textSize="14sp"
+                    android:textSize="14dp"
                     android:visibility="gone" />
             </LinearLayout>
 
@@ -388,7 +388,7 @@
                         android:paddingEnd="10dp"
                         android:text="How can I buy the Effervescence merch?"
                         android:textColor="@color/white"
-                        android:textSize="16sp" />
+                        android:textSize="16dp" />
 
                     <ImageView
                         android:id="@+id/d6"
@@ -410,7 +410,7 @@
                     android:paddingStart="12dp"
                     android:text="Just fill the google form circulated to buy the Effervescence '23 merch."
                     android:textColor="@color/white"
-                    android:textSize="14sp"
+                    android:textSize="14dp"
                     android:visibility="gone" />
             </LinearLayout>
 

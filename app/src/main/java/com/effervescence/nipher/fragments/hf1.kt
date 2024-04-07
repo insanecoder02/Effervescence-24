@@ -85,7 +85,7 @@ class hf1 : Fragment() {
     private fun fetchSystemDateTime() {
         try {
             val currentTimeMillis = System.currentTimeMillis()
-            val targetDateString = bringmeDateboy // Replace with your target date
+            val targetDateString = "2024-04-10T00:00:00" // Replace with your target date
             Log.d("HomeFragment", "Target Date String: $targetDateString")
             val sdf = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.getDefault())
             val targetDate = sdf.parse(targetDateString)

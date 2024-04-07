@@ -44,7 +44,7 @@
                     android:paddingHorizontal="10dp"
                     android:text="Product Name"
                     android:textColor="@color/white"
-                    android:textSize="28sp"
+                    android:textSize="28dp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -58,7 +58,7 @@
                     android:paddingBottom="5dp"
                     android:text="product type"
                     android:textColor="#FC7848"
-                    android:textSize="18sp" />
+                    android:textSize="18dp" />
 
                 <TextView
                     android:id="@+id/productDescription"
@@ -70,7 +70,7 @@
                     android:paddingHorizontal="10dp"
                     android:text="product description "
                     android:textColor="@color/white"
-                    android:textSize="14sp"
+                    android:textSize="14dp"
                     android:visibility="gone" />
 
                 <TextView
@@ -81,7 +81,7 @@
                     android:paddingStart="10dp"
                     android:text="prize"
                     android:textColor="@color/white"
-                    android:textSize="24sp" />
+                    android:textSize="24dp" />
 
             </LinearLayout>
 

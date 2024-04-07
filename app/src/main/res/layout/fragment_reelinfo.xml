@@ -18,7 +18,7 @@
             android:fontFamily="@font/poppins_medium"
             android:text="ReelName"
             android:textColor="@color/white"
-            android:textSize="22sp"
+            android:textSize="22dp"
             android:letterSpacing="0.05"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"

@@ -1,14 +1,17 @@
 package com.effervescence.nipher.fragments
 
 
+
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.viewbinding.ViewBinding
 import com.effervescence.nipher.R
 import com.effervescence.nipher.adapter.ShowEventAdapter
 import com.effervescence.nipher.dataClass.Event_DataClass
@@ -21,13 +24,18 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
 
+val ViewBinding.live_button: TextView?
+    get() = root.findViewById<TextView>(R.id.live_button)
+
 class Events : Fragment() {
     private lateinit var binding: FragmentEventsBinding
+
     private val db = FirebaseFirestore.getInstance()
     private lateinit var showEventAdapter: ShowEventAdapter
     private var ij: MutableList<Event_DataClass> = mutableListOf()
     private val cache = mutableMapOf<String, List<Event_DataClass>>()
-    private val autoScrollManagers = mutableListOf<AutoScrollManager>()
+//    private lateinit var livebutton: TextView
+//    private val autoScrollManagers = mutableListOf<AutoScrollManager>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -74,28 +82,36 @@ class Events : Fragment() {
         binding.InformalRv.adapter = showEventAdapter
         fetchFromFireStoreEvents("Informal", binding.InformalRv)
 
-        rotor(binding.amsRV)
-        rotor(binding.geneticxRV)
-        rotor(binding.rangtaringiniRV)
-        rotor(binding.nimritiRV)
-        rotor(binding.sarasvaRV)
-        rotor(binding.virtuosiRV)
-        rotor(binding.gamingRv)
-        rotor(binding.InformalRv)
+//        rotor(binding.amsRV)
+//        rotor(binding.geneticxRV)
+//        rotor(binding.rangtaringiniRV)
+//        rotor(binding.nimritiRV)
+//        rotor(binding.sarasvaRV)
+//        rotor(binding.virtuosiRV)
+//        rotor(binding.gamingRv)
+//        rotor(binding.InformalRv)
+
+
     }
+//    private fun openLiveLink(liveLink: String) {
+//        // Open the live link using an appropriate method (e.g., opening a web URL)
+//        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(liveLink))
+//        startActivity(intent)
+//    }
 
     private fun rotor(recyclerView: RecyclerView) {
         recyclerView.layoutManager =
             LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-        val autoScrollManager = AutoScrollManager(recyclerView)
-        autoScrollManager.startAutoScroll(2000)
-        autoScrollManagers.add(autoScrollManager)
+//        val autoScrollManager = AutoScrollManager(recyclerView)
+//        autoScrollManager.startAutoScroll(2000)
+//        autoScrollManagers.add(autoScrollManager)
     }
 
-    override fun onPause() {
-        super.onPause()
-        autoScrollManagers.forEach { it.stopAutoScroll() }
-    }
+//    override fun onPause() {
+//        super.onPause()
+//        autoScrollManagers.forEach { it.stopAutoScroll() }
+//    }
+
 
     fun onItemClick(item: Event_DataClass) {
         val bundle = Bundle()
@@ -156,6 +172,8 @@ class Events : Fragment() {
                     recyclerView.adapter = showEventAdapter
                     binding.eventsConstraint.visibility = View.VISIBLE
                     binding.loadMeevent.visibility = View.GONE
+//                    val liveLink = showeventlist.firstOrNull()?.live
+//                    binding.live_button.tag = liveLink
                 } catch (e: Exception) {
                     Toast.makeText(requireContext(), "Error: ${e.message}", Toast.LENGTH_SHORT)
                         .show()

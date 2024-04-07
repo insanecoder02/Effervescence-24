@@ -48,7 +48,7 @@
             android:text="Explore"
             android:textAllCaps="false"
             android:textColor="@color/white"
-            android:textSize="18sp"
+            android:textSize="18dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/rightGuide"
             app:layout_constraintStart_toStartOf="@+id/leftGuide"
@@ -64,7 +64,7 @@
             android:letterSpacing="0.3"
             android:text="@string/coming_soon"
             android:textColor="@color/white"
-            android:textSize="32sp"
+            android:textSize="32dp"
             android:textStyle="normal"
             app:layout_constraintBottom_toTopOf="@id/linearLayout"
             app:layout_constraintEnd_toStartOf="@+id/rightGuide"
@@ -102,29 +102,29 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="30sp"
+                android:layout_marginHorizontal="30dp"
                 android:fontFamily="@font/poppins_extralight"
                 android:text="Day"
                 android:textColor="@color/white"
-                android:textSize="20sp" />
+                android:textSize="20dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="40sp"
+                android:layout_marginHorizontal="40dp"
                 android:fontFamily="@font/poppins_extralight"
                 android:text="Hour"
                 android:textColor="@color/white"
-                android:textSize="20sp" />
+                android:textSize="20dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="30sp"
+                android:layout_marginHorizontal="30dp"
                 android:fontFamily="@font/poppins_extralight"
                 android:text="Min"
                 android:textColor="@color/white"
-                android:textSize="20sp" />
+                android:textSize="20dp" />
 
         </LinearLayout>
 
@@ -150,7 +150,7 @@
                 android:gravity="center"
                 android:textAlignment="center"
                 android:textColor="#FFFFFF"
-                android:textSize="30sp"
+                android:textSize="30dp"
                 android:textStyle="bold" />
 
             <TextView
@@ -162,7 +162,7 @@
                 android:gravity="center"
                 android:textAlignment="center"
                 android:textColor="#FFFFFF"
-                android:textSize="30sp"
+                android:textSize="30dp"
                 android:textStyle="bold" />
 
             <TextView
@@ -172,7 +172,7 @@
                 android:layout_marginEnd="10dp"
                 android:text=":"
                 android:textColor="#FFFFFF"
-                android:textSize="30sp"
+                android:textSize="30dp"
                 android:textStyle="bold" />
 
 
@@ -184,7 +184,7 @@
                 android:gravity="center"
                 android:textAlignment="center"
                 android:textColor="#FFFFFF"
-                android:textSize="30sp"
+                android:textSize="30dp"
                 android:textStyle="bold" />
 
             <TextView
@@ -196,7 +196,7 @@
                 android:gravity="center"
                 android:textAlignment="center"
                 android:textColor="#FFFFFF"
-                android:textSize="30sp"
+                android:textSize="30dp"
                 android:textStyle="bold" />
 
             <TextView
@@ -206,7 +206,7 @@
                 android:layout_marginEnd="10dp"
                 android:text=":"
                 android:textColor="#FFFFFF"
-                android:textSize="30sp"
+                android:textSize="30dp"
                 android:textStyle="bold" />
 
             <TextView
@@ -218,7 +218,7 @@
 
                 android:textAlignment="center"
                 android:textColor="#FFFFFF"
-                android:textSize="30sp"
+                android:textSize="30dp"
                 android:textStyle="bold" />
 
             <TextView
@@ -230,7 +230,7 @@
                 android:gravity="center"
                 android:textAlignment="center"
                 android:textColor="#FFFFFF"
-                android:textSize="30sp"
+                android:textSize="30dp"
                 android:textStyle="bold" />
 
 

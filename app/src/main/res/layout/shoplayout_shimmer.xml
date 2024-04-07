@@ -50,7 +50,7 @@
                         android:gravity="center_vertical"
                         android:paddingHorizontal="10dp"
                         android:textColor="@color/white"
-                        android:textSize="28sp"
+                        android:textSize="28dp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -65,7 +65,7 @@
                         android:paddingStart="10dp"
                         android:paddingBottom="5dp"
                         android:textColor="#C9C9C9"
-                        android:textSize="18sp" />
+                        android:textSize="18dp" />
 
                     <TextView
                         android:id="@+id/productDescription"
@@ -77,7 +77,7 @@
                         android:paddingHorizontal="10dp"
                         android:text="product description "
                         android:textColor="@color/white"
-                        android:textSize="14sp"
+                        android:textSize="14dp"
                         android:visibility="gone" />
 
                     <TextView
@@ -88,7 +88,7 @@
                         android:backgroundTint="#cc6600"
                         android:paddingStart="10dp"
                         android:textColor="@color/white"
-                        android:textSize="24sp" />
+                        android:textSize="24dp" />
                 </LinearLayout>
 
                 <ImageView

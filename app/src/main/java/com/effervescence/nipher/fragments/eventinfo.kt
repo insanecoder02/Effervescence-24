@@ -42,7 +42,7 @@ class eventinfo : Fragment() {
         } else {
             binding.liveButton.visibility = ViewGroup.VISIBLE
         }
-        binding.register.setOnClickListener {
+        binding.live_button?.setOnClickListener {
             if (!formLink.isNullOrBlank()) {
                 val intent = Intent(Intent.ACTION_VIEW, Uri.parse(formLink))
                 startActivity(intent)
